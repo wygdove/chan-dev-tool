@@ -1,0 +1,9 @@
+__author__=wygdove
+__project__=gis
+__package__=svtest
+__SvKey__=SvTest
+__svKey__=svTest
+__svkey__=svtest
+__BoKey__=GisEndchannlInfo
+__boKey__=gisEndchannlInfo
+
