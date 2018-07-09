@@ -16,6 +16,7 @@ connurl='tj_chan_gis/tj_chan_gis@10.1.235.25:8899/cmchl'
 dbconn=cx_Oracle.connect(connurl)
 cursor=dbconn.cursor()
 
+# sql="select id,typekey,source,detail_id,detail_code,detail_name,city_code,city_name,county_code,county_name,area_code,area_name,latlngs,busidata,gislatlngs from gis_area_latlng_detail where typekey='peripheral_channel' order by to_number(id)"
 sql="select id,typekey,source,detail_id,detail_code,detail_name,city_code,city_name,county_code,county_name,area_code,area_name,latlngs,busidata,gislatlngs from gis_area_latlng_detail where typekey='channel' order by to_number(id)"
 rs=cursor.execute(sql)
 index=0
@@ -44,7 +45,8 @@ while True:
         # print '------ error data end ------'
         continue
     # print vlng,vlat
-    v_latlngs={"geom":{"coordinates":[vlng,vlat],"type":"Point"},"nAME":data[5],"cHANNELCODE":data[4],"rEGCOUNTYCODE":"","rEGGRIDCODE":"","tYPE":"CALCULATE-CHANNEL"}
+    # v_latlngs={"geom":{"coordinates":[vlng,vlat],"type":"Point"},"bUSIID":data[0],"nAME":"","cHANNELCODE":"","rEGCOUNTYCODE":"","rEGGRIDCODE":"","tYPE":"CALCULATE-PERIPHERAL-CHANNEL"}
+    v_latlngs={"geom":{"coordinates":[vlng,vlat],"type":"Point"},"bUSIID":data[0],"nAME":data[5],"cHANNELCODE":data[4],"rEGCOUNTYCODE":"","rEGGRIDCODE":"","tYPE":"CALCULATE-CHANNEL"}
     print json.dumps(v_latlngs)
     dmongo.insert(coll,v_latlngs)
 
