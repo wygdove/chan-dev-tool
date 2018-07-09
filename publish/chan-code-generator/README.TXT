@@ -1,3 +1,11 @@
+﻿1. 使用方法
+windows 64位：delout.exe 与 chan-code-generator.exe
+mac os：命令行执行python delout.py 与 python chan-code-generator.py
+目前后场的代码模板是配置好的，chan-code-generator生成代码，delout删除所有生成的代码，out_sv目录下是生成的代码文件
+
+
+2. 目录文件说明：
+
 out_sv
 	生成的代码文件存放目录，可更改，在svfiles.json中配置
 templates_sv
