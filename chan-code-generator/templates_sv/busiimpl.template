@@ -31,7 +31,7 @@ import com.github.pagehelper.PageHelper;
  *
  *
  * @date
- * @author wygdove
+ * @author __author__
  */
 @Component
 public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
@@ -67,8 +67,9 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 		return response;
 	}
 
-	private __BoKey__ setAtomSave(Save__SvKey__Request request) {
+	private __BoKey__ setAtomSave(Save__SvKey__Request src) {
 		__BoKey__ res=new __BoKey__();
+		__SetBovos__
 		return res;
 	}
 
@@ -144,7 +145,7 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 //		}else if(StringUtils.isNotBlank(request.getCode())) {
 			__BoKey__ __boKey__Request=new __BoKey__();
 //			__boKey__Request.setCode(request.getCode());
-			List<__BoKey__> __boKey__List=peripheralChannelAtomSV.query(__boKey__Request,null);
+			List<__BoKey__> __boKey__List=__svKey__AtomSV.query(__boKey__Request,null);
 			if(!CollectionUtil.isEmpty(__boKey__List)) {
 				__boKey__=__boKey__List.get(0);
 			}
@@ -163,9 +164,10 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
 		return response;
 	}
-	private __SvKey__DetailVo setVoDetail(__BoKey__ __boKey__) {
+	private __SvKey__DetailVo setVoDetail(__BoKey__ src) {
 		__SvKey__DetailVo res=new __SvKey__DetailVo();
-		if(__boKey__==null) return res;
+		if(src==null) return res;
+		__SetBovos__
 		return res;
 	}
 
@@ -231,19 +233,21 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
 		return response;
 	}
-	private __BoKey__ setAtomQuery(Query__SvKey__Request request) {
+	private __BoKey__ setAtomQuery(Query__SvKey__Request src) {
 		__BoKey__ res=new __BoKey__();
-		if(request==null) return res;
+		if(src==null) return res;
+		__SetBovos__
 		return res;
 	}
-	private Map<String,Object> setAtomQueryMap(Query__SvKey__Request request) {
+	private Map<String,Object> setAtomQueryMap(Query__SvKey__Request src) {
 		Map<String,Object> res=new HashMap<>();
-		if(request==null) return res;
+		if(src==null) return res;
 		return res;
 	}
 	private __SvKey__ItemVo setVoItem(__BoKey__ src) {
 		__SvKey__ItemVo res=new __SvKey__ItemVo();
 		if(src==null) return res;
+		__SetBovos__
 		return res;
 	}
 

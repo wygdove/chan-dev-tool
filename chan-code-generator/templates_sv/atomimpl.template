@@ -18,7 +18,7 @@ import com.ai.channel.__project__.service.atom.interfaces.I__SvKey__AtomSV;
  *
  *
  * @date
- * @author wygdove
+ * @author __author__
  */
 @Component
 public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
@@ -58,6 +58,7 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 		__BoKey__Example example=new __BoKey__Example();
 		__BoKey__Example.Criteria criteria=example.createCriteria();
 		if(request!=null) {
+		    __SetBoatoms__
 		}
 		if(reqmap!=null) {
 			if(reqmap.containsKey("codes")) {

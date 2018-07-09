@@ -14,7 +14,7 @@ import com.ai.channel.base.vo.PageResult;
  *
  *
  * @date
- * @author wygdove
+ * @author __author__
  */
 public interface I__SvKey__BusiSV {
 

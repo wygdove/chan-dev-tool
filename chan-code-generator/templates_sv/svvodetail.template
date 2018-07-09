@@ -9,8 +9,9 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
  *
  *
  * @date
- * @author wygdove
+ * @author __author__
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class __SvKey__DetailVo implements Serializable {
+__SetVosvs__
 }

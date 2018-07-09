@@ -11,7 +11,7 @@ import com.ai.channel.__project__.dao.mapper.bo.__BoKey__;
  *
  *
  * @date
- * @author wygdove
+ * @author __author__
  */
 public interface I__SvKey__AtomSV {
 	int add(__BoKey__ request);

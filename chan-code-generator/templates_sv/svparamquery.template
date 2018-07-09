@@ -11,8 +11,9 @@ import com.ai.channel.base.vo.BaseInfo;
  *
  *
  * @date
- * @author wygdove
+ * @author __author__
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class Query__SvKey__Request extends BaseInfo implements Serializable {
+__SetVosvs__
 }

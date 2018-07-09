@@ -1,6 +1,8 @@
 ====== v1.2 ======
 chan-code-generator.py
-
+add bo vo code generator
+but a mess
+wait for a better way
 
 
 
