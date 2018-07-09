@@ -1,0 +1,17 @@
+package com.ai.channel.__project__.api.__package__.param;
+
+import java.io.Serializable;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+/**
+ * Save__SvKey__Request.java
+ *
+ *
+ * @date
+ * @author wygdove
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class Save__SvKey__Request implements Serializable {
+
+}

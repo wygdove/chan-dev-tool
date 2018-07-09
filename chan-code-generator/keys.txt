@@ -1,0 +1,8 @@
+__project__=gis
+__package__=peripheralchannel
+__SvKey__=PeripheralChannel
+__svKey__=peripheralChannel
+__svkey__=peripheralchannel
+__BoKey__=GisEndchannlInfo
+__boKey__=gisEndchannlInfo
+

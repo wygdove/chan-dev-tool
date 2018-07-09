@@ -1,0 +1,31 @@
+package com.ai.channel.__project__.service.business.interfaces;
+
+import java.util.List;
+
+import com.ai.channel.__project__.api.__package__.param.Query__SvKey__Request;
+import com.ai.channel.__project__.api.__package__.param.Save__SvKey__Request;
+import com.ai.channel.__project__.api.__package__.vo.__SvKey__DetailVo;
+import com.ai.channel.__project__.api.__package__.vo.__SvKey__ItemVo;
+import com.ai.channel.base.vo.BaseResponse;
+import com.ai.channel.base.vo.PageResult;
+
+/**
+ * I__SvKey__BusiSV.java
+ *
+ *
+ * @date
+ * @author wygdove
+ */
+public interface I__SvKey__BusiSV {
+
+	BaseResponse<String> add__SvKey__(Save__SvKey__Request request);
+	BaseResponse<String> update__SvKey__(Save__SvKey__Request request);
+
+	BaseResponse<String> delete__SvKey__(Save__SvKey__Request request);
+
+	BaseResponse<__SvKey__DetailVo> queryDetail__SvKey__(Query__SvKey__Request request);
+
+	BaseResponse<List<__SvKey__ItemVo>> queryList__SvKey__(Query__SvKey__Request request);
+	BaseResponse<PageResult<__SvKey__ItemVo>> queryPage__SvKey__(Query__SvKey__Request request);
+
+}

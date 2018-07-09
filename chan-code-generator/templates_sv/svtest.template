@@ -1,0 +1,76 @@
+package test.com.ai.channel.__project__.__package__;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ai.channel.__project__.api.__package__.interfaces.I__SvKey__SV;
+import com.ai.channel.__project__.api.__package__.param.Query__SvKey__Request;
+import com.ai.channel.__project__.api.__package__.param.Save__SvKey__Request;
+import com.ai.channel.__project__.api.__package__.vo.__SvKey__DetailVo;
+import com.ai.channel.__project__.api.__package__.vo.__SvKey__ItemVo;
+import com.ai.channel.base.vo.BaseResponse;
+import com.ai.channel.base.vo.PageResult;
+
+import test.com.ai.channel.__project__.BaseTest;
+
+/**
+ * __SvKey__SVTest.java
+ *
+ *
+ * @date
+ * @author wygdove
+ */
+public class __SvKey__SVTest extends BaseTest {
+
+	@Autowired
+	I__SvKey__SV __svKey__SV;
+
+	@Test
+	public void add() {
+		Save__SvKey__Request request=new Save__SvKey__Request();
+		BaseResponse<String> response=__svKey__SV.add__SvKey__(request);
+		print(response);
+	}
+
+	@Test
+	public void update() {
+		Save__SvKey__Request request=new Save__SvKey__Request();
+		BaseResponse<String> response=__svKey__SV.update__SvKey__(request);
+		print(response);
+	}
+
+	@Test
+	public void delete() {
+		Save__SvKey__Request request=new Save__SvKey__Request();
+		BaseResponse<String> response=__svKey__SV.delete__SvKey__(request);
+		print(response);
+	}
+
+
+
+	@Test
+	public void queryDetail() {
+		Query__SvKey__Request request=new Query__SvKey__Request();
+		BaseResponse<__SvKey__DetailVo> response=__svKey__SV.queryDetail__SvKey__(request);
+		print(response);
+	}
+
+	@Test
+	public void queryList() {
+		Query__SvKey__Request request=new Query__SvKey__Request();
+		BaseResponse<List<__SvKey__ItemVo>> response=__svKey__SV.queryList__SvKey__(request);
+		print(response);
+	}
+
+	@Test
+	public void queryPage() {
+		Query__SvKey__Request request=new Query__SvKey__Request();
+		request.setPage(new PageArg(1,10));
+		BaseResponse<PageResult<__SvKey__ItemVo>> response=__svKey__SV.queryPage__SvKey__(request);
+		print(response);
+	}
+
+
+}

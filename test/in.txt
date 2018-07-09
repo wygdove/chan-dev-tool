@@ -1,0 +1,6 @@
+	private String endchannlId;
+	private Integer endchannlLat;
+	private Date phnoenoBusiRegCountyName;
+	private long busiRegCountyCode;
+	private List<String>  busiRegCountyCode;
+btyCode
