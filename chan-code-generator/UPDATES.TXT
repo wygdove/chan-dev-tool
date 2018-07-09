@@ -1,1 +1,5 @@
 ====== v1.0 ======
+sv.py
+generator codes by template in code
+replace some keys
+get outs in code as well
