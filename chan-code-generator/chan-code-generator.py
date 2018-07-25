@@ -11,11 +11,11 @@ import cx_Oracle
 # ------ do sv start ------
 def dosv():
     kvs=getKvs()
-    print kvs
+    # print kvs
     svs=getSvs(kvs)
     # print svs
     bovos=getBovos(kvs)
-    print bovos
+    # print bovos
     for svi in svs:
         ftpn=getCurPath()+svi['template']+".template"
         if not isFile(ftpn):continue
