@@ -14,8 +14,6 @@ templates_sv
 
 keys.txt
 	模板文件替换key配置
-bo.txt
-	bo层代码中属性
 
 svfiles.json
 	模板和输出文件配置文件
