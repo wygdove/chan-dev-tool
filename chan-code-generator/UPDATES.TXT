@@ -1,3 +1,14 @@
+====== v1.3 ======
+chan-code-generator.py
+modify getKvs
+remove repeat key in keys.txt
+add db info
+modify getBovos
+remove bo.txt
+change to get bo field from datebase by table
+
+
+
 ====== v1.2 ======
 chan-code-generator.py
 add bo vo code generator

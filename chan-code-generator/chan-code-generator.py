@@ -5,15 +5,17 @@ __time__='2018/4/26 10:56'
 import os
 import time
 import json
+import cx_Oracle
+
 
 # ------ do sv start ------
 def dosv():
     kvs=getKvs()
-    # print kvs
+    print kvs
     svs=getSvs(kvs)
     # print svs
-    bovos=getBovos()
-    # print bovos
+    bovos=getBovos(kvs)
+    print bovos
     for svi in svs:
         ftpn=getCurPath()+svi['template']+".template"
         if not isFile(ftpn):continue
@@ -41,7 +43,21 @@ def getKvs():
         kvs[kv[0]]=kv[1]
     kvs["@date"]="@date "+getNow()
     f.close()
-    return kvs
+    nkvs={}
+    for kv in kvs:
+        nkvs[kv]=kvs[kv]
+        if kv[:2]!='__' and kv[-2:]!='__': continue
+        key=kv.replace('__','')
+        value=kvs[kv]
+        if key[0]>='A' and key[0]<='Z':
+            nkey='__'+key[0].lower()+key[1:]+'__'
+            nvalue=value[0].lower()+value[1:]
+            nkvs[nkey]=nvalue
+        if key!=key.lower():
+            nkey='__'+key.lower()+'__'
+            nvalue=value.lower()
+            nkvs[nkey]=nvalue
+    return nkvs
 
 def getSvs(kvs):
     f=open(getCurPath()+"\\svfiles.json","r")
@@ -52,22 +68,30 @@ def getSvs(kvs):
     return svs
 
 
-def getBovos():
+def getBovos(kvs):
+    connurl=kvs["__datebase__"]
+    dbconn=cx_Oracle.connect(connurl)
+    cur=dbconn.cursor()
+    x=cur.execute("select * from "+kvs["__table__"])
+    tablefields=cur.description
+    bolines=[]
+    for field in tablefields:
+        boProperty=lineupper(str(field[0]).lower())
+        bolines.append(boProperty)
+    # print bolines
+    cur.close()
+    dbconn.close()
+
     bovos={}
     setBovos=''
     setBoatoms=''
     setVosvs=''
     i=0
-    fbo=open(getCurPath()+'\\bo.txt','r')
-    bolines=fbo.readlines()
     for boProperty in bolines:
-        boProperty=boProperty.strip().replace('\n','')
-        if boProperty.find(";")==-1: continue
         i+=1
         if i!=1:
             setBovos+='\n\t\t'
             setBoatoms+='\n\t\t\t'
-        boProperty=boProperty[boProperty.rfind(' ',0,boProperty.find(';'))+1:boProperty.find(';')]
         BoProperty=boProperty[0].upper()+boProperty[1:]
         setBovos+='res.set'+BoProperty+'(src.get'+BoProperty+'());'
         setBoatoms+='if(StringUtils.isNotBlank(request.get'+BoProperty+'())) {criteria.and'+BoProperty+'EqualTo(request.get'+BoProperty+'());}'
@@ -79,7 +103,6 @@ def getBovos():
         boProperty=boProperty[boProperty.rfind(' ',0,boProperty.find(';'))+1:boProperty.find(';')]
         BoProperty=boProperty[0].upper()+boProperty[1:]
         setVosvs+='\tpublic String get'+BoProperty+'() {\n\t\treturn '+boProperty+';\n\t}\n\tpublic void set'+BoProperty+'(String '+boProperty+') {\n\t\tthis.'+boProperty+'='+boProperty+';\n\t}\n'
-    fbo.close()
     bovos[0]=setBovos
     bovos[1]=setBoatoms
     bovos[2]=setVosvs
@@ -98,6 +121,31 @@ def isFile(pathname):
 
 def getNow():
     return time.strftime("%Y-%m-%d %H:%M",time.localtime())
+
+def lineupper(str):
+    res=''
+    bl=False
+    for c in str:
+        if c=='_':
+            res+=''
+            bl=True
+        else:
+            if bl:
+                res+=c.upper()
+                bl=False
+            else:
+                res+=c
+    return res
+
+def upperline(str):
+    res=''
+    for c in str:
+        if c>='A' and c<='Z':
+            res+='_'+c.lower()
+        else:
+            res+=c
+    return res
+
 # ------ base end ------
 
 

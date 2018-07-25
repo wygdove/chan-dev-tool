@@ -1,9 +1,12 @@
 __author__=wygdove
+
+__datebase__=tj_chan_gis/tj_chan_gis@10.1.235.25:8899:cmchl
+__table__=gis_grid_info
+
 __project__=gis
-__package__=svtest
-__SvKey__=SvTest
-__svKey__=svTest
-__svkey__=svtest
-__BoKey__=GisEndchannlInfo
-__boKey__=gisEndchannlInfo
+__package__=gridbase
+__SvKey__=GridBase
+__BoKey__=GisGridInfo
+
+
 
