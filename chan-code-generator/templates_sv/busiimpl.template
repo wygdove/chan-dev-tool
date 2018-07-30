@@ -46,7 +46,7 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 	public BaseResponse<String> add__SvKey__(Save__SvKey__Request request) {
 		BaseResponse<String> response=new BaseResponse<String>(true,BusinessConstants.BUSI_SUCCESS_CODE,BusinessConstants.BUSI_SUCCESS_MESSAGE);
 
-		Long itemId=SeqUtil.getNewId(SeqConstants.GIS_GRID_INFO_ID);
+		// Long itemId=SeqUtil.getNewId(SeqConstants.GIS_GRID_INFO_ID);
 		// request.setId(""+itemId);
 
 		__BoKey__ __boKey__Request=this.setAtomSave(request);
