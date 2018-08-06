@@ -251,4 +251,16 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 		return res;
 	}
 
+
+	@Override
+	public BaseResponse<Long> count__SvKey__(Query__SvKey__Request request) {
+		BaseResponse<Long> response=new BaseResponse<>(true,BusinessConstants.BUSI_SUCCESS_CODE,BusinessConstants.BUSI_SUCCESS_MESSAGE);
+		GisDiffNetBasestationInfo queryRequest=this.setAtomQuery(request);
+		Map<String,Object> reqmap=this.setAtomQueryMap(request);
+		long result=diffnetBasestationAtomSV.count(queryRequest,reqmap);
+		response.setResult(result);
+		return response;
+	}
+
+
 }
