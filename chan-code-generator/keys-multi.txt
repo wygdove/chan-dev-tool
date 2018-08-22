@@ -1,0 +1,14 @@
+__author__=wygdove
+
+
+__datebase__=tj_chan_gis/tj_chan_gis@10.1.235.25:8899:cmchl
+__table__=gis_grid_info,gis_grid_extend,gis_grid_manager_user
+
+__project__=gis
+
+
+__package__=gridinfo,gridextend,gridmanager
+__SvKey__=GridInfo,GridExtend,GridManager
+__BoKey__=GisGridInfo,GisGridExtend,GisGridManagerUser
+
+
