@@ -36,19 +36,31 @@ public interface I__SvKey__SV {
 	 * @return
 	 * @throws BusinessException
 	 * @throws SystemException
-	 * @author wygdove
+	 * @author __author__
 	 */
     @POST
     @Path("/add__SvKey__")
     BaseResponse<String> add__SvKey__(Save__SvKey__Request request) throws BusinessException, SystemException;
 
+	/**
+	 * 批量添加
+	 * @param requestList
+	 * @return
+	 * @throws BusinessException
+	 * @throws SystemException
+	 * @author __author__
+	 */
+    @POST
+    @Path("/addMulti__SvKey__")
+    BaseResponse<String> addMulti__SvKey__(List<Save__SvKey__Request> requestList) throws BusinessException, SystemException;
+	
     /**
 	 * 更新
 	 * @param request
 	 * @return
 	 * @throws BusinessException
 	 * @throws SystemException
-	 * @author wygdove
+	 * @author __author__
 	 */
     @POST
     @Path("/update__SvKey__")
@@ -60,7 +72,7 @@ public interface I__SvKey__SV {
 	 * @return
 	 * @throws BusinessException
 	 * @throws SystemException
-	 * @author wygdove
+	 * @author __author__
 	 */
     @POST
     @Path("/delete__SvKey__")
@@ -74,7 +86,7 @@ public interface I__SvKey__SV {
 	 * @return
 	 * @throws BusinessException
 	 * @throws SystemException
-	 * @author wygdove
+	 * @author __author__
 	 */
     @POST
     @Path("/queryDetail__SvKey__")
@@ -88,7 +100,7 @@ public interface I__SvKey__SV {
 	 * @return
 	 * @throws BusinessException
 	 * @throws SystemException
-	 * @author wygdove
+	 * @author __author__
 	 */
     @POST
     @Path("/queryList__SvKey__")
@@ -100,10 +112,23 @@ public interface I__SvKey__SV {
      * @return
      * @throws BusinessException
      * @throws SystemException
-     * @author wygdove
+     * @author __author__
      */
     @POST
     @Path("/queryPage__SvKey__")
     BaseResponse<PageResult<__SvKey__ItemVo>> queryPage__SvKey__(Query__SvKey__Request request) throws BusinessException, SystemException;
+
+    /**
+     * 计数
+     * @param request
+     * @return
+     * @throws BusinessException
+     * @throws SystemException
+     * @author __author__
+     */
+    @POST
+    @Path("/count__SvKey__")
+    BaseResponse<Long> count__SvKey__(Query__SvKey__Request request) throws BusinessException, SystemException;
+
 
 }

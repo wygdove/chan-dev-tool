@@ -1,10 +1,10 @@
-__author__=wygdove
+__author__=zhangliwei
 
-__datebase__=tj_chan_gis/tj_chan_gis@10.1.235.25:8899:cmchl
-__table__=gis_grid_info
+__datebase__=nbj_chan_mgmt/chan123@10.15.32.27:1521:chnldevn
+__table__=mgmt_reward_pay_batch
 
-__project__=demo
-__package__=demouser
-__SvKey__=DemoUser
-__BoKey__=DemoUser
+__project__=mgmt
+__package__=rewardpaybatch
+__SvKey__=RewardPayBatch
+__BoKey__=MgmtRewardPayBatch
 

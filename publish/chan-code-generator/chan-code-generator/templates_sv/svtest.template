@@ -73,5 +73,11 @@ public class __SvKey__SVTest extends BaseTest {
 		print(response);
 	}
 
+	@Test
+	public void count() {
+		Query__SvKey__Request request=new Query__SvKey__Request();
+		BaseResponse<Long> response=__svKey__SV.count__SvKey__(request);
+		print(response);
+	}
 
 }

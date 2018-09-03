@@ -16,6 +16,9 @@
 {"filepath":"\\out_sv\\","filename":"__SvKey__Cache.java","template":"\\templates_sv\\cachewrite"},
 {"filepath":"\\out_sv\\","filename":"__SvKey__CacheUtil.java","template":"\\templates_sv\\cacheread"},
 
+{"filepath":"\\out_sv\\","filename":"I__BoKey__Mapper.java","template":"\\templates_sv\\mapperinterface"},
+{"filepath":"\\out_sv\\","filename":"I__BoKey__Mapper.xml","template":"\\templates_sv\\mapperxml"},
+
 {"filepath":"\\out_web\\","filename":"__SvKey__Controller.java","template":"\\templates_web\\controller"},
 {"filepath":"\\out_web\\","filename":"index.jsp","template":"\\templates_web\\index.jsp"},
 {"filepath":"\\out_web\\","filename":"index.js","template":"\\templates_web\\index.js"}
