@@ -235,14 +235,14 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 
 	private __BoKey__ setAtomSave(Save__SvKey__Request src) {
 		__BoKey__ res=new __BoKey__();
-		__SetBovos__
+		__SetVobos__
 		return res;
 	}
 
 	private __BoKey__ setAtomQuery(Query__SvKey__Request src) {
 		__BoKey__ res=new __BoKey__();
 		if(src==null) return res;
-		__SetBovos__
+		__SetVobos__
 		return res;
 	}
 	private Map<String,Object> setAtomQueryMap(Query__SvKey__Request src) {
