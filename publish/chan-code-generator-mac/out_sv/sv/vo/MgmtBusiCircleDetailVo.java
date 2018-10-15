@@ -8,7 +8,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
  * MgmtBusiCircleDetailVo.java
  *
  *
- * @date 2018-10-15 20:36
+ * @date 2018-10-15 20:59
  * @author wygdove
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -64,7 +64,6 @@ public class MgmtBusiCircleDetailVo implements Serializable {
 	private String baseStationSerial;
 	private String busiCircleClass;
 	private String busiCircleLatlngId;
-
 
 
 	public String getBusinessCircleCodeOrName() {

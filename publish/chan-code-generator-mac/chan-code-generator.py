@@ -71,32 +71,27 @@ def getBovos():
     setBovos=''
     setBoatoms=''
     setVosvs=''
+    setVosvs2=''
     i=0
     fbo=open(getCurPath()+'/bo.txt','r')
     bolines=fbo.readlines()
     for boProperty in bolines:
-        boProperty=boProperty.strip().replace('\n','')
-        if boProperty.find(";")==-1: continue
+        boProperty = boProperty.strip().replace('\n', '')
+        if boProperty.find(";") == -1: continue
+        boProperty = boProperty[boProperty.rfind(' ', 0, boProperty.find(';')) + 1:boProperty.find(';')]
+        BoProperty = boProperty[0].upper() + boProperty[1:]
+
         i+=1
         if i!=1:
             setBovos+='\n\t\t'
             setBoatoms+='\n\t\t\t'
-        boProperty=boProperty[boProperty.rfind(' ',0,boProperty.find(';'))+1:boProperty.find(';')]
-        BoProperty=boProperty[0].upper()+boProperty[1:]
-        setBovos+='res.set'+BoProperty+'(src.get'+BoProperty+'());'
+        setBovos+='res.set'+BoProperty+'(VoConvertUtil.getValue(src.get'+BoProperty+'()));'
         setBoatoms+='if(StringUtils.isNotBlank(request.get'+BoProperty+'())) {criteria.and'+BoProperty+'EqualTo(request.get'+BoProperty+'());}'
         setVosvs+='\tprivate String '+boProperty+';\n'
-    setVosvs+='\n\n\n'
-    for boProperty in bolines:
-        boProperty=boProperty.strip().replace('\n','')
-        if boProperty.find(";")==-1: continue
-        boProperty=boProperty[boProperty.rfind(' ',0,boProperty.find(';'))+1:boProperty.find(';')]
-        BoProperty=boProperty[0].upper()+boProperty[1:]
-        setVosvs+='\tpublic String get'+BoProperty+'() {\n\t\treturn '+boProperty+';\n\t}\n\tpublic void set'+BoProperty+'(String '+boProperty+') {\n\t\tthis.'+boProperty+'='+boProperty+';\n\t}\n'
-    fbo.close()
+        setVosvs2+='\tpublic String get'+BoProperty+'() {\n\t\treturn '+boProperty+';\n\t}\n\tpublic void set'+BoProperty+'(String '+boProperty+') {\n\t\tthis.'+boProperty+'='+boProperty+';\n\t}\n'
     bovos[0]=setBovos
     bovos[1]=setBoatoms
-    bovos[2]=setVosvs
+    bovos[2]=setVosvs+'\n\n'+setVosvs2
     return bovos
 
 # ------ do sv end ------
