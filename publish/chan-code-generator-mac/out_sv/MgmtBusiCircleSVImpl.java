@@ -25,7 +25,7 @@ import com.alibaba.fastjson.JSON;
  * MgmtBusiCircleSVImpl.java
  *
  *
- * @date 2018-10-15 20:33
+ * @date 2018-10-15 20:36
  * @author wygdove
  */
 @Service
@@ -51,12 +51,12 @@ public class MgmtBusiCircleSVImpl implements IMgmtBusiCircleSV {
 				response=mgmtBusiCircleBusiSV.addMgmtBusiCircle(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("MgmtBusiCircleSVImpl.addMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.addMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("MgmtBusiCircleSVImpl.addMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.addMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -78,12 +78,12 @@ public class MgmtBusiCircleSVImpl implements IMgmtBusiCircleSV {
 				response=mgmtBusiCircleBusiSV.updateMgmtBusiCircle(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("MgmtBusiCircleSVImpl.updateMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.updateMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("MgmtBusiCircleSVImpl.updateMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.updateMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -105,12 +105,12 @@ public class MgmtBusiCircleSVImpl implements IMgmtBusiCircleSV {
 				response=mgmtBusiCircleBusiSV.deleteMgmtBusiCircle(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("MgmtBusiCircleSVImpl.deleteMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.deleteMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("MgmtBusiCircleSVImpl.deleteMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.deleteMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -134,12 +134,12 @@ public class MgmtBusiCircleSVImpl implements IMgmtBusiCircleSV {
 				response=mgmtBusiCircleBusiSV.queryDetailMgmtBusiCircle(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("MgmtBusiCircleSVImpl.queryDetailMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.queryDetailMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("MgmtBusiCircleSVImpl.queryDetailMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.queryDetailMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -161,12 +161,12 @@ public class MgmtBusiCircleSVImpl implements IMgmtBusiCircleSV {
 				response=mgmtBusiCircleBusiSV.queryListMgmtBusiCircle(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("MgmtBusiCircleSVImpl.queryListMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.queryListMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("MgmtBusiCircleSVImpl.queryListMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.queryListMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -188,12 +188,12 @@ public class MgmtBusiCircleSVImpl implements IMgmtBusiCircleSV {
 				response=mgmtBusiCircleBusiSV.queryPageMgmtBusiCircle(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("MgmtBusiCircleSVImpl.queryPageMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.queryPageMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("MgmtBusiCircleSVImpl.queryPageMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.queryPageMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -215,12 +215,12 @@ public class MgmtBusiCircleSVImpl implements IMgmtBusiCircleSV {
 				response=mgmtBusiCircleBusiSV.countMgmtBusiCircle(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("MgmtBusiCircleSVImpl.countMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.countMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("MgmtBusiCircleSVImpl.countMgmtBusiCircle error: "+e.getMessage());
+			log.error("MgmtBusiCircleSVImpl.countMgmtBusiCircle error: "+e.getMessage(),e);
 			response.setSuccess(false);
 			response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());

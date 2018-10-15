@@ -20,7 +20,7 @@ import test.com.ai.channel.mgmt.BaseTest;
  * MgmtBusiCircleSVTest.java
  *
  *
- * @date 2018-10-15 20:33
+ * @date 2018-10-15 20:36
  * @author wygdove
  */
 public class MgmtBusiCircleSVTest extends BaseTest {

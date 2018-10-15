@@ -10,7 +10,7 @@ import com.ai.channel.base.vo.BaseInfo;
  * QueryMgmtBusiCircleRequest.java
  *
  *
- * @date 2018-10-15 20:33
+ * @date 2018-10-15 20:36
  * @author wygdove
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
