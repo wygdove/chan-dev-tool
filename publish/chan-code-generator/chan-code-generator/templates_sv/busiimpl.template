@@ -46,7 +46,7 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 	public BaseResponse<String> add__SvKey__(Save__SvKey__Request request) {
 		BaseResponse<String> response=new BaseResponse<String>(true,BusinessConstants.BUSI_SUCCESS_CODE,BusinessConstants.BUSI_SUCCESS_MESSAGE);
 
-		// Long itemId=SeqUtil.getNewId(SeqConstants.GIS_GRID_INFO_ID);
+		// Long itemId=SeqUtil.getNewId(SeqConstants.ID);
 		// request.setId(""+itemId);
 
 		__BoKey__ __boKey__Request=this.setAtomSave(request);
@@ -67,14 +67,27 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 		return response;
 	}
 
-	private __BoKey__ setAtomSave(Save__SvKey__Request src) {
-		__BoKey__ res=new __BoKey__();
-		__SetBovos__
-		return res;
+	@Transactional
+	@Override
+	public BaseResponse<String> addMulti__SvKey__(List<Save__SvKey__Request> requestList) {
+		BaseResponse<String> response=new BaseResponse<String>(true,BusinessConstants.BUSI_SUCCESS_CODE,BusinessConstants.BUSI_SUCCESS_MESSAGE);
+
+		for(Save__SvKey__Request request:requestList) {
+			// Long itemId=SeqUtil.getNewId(SeqConstants.ID);
+			// request.setId(""+itemId);
+			__BoKey__ __boKey__Request=this.setAtomSave(request);
+			int res=__svKey__AtomSV.add(__boKey__Request);
+			if(res<=0) {
+				response.setResult("");
+				response.setSuccess(false);
+				response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
+				response.setResultMessage("保存失败");
+				break;
+			}
+		}
+		return response;
 	}
-
-
-
+	
 	@Transactional
 	@Override
 	public BaseResponse<String> update__SvKey__(Save__SvKey__Request request) {
@@ -97,9 +110,16 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
 		return response;
 	}
+	
+	private __BoKey__ setAtomSave(Save__SvKey__Request src) {
+		__BoKey__ res=new __BoKey__();
+		__SetBovos__
+		return res;
+	}
 
 
 
+	
 	@Transactional
 	@Override
 	public BaseResponse<String> delete__SvKey__(Save__SvKey__Request request) {
@@ -250,5 +270,17 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 		__SetBovos__
 		return res;
 	}
+
+
+	@Override
+	public BaseResponse<Long> count__SvKey__(Query__SvKey__Request request) {
+		BaseResponse<Long> response=new BaseResponse<>(true,BusinessConstants.BUSI_SUCCESS_CODE,BusinessConstants.BUSI_SUCCESS_MESSAGE);
+		__BoKey__ queryRequest=this.setAtomQuery(request);
+		Map<String,Object> reqmap=this.setAtomQueryMap(request);
+		long result=__svKey__AtomSV.count(queryRequest,reqmap);
+		response.setResult(result);
+		return response;
+	}
+
 
 }

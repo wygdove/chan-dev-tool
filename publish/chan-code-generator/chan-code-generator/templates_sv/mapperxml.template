@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ai.channel.__project__.dao.imapper.interfaces.I__BoKey__Mapper" >
+	<resultMap id="BaseResultMap" type="com.ai.channel.__project__.dao.mapper.bo.__BoKey__">
+	</resultMap>
+	
+	<select id="search" resultMap="BaseResultMap">
+		select field_names  
+		  from table
+		where 1=1
+		<if test="request.string !=null and request.string !=''">
+			and field_name='${request.string}'
+		</if>
+		<if test="request.number !=null">
+			and field_name=${request.number}
+		</if>
+		
+		
+		<if test="reqmap.stringLike !=null and reqmap.stringLike !=''">
+			and field_name like ('%${reqmap.stringLike}%')
+		</if>
+		<if test="reqmap.notString !=null and reqmap.notString !=''">
+			and field_name != ${reqmap.notString}
+		</if>
+		<if test="reqmap.timeStr !=null">
+			and field_name = to_date('${reqmap.timeStr}','yyyy-MM-dd HH24:mi:ss')
+		</if>
+		<if test="reqmap.timeStartStr !=null and reqmap.timeEndStr !=null">
+			and field_name between to_date('${reqmap.timeStartStr}','yyyy-MM-dd HH24:mi:ss') and to_date('${reqmap.timeEndStr}','yyyy-MM-dd HH24:mi:ss')
+		</if>
+		<if test="reqmap.stringIn !=null">
+			<foreach collection="reqmap.stringIn" item="item"
+				open="and field_name in (" close=")" separator=",">
+        		'${item}'
+			</foreach>
+		</if>
+		<if test="reqmap.stringCommaLike !=null">
+			<foreach collection="reqmap.stringCommaLike" item="item"
+				open="and (0=1 or " close=")" separator="or">
+        		field_name like ('%,${item},%')
+			</foreach>
+		</if>
+        order by field_name desc
+	</select>
+
+</mapper>

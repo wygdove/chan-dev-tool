@@ -1,0 +1,24 @@
+package com.ai.channel.__project__.dao.imapper.interfaces;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.ai.channel.__project__.dao.mapper.bo.__BoKey__;
+
+/** 
+ * I__BoKey__Mapper.java
+ * 
+ * 
+ * @date
+ * @author __author__
+ */
+public interface I__BoKey__Mapper {
+	
+	List<__BoKey__> search(
+		@Param("request") __BoKey__ request,
+		@Param("reqmap") Map<String,Object> reqmap
+	);
+
+}

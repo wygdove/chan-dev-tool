@@ -86,6 +86,7 @@ def getBovos(kvs):
     setBovos=''
     setBoatoms=''
     setVosvs=''
+    setVosvs2=''
     i=0
     for boProperty in bolines:
         i+=1
@@ -96,16 +97,10 @@ def getBovos(kvs):
         setBovos+='res.set'+BoProperty+'(src.get'+BoProperty+'());'
         setBoatoms+='if(StringUtils.isNotBlank(request.get'+BoProperty+'())) {criteria.and'+BoProperty+'EqualTo(request.get'+BoProperty+'());}'
         setVosvs+='\tprivate String '+boProperty+';\n'
-    setVosvs+='\n\n\n'
-    for boProperty in bolines:
-        boProperty=boProperty.strip().replace('\n','')
-        if boProperty.find(";")==-1: continue
-        boProperty=boProperty[boProperty.rfind(' ',0,boProperty.find(';'))+1:boProperty.find(';')]
-        BoProperty=boProperty[0].upper()+boProperty[1:]
-        setVosvs+='\tpublic String get'+BoProperty+'() {\n\t\treturn '+boProperty+';\n\t}\n\tpublic void set'+BoProperty+'(String '+boProperty+') {\n\t\tthis.'+boProperty+'='+boProperty+';\n\t}\n'
+        setVosvs2+='\tpublic String get'+BoProperty+'() {\n\t\treturn '+boProperty+';\n\t}\n\tpublic void set'+BoProperty+'(String '+boProperty+') {\n\t\tthis.'+boProperty+'='+boProperty+';\n\t}\n'
     bovos[0]=setBovos
     bovos[1]=setBoatoms
-    bovos[2]=setVosvs
+    bovos[2]=setVosvs+'\n\n'+setVosvs2
     return bovos
 
 # ------ do sv end ------
