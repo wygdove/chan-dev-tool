@@ -1,0 +1,12 @@
+__author__=wygdove
+
+__datebase__=
+__table__=
+
+__project__=mgmt
+__package__=chlbusicircle
+__SvKey__=MgmtBusiCircle
+__BoKey__=MgmtBasBusiCircle
+
+
+
