@@ -79,9 +79,10 @@ def getBovos():
     bolines=fbo.readlines()
     for boProperty in bolines:
         boProperty = boProperty.strip().replace('\n', '')
-        if boProperty.find(";") == -1: continue
-        boProperty = boProperty[boProperty.rfind(' ', 0, boProperty.find(';')) + 1:boProperty.find(';')]
-        BoProperty = boProperty[0].upper() + boProperty[1:]
+        if boProperty.find(";")==-1: continue
+        boProperty=boProperty[boProperty.rfind(' S_',0,boProperty.find(' = '))+3:boProperty.find(' = ')]
+        boProperty=boProperty[0].lower()+boProperty[1:]
+        BoProperty=boProperty[0].upper()+boProperty[1:]
 
         i+=1
         if i!=1:

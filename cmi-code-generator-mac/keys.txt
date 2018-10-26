@@ -1,0 +1,12 @@
+__author__=wygdove
+
+__datebase__=
+__table__=
+
+__project__=order
+__package__=order
+__SvKey__=OrdOrder
+__BoKey__=OrdOrderBean
+
+
+

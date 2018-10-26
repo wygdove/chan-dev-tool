@@ -9,7 +9,7 @@ import com.ai.channel.common.util.DateUtil;
 
 
 /**
- * MgmtBusiCircleBusiSVImpl.java
+ * VoConvertUtil.java
  *
  *
  * @date 2018-10-15 20:55
