@@ -1,3 +1,11 @@
+====== v1.4 ======
+chan-code-generator.py
+change path in mac format
+change to get bo field from bo.txt
+Using datebase way always has trouble
+
+
+
 ====== v1.3 ======
 chan-code-generator.py
 modify getKvs

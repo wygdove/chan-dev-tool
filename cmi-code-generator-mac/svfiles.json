@@ -14,9 +14,45 @@
 
 {"filepath":"/out_web/","filename":"__SvKey__Controller.java","template":"/templates_web/controller"},
 {"filepath":"/out_web/","filename":"index.jsp","template":"/templates_web/index.jsp"},
-{"filepath":"/out_web/","filename":"index.js","template":"/templates_web/index.js"}
+{"filepath":"/out_web/","filename":"index.js","template":"/templates_web/index.js"},
 
 
 
 
+
+
+
+
+
+
+  {
+    "filepath": "/pa-__project__-center/src/main/java/com/cmi/__project__/csf/interfaces",
+    "filename": "I__SvKey__CSV.java",
+    "template": "/templates_csv/ISvKeyCSV"
+  },
+  {
+    "filepath": "/pa-__project__-center/src/main/java/com/cmi/__project__/csf/impl",
+    "filename": "__SvKey__CSVImpl.java",
+    "template": "/templates_csv/SvKeyCSVImpl"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {}
 ]

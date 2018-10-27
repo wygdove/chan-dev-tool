@@ -1,32 +1,3 @@
-====== v1.3 ======
-chan-code-generator.py
-modify getKvs
-remove repeat key in keys.txt
-add db info
-modify getBovos
-remove bo.txt
-change to get bo field from datebase by table
-
-
-
-====== v1.2 ======
-chan-code-generator.py
-add bo vo code generator
-but a mess
-wait for a better way
-
-
-
-====== v1.1 ======
-sv2.py
-move config to single file
-move template to templates folder
-add bo key in keys
-
-
-
 ====== v1.0 ======
-sv.py
-generator codes by template in code
-replace some keys
-get outs in code as well
+try code-generator for cmi
+

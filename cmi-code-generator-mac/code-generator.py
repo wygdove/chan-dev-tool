@@ -41,6 +41,7 @@ def getKvs():
         kv=line.strip().replace('\n','').split('=')
         kvs[kv[0]]=kv[1]
     kvs["@date"]="@date "+getNow()
+    kvs["@Date:"]="@Date: "+getNow()
     f.close()
     nkvs = {}
     for kv in kvs:
