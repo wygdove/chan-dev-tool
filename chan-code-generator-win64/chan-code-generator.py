@@ -5,7 +5,6 @@ __time__='2018/4/26 10:56'
 import os
 import time
 import json
-import cx_Oracle
 
 
 # ------ do sv start ------
