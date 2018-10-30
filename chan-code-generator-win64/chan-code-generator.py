@@ -69,38 +69,35 @@ def getSvs(kvs):
 
 
 def getBovos(kvs):
-    connurl=kvs["__datebase__"]
-    dbconn=cx_Oracle.connect(connurl)
-    cur=dbconn.cursor()
-    x=cur.execute("select * from "+kvs["__table__"])
-    tablefields=cur.description
-    bolines=[]
-    for field in tablefields:
-        boProperty=lineupper(str(field[0]).lower())
-        bolines.append(boProperty)
-    # print bolines
-    cur.close()
-    dbconn.close()
-
     bovos={}
     setBovos=''
+    setVobos=''
     setBoatoms=''
     setVosvs=''
     setVosvs2=''
     i=0
+    fbo=open(getCurPath()+'\\bo.txt','r')
+    bolines=fbo.readlines()
     for boProperty in bolines:
+        boProperty = boProperty.strip().replace('\n', '')
+        if boProperty.find(";") == -1: continue
+        boProperty = boProperty[boProperty.rfind(' ', 0, boProperty.find(';')) + 1:boProperty.find(';')]
+        BoProperty = boProperty[0].upper() + boProperty[1:]
+
         i+=1
         if i!=1:
             setBovos+='\n\t\t'
+            setVobos+='\n\t\t'
             setBoatoms+='\n\t\t\t'
-        BoProperty=boProperty[0].upper()+boProperty[1:]
-        setBovos+='res.set'+BoProperty+'(src.get'+BoProperty+'());'
+        setBovos+='res.set'+BoProperty+'(VoConvertUtil.getValue(src.get'+BoProperty+'()));'
+        setVobos+='res.set'+BoProperty+'(src.get'+BoProperty+'());'
         setBoatoms+='if(StringUtils.isNotBlank(request.get'+BoProperty+'())) {criteria.and'+BoProperty+'EqualTo(request.get'+BoProperty+'());}'
         setVosvs+='\tprivate String '+boProperty+';\n'
         setVosvs2+='\tpublic String get'+BoProperty+'() {\n\t\treturn '+boProperty+';\n\t}\n\tpublic void set'+BoProperty+'(String '+boProperty+') {\n\t\tthis.'+boProperty+'='+boProperty+';\n\t}\n'
     bovos[0]=setBovos
-    bovos[1]=setBoatoms
-    bovos[2]=setVosvs+'\n\n'+setVosvs2
+    bovos[1]=setVobos
+    bovos[2]=setBoatoms
+    bovos[3]=setVosvs+'\n\n'+setVosvs2
     return bovos
 
 # ------ do sv end ------
@@ -146,9 +143,9 @@ def upperline(str):
 
 
 if __name__ == '__main__':
-    try:
-        dosv()
-    except:
-        print 'Sorry, it went wrong......'
-
+    # try:
+    #     dosv()
+    # except:
+    #     print 'Sorry, it went wrong......'
+    dosv()
 
