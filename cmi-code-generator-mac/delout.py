@@ -11,7 +11,8 @@ def delOuts():
     ls=os.listdir(basepath)
     for i in ls:
         subpath=os.path.join(basepath,i)
-        if os.path.isdir(subpath) and str(i)[:4]=='out_':
+        # if os.path.isdir(subpath) and str(i)[:4]=='out_':
+        if os.path.isdir(subpath) and str(i)[:3]=="pa-":
             delFiles(subpath)
 
 def delFiles(path):

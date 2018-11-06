@@ -1,0 +1,96 @@
+package test.com.cmi.__project__;
+
+import com.cmi.common.ServiceHelper;
+import com.cmi.common.domain.Page;
+import com.cmi.common.domain.PageResult;
+import com.cmi.common.domain.Response;
+import com.cmi.common.util.DateUtil;
+import com.cmi.__project__.csf.impl.__SvKey__CSVImpl;
+import com.cmi.__project__.csf.interfaces.I__SvKey__CSV;
+import com.cmi.__project__.domain.__svkey__.params.Query__SvKey__Request;
+import com.cmi.__project__.domain.__svkey__.params.Save__SvKey__Request;
+import com.cmi.__project__.domain.__svkey__.vo.__SvKey__DetailVo;
+import com.cmi.__project__.domain.__svkey__.vo.__SvKey__ItemVo;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Locale;
+
+/**
+ * @Title:
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+public class __SvKey__CSVTest {
+	private static final Logger log=LoggerFactory.getLogger(__SvKey__CSVTest.class);
+
+
+	@Test
+	public void add() throws Exception {
+		Save__SvKey__Request request=new Save__SvKey__Request();
+		I__SvKey__CSV __svKey__CSV=new __SvKey__CSVImpl();
+		Response<String> response=__svKey__CSV.add__SvKey__(request);
+		log.info(JSON.toJSONString(response));
+	}
+
+	@Test
+	public void addBatch() throws Exception {
+		Save__SvKey__Request request=new Save__SvKey__Request();
+		Response<Long> response=ServiceHelper.call("ord_I__SvKey__CSV_addBatch__SvKey___request",request);
+		log.info(JSON.toJSONString(response));
+	}
+
+	@Test
+	public void update() throws Exception {
+		Save__SvKey__Request request=new Save__SvKey__Request();
+		I__SvKey__CSV __svKey__CSV=new __SvKey__CSVImpl();
+		Response<String> response=__svKey__CSV.update__SvKey__(request);
+		log.info(JSON.toJSONString(response));
+	}
+
+	@Test
+	public void delete() throws Exception {
+		Save__SvKey__Request request=new Save__SvKey__Request();
+		Response<Long> response=ServiceHelper.call("ord_I__SvKey__CSV_delete__SvKey___request",request);
+		log.info(JSON.toJSONString(response));
+	}
+
+
+
+	@Test
+	public void queryDetail() throws Exception {
+		Query__SvKey__Request request=new Query__SvKey__Request();
+		request.setLocale(Locale.CHINA);
+		I__SvKey__CSV __svKey__CSV=new __SvKey__CSVImpl();
+		Response<__SvKey__DetailVo> response=__svKey__CSV.queryDetail__SvKey__(request);
+		log.info(JSON.toJSONString(response));
+	}
+
+	@Test
+	public void queryList() throws Exception {
+		Query__SvKey__Request request=new Query__SvKey__Request();
+		request.setLocale(Locale.CHINA);
+		I__SvKey__CSV __svKey__CSV=new __SvKey__CSVImpl();
+		Response<List<__SvKey__ItemVo>> response=__svKey__CSV.queryList__SvKey__(request);
+		log.info(JSON.toJSONString(response));
+	}
+
+	@Test
+	public void queryPage() throws Exception {
+		Query__SvKey__Request request=new Query__SvKey__Request();
+		request.setLocale(Locale.CHINA);
+		request.setPage(new Page(1,5));
+		I__SvKey__CSV __svKey__CSV=new __SvKey__CSVImpl();
+		Response<PageResult<__SvKey__ItemVo>> response=__svKey__CSV.queryPage__SvKey__(request);
+		log.info(JSON.toJSONString(response));
+	}
+	@Test
+	public void count() throws Exception {
+		Query__SvKey__Request request=new Query__SvKey__Request();
+		Response<Long> response=ServiceHelper.call("ord_I__SvKey__CSV_count__SvKey___request",request);
+		log.info(JSON.toJSONString(response));
+	}
+}

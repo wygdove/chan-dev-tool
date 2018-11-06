@@ -24,7 +24,13 @@ def dosv():
         content=content.replace('__SetVobos__',bovos[1])
         content=content.replace('__SetBoatoms__',bovos[2])
         content=content.replace('__SetVosvs__',bovos[3])
-        fopn=getCurPath()+svi['filepath']+svi['filename']
+        fopn=getCurPath()+svi['filepath']
+        # check out path, if not exists, create it
+        checkOutPath(fopn)
+        fopn=fopn+svi['filename']
+        # if already exists file with the same name, add .temp in file name
+        # if .temp file exists as well, then rewrite the file
+        if not checkOutFile(fopn):fopn=fopn+".temp"
         fo=open(fopn,'w')
         fo.writelines(content)
         fo.flush()
@@ -100,6 +106,21 @@ def getBovos():
     bovos[2]=setBoatoms
     bovos[3]=setVosvs+'\n\n'+setVosvs2
     return bovos
+
+
+def checkOutPath(fop):
+    if not os.path.exists(fop) or not os.path.isdir(fop):
+        os.makedirs(fop)
+
+def checkOutFile(fopn):
+    # not exist, can be created
+    if not os.path.exists(fopn):
+        return True
+    # not a file, can be created
+    elif not os.path.exists(fopn):
+        return True
+    else:
+        return False
 
 # ------ do sv end ------
 

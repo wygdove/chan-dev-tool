@@ -1,3 +1,9 @@
+====== v1.1 ======
+add cmi code templates
+update svfiles.json
+modify out file path rule to auto create path and file
+
+
 ====== v1.0 ======
 try code-generator for cmi
 

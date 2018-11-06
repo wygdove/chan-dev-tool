@@ -1,12 +1,9 @@
 __author__=wygdove
 
-__datebase__=
-__table__=
-
-__project__=order
-__package__=order
-__SvKey__=OrdOrder
-__BoKey__=OrdOrderBean
+__project__=res
+__package__=resstoragerel
+__SvKey__=ResStorageRel
+__BoKey__=BOResStorageRel
 
 
 

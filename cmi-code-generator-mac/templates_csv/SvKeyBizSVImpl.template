@@ -1,0 +1,232 @@
+package com.cmi.__project__.business.impl;
+
+import com.ai.appframe2.common.AIException;
+import com.ai.appframe2.service.ServiceFactory;
+import com.alibaba.fastjson.JSON;
+import com.cmi.common.domain.Page;
+import com.cmi.common.domain.PageResult;
+import com.cmi.common.domain.Response;
+import com.cmi.common.util.DateUtil;
+import com.cmi.__project__.atom.bo.__BoKey__Bean;
+import com.cmi.__project__.atom.interfaces.I__SvKey__AtomSV;
+import com.cmi.__project__.business.interfaces.I__SvKey__BizSV;
+import com.cmi.__project__.constants.ExceptCodeConstants;
+import com.cmi.__project__.domain.__svkey__.params.Query__SvKey__Request;
+import com.cmi.__project__.domain.__svkey__.params.Save__SvKey__Request;
+import com.cmi.__project__.domain.__svkey__.vo.__SvKey__DetailVo;
+import com.cmi.__project__.domain.__svkey__.vo.__SvKey__ItemVo;
+import com.cmi.__project__.util.PageUtil;
+import com.cmi.__project__.util.VoConvertUtil;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @Title:
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+public class __SvKey__BizSVImpl implements I__SvKey__BizSV {
+
+	@Override
+	public Response<String> add__SvKey__(Save__SvKey__Request request) throws Exception {
+		Response<String> response=new Response<>(true,ExceptCodeConstants.Special.SUCCESS,"success");
+//		long id=SeqUtil.createId();
+		I__SvKey__AtomSV __svKey__AtomSV=(I__SvKey__AtomSV)ServiceFactory.getService(I__SvKey__AtomSV.class);
+		__BoKey__Bean beanRequest=this.setAtomSave(request);
+//		beanRequest.setId(id);
+
+		__svKey__AtomSV.add(beanRequest);
+
+//		response.setResult(""+id);
+		response.setSuccess(true);
+		response.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+		response.setResultMessage("success");
+		return response;
+	}
+
+	@Override
+	public Response<String> addBatch__SvKey__(Save__SvKey__Request request) {
+		return null;
+	}
+
+	@Override
+	public Response<String> update__SvKey__(Save__SvKey__Request request) throws Exception {
+		Response<String> response=new Response<>(true,ExceptCodeConstants.Special.SUCCESS,"success");
+
+		I__SvKey__AtomSV __svKey__AtomSV=(I__SvKey__AtomSV)ServiceFactory.getService(I__SvKey__AtomSV.class);
+		__BoKey__Bean beanRequest=this.setAtomSave(request);
+		__svKey__AtomSV.update(beanRequest);
+
+//		response.setResult(request.getId());
+		response.setSuccess(true);
+		response.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+		response.setResultMessage("success");
+		return response;
+	}
+
+	@Override
+	public Response<String> delete__SvKey__(Save__SvKey__Request request) throws Exception {
+		Response<String> response=new Response<>(true,ExceptCodeConstants.Special.SUCCESS,"success");
+
+		I__SvKey__AtomSV __svKey__AtomSV=(I__SvKey__AtomSV)ServiceFactory.getService(I__SvKey__AtomSV.class);
+		__BoKey__Bean beanRequest=this.setAtomSave(request);
+		__svKey__AtomSV.update(beanRequest);
+
+		response.setResult(request.getOrderId());
+		response.setSuccess(true);
+		response.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+		response.setResultMessage("success");
+		return response;
+	}
+
+	@Override
+	public Response<__SvKey__DetailVo> queryDetail__SvKey__(Query__SvKey__Request request) throws Exception {
+		Response<__SvKey__DetailVo> response=new Response<>(true,ExceptCodeConstants.Special.SUCCESS,"success");
+		__SvKey__DetailVo result=new __SvKey__DetailVo();
+
+		if(request==null||request.getLocale()==null) {
+			response.setResult(result);
+			response.setSuccess(false);
+			response.setResultCode(ExceptCodeConstants.Special.PARAM_IS_NULL);
+			response.setResultMessage("request and param can't be null");
+			return response;
+		}
+
+		I__SvKey__AtomSV __svKey__AtomSV=(I__SvKey__AtomSV)ServiceFactory.getService(I__SvKey__AtomSV.class);
+		__BoKey__Bean beanRequest=new __BoKey__Bean();
+		try {
+			beanRequest.setId(Long.parseLong(request.getId()));
+		}catch(Exception e) {
+			response.setResult(result);
+			response.setSuccess(false);
+			response.setResultCode(ExceptCodeConstants.Special.PARAM_TYPE_NOT_RIGHT);
+			response.setResultMessage("param type is not right");
+			return response;
+		}
+		__BoKey__Bean __BoKey__Bean=__svKey__AtomSV.queryById(beanRequest);
+		result=this.setVoDetail(__BoKey__Bean);
+
+		response.setResult(result);
+		response.setSuccess(true);
+		response.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+		response.setResultMessage("success");
+		return response;
+	}
+
+	@Override
+	public Response<List<__SvKey__ItemVo>> queryList__SvKey__(Query__SvKey__Request request) throws Exception {
+		Response<List<__SvKey__ItemVo>> response=new Response<>(true,ExceptCodeConstants.Special.SUCCESS,"success");
+		List<__SvKey__ItemVo> result=new ArrayList<>();
+
+		if(request==null||request.getLocale()==null) {
+			response.setResult(result);
+			response.setSuccess(false);
+			response.setResultCode(ExceptCodeConstants.Special.PARAM_IS_NULL);
+			response.setResultMessage("request and param can't be null");
+			return response;
+		}
+
+		I__SvKey__AtomSV __svKey__AtomSV=(I__SvKey__AtomSV)ServiceFactory.getService(I__SvKey__AtomSV.class);
+		__BoKey__Bean beanRequest=this.setAtomQuery(request);
+		Map<String,Object> orderReqmap=this.setAtomQueryMap(request);
+		__BoKey__Bean[] __BoKey__Beans=__svKey__AtomSV.query(beanRequest,orderReqmap);
+		__SvKey__ItemVo temp=null;
+		for(__BoKey__Bean __BoKey__Bean:__BoKey__Beans) {
+			temp=this.setVoItem(__BoKey__Bean);
+			result.add(temp);
+		}
+
+		response.setResult(result);
+		response.setSuccess(true);
+		response.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+		response.setResultMessage("success");
+		return response;
+	}
+
+	@Override
+	public Response<PageResult<__SvKey__ItemVo>> queryPage__SvKey__(Query__SvKey__Request request) throws Exception {
+		Response<PageResult<__SvKey__ItemVo>> response=new Response<>(true,ExceptCodeConstants.Special.SUCCESS,"success");
+		PageResult<__SvKey__ItemVo> pageResult=new PageResult<>();
+		List<__SvKey__ItemVo> result=new ArrayList<>();
+
+		if(request==null||request.getPage()==null||request.getLocale()==null) {
+			response.setResult(pageResult);
+			response.setSuccess(false);
+			response.setResultCode(ExceptCodeConstants.Special.PARAM_IS_NULL);
+			response.setResultMessage("request and param can't be null");
+			return response;
+		}
+		Page page=request.getPage();
+		int pageNumStart=PageUtil.getStartRowIndex(page.getPageNum(),page.getPageSize());
+		int pageNumEnd=PageUtil.getEndRowIndex(page.getPageNum(),page.getPageSize());
+
+		I__SvKey__AtomSV __svKey__AtomSV=(I__SvKey__AtomSV)ServiceFactory.getService(I__SvKey__AtomSV.class);
+		__BoKey__Bean beanRequest=this.setAtomQuery(request);
+		Map<String,Object> orderReqmap=this.setAtomQueryMap(request);
+		__BoKey__Bean[] __BoKey__Beans=__svKey__AtomSV.queryPage(beanRequest,orderReqmap,pageNumStart,pageNumEnd);
+		__SvKey__ItemVo temp=null;
+		for(__BoKey__Bean __BoKey__Bean:__BoKey__Beans) {
+			temp=this.setVoItem(__BoKey__Bean);
+			result.add(temp);
+		}
+
+		pageResult.setResult(result);
+		pageResult.setPageCount(result.size());
+		pageResult.setCount(result.size());
+		pageResult.setPageNum(page.getPageNum());
+		pageResult.setPageSize(page.getPageSize());
+		pageResult.setSuccess(true);
+		response.setResult(pageResult);
+		response.setSuccess(true);
+		response.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+		response.setResultMessage("success");
+		return response;
+	}
+
+	@Override
+	public Response<Long> count__SvKey__(Query__SvKey__Request request) {
+		return null;
+	}
+
+
+
+	private __BoKey__Bean setAtomSave(Save__SvKey__Request src) throws AIException {
+		__BoKey__Bean res=null;
+		res=new __BoKey__Bean();
+		if(src==null) return res;
+		__SetVobos__
+		return res;
+	}
+
+	private __BoKey__Bean setAtomQuery(Query__SvKey__Request src) throws AIException {
+		__BoKey__Bean res=null;
+		res=new __BoKey__Bean();
+		if(src==null) return res;
+		__SetVobos__
+		return res;
+	}
+
+	private Map<String,Object> setAtomQueryMap(Query__SvKey__Request src) {
+		Map<String,Object> res=new HashMap<>();
+		if(src==null) return res;
+		return res;
+	}
+
+	private __SvKey__DetailVo setVoDetail(__BoKey__Bean src) {
+		__SvKey__DetailVo res=new __SvKey__DetailVo();
+		if(src==null) return res;
+		__SetBovos__
+		return res;
+	}
+
+	private __SvKey__ItemVo setVoItem(__BoKey__Bean src) {
+		__SvKey__ItemVo res=new __SvKey__ItemVo();
+		if(src==null) return res;
+		__SetBovos__
+		return res;
+	}
+}

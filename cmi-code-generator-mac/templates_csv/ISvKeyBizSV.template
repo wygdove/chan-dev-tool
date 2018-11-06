@@ -1,0 +1,27 @@
+package com.cmi.__project__.business.interfaces;
+
+import com.cmi.common.domain.PageResult;
+import com.cmi.common.domain.Response;
+import com.cmi.__project__.domain.__svkey__.params.Query__SvKey__Request;
+import com.cmi.__project__.domain.__svkey__.params.Save__SvKey__Request;
+import com.cmi.__project__.domain.__svkey__.vo.__SvKey__DetailVo;
+import com.cmi.__project__.domain.__svkey__.vo.__SvKey__ItemVo;
+
+import java.util.List;
+
+/**
+ * @Title:
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+public interface I__SvKey__BizSV {
+	public Response<String> add__SvKey__(Save__SvKey__Request request) throws Exception;
+	public Response<String> addBatch__SvKey__(Save__SvKey__Request request) throws Exception;
+	public Response<String> update__SvKey__(Save__SvKey__Request request) throws Exception;
+	public Response<String> delete__SvKey__(Save__SvKey__Request request) throws Exception;
+	public Response<__SvKey__DetailVo> queryDetail__SvKey__(Query__SvKey__Request request) throws Exception;
+	public Response<List<__SvKey__ItemVo>> queryList__SvKey__(Query__SvKey__Request request) throws Exception;
+	public Response<PageResult<__SvKey__ItemVo>> queryPage__SvKey__(Query__SvKey__Request request) throws Exception;
+	public Response<Long> count__SvKey__(Query__SvKey__Request request) throws Exception;
+}

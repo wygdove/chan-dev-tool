@@ -1,0 +1,16 @@
+package com.cmi.__project__.domain.__svkey__.vo;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import java.io.Serializable;
+
+/**
+ * @Title:
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class __SvKey__ItemVo implements Serializable {
+__SetVosvs__
+}

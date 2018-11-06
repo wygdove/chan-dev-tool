@@ -1,0 +1,29 @@
+package com.cmi.__project__.constants;
+
+
+/**
+ * @Title:
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+public class __SvKey__Constants {
+
+	public __SvKey__Constants(){}
+
+	/**
+	 *
+	 */
+	public static class AAA {
+		/**
+		 *
+		 */
+		public static String AAA_BBB="";
+
+		/**
+		 *
+		 */
+		public static String AAA_CCC="";
+	}
+
+}
