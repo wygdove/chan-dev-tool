@@ -1,4 +1,5 @@
-  public final static  String S_WarehouseOperId = "WAREHOUSE_OPER_ID";
+  public final static  String S_State = "STATE";
+  public final static  String S_StaffId = "STAFF_ID";
   public final static  String S_StorageId = "STORAGE_ID";
-  public final static  String S_ParentMgrId = "PARENT_MGR_ID";
-  public final static  String S_ParentMgrLevel = "PARENT_MGR_LEVEL";
+  public final static  String S_StaffLevel = "STAFF_LEVEL";
+  public final static  String S_StorageStaffId = "STORAGE_STAFF_ID";

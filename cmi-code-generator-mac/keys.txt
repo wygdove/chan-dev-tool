@@ -1,9 +1,9 @@
 __author__=wygdove
 
 __project__=res
-__package__=resstoragerel
-__SvKey__=ResStorageRel
-__BoKey__=BOResStorageRel
+__package__=resstoragestaff
+__SvKey__=ResStorageStaff
+__BoKey__=ResStorageStaff
 
 
 
