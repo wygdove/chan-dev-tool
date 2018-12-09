@@ -11,10 +11,11 @@ import java.util.Map;
  * @Author: __author__
  */
 public interface I__SvKey__AtomSV {
+  Long getNewId() throws Exception;
   void add(__BoKey__Bean request) throws Exception;
   void update(__BoKey__Bean request) throws Exception;
   __BoKey__Bean queryById(__BoKey__Bean request) throws Exception;
   __BoKey__Bean[] query(__BoKey__Bean request,Map<String,Object> reqmap) throws Exception;
   __BoKey__Bean[] queryPage(__BoKey__Bean request,Map<String,Object> reqmap,int startNum,int endNum) throws Exception;
-  long count(__BoKey__Bean request,Map<String,Object> reqmap) throws Exception;
+  Integer count(__BoKey__Bean request,Map<String,Object> reqmap) throws Exception;
 }

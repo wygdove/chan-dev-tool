@@ -76,7 +76,7 @@ public class __SvKey__BizSVImpl implements I__SvKey__BizSV {
 		__BoKey__Bean beanRequest=this.setAtomSave(request);
 		__svKey__AtomSV.update(beanRequest);
 
-		response.setResult(request.getOrderId());
+		response.setResult(request.getId());
 		response.setSuccess(true);
 		response.setResultCode(ExceptCodeConstants.Special.SUCCESS);
 		response.setResultMessage("success");

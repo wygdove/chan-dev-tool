@@ -1,9 +1,9 @@
 __author__=wygdove
 
-__project__=res
-__package__=resstoragestaff
-__SvKey__=ResStorageStaff
-__BoKey__=ResStorageStaff
+__project__=cust
+__package__=subsuser
+__SvKey__=SubsIdentityInfo
+__BoKey__=SubsIdentityInfo
 
 
 

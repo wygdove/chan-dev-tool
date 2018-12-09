@@ -22,6 +22,11 @@ import java.util.Map;
 public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 
   @Override
+  public Long getNewId() throws Exception {
+    return __BoKey__Engine.getNewId().longValue();
+  }
+
+  @Override
   public void add(__BoKey__Bean request) throws Exception {
     __BoKey__Engine.save(request);
   }
@@ -29,9 +34,11 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
   @Override
   public void update(__BoKey__Bean request) throws Exception {
     __BoKey__Bean bean=__BoKey__Engine.getBean(request.getId());
-    bean.setStsToOld();
-    BeanUtil.copyPropertiesIgnoreNull(bean,request);
-    __BoKey__Engine.save(bean);
+    if(bean!=null) {
+      bean.setStsToOld();
+      BeanUtil.copyPropertiesIgnoreNull(bean,request);
+      __BoKey__Engine.save(bean);
+    }
   }
 
 
@@ -53,8 +60,7 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
   }
 
   @Override
-  public long count(__BoKey__Bean request,Map<String,Object> reqmap) throws Exception {
-    Criteria criteria=new Criteria();
+  public Integer count(__BoKey__Bean request,Map<String,Object> reqmap) throws Exception {
     String condition="";
     Map parameter=new HashMap();
     return __BoKey__Engine.getBeansCount(condition,parameter);
@@ -62,10 +68,10 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 
 
 
-  private Criteria getCriteria(__BoKey__Bean request,Map<String,Object> reqmap) {
+  private Criteria getCriteria(__BoKey__Bean request,Map<String,Object> reqmap) throws Exception {
     Criteria criteria=new Criteria();
     if(request!=null) {
-      if(request.getId()!=-1) {
+      if(request.getId()>0) {
         criteria.addEqual(I__BoKey__Value.S_Id,request.getId());
       }
       if(StringUtils.isNotBlank(request.getCode())) {
@@ -82,6 +88,10 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 //      if(reqmap.containsKey("Ids")) {
 //        List values=(List)reqmap.get("Ids");
 //        criteria.addIn(I__BoKey__Value.S_Id,values);
+//      }
+//      if(reqmap.containsKey("NameLike")) {
+//        String value=(String)reqmap.get("NameLike");
+//        criteria.addLIKE(I__BoKey__Value.S_Name,value);
 //      }
       if(reqmap.containsKey("orderByAsc")) {
         String value=(String)reqmap.get("orderByAsc");
