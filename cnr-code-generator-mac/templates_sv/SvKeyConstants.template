@@ -1,0 +1,42 @@
+package com.ai.cnr.__project__.rest.__package__.constants;
+
+
+/**
+ * @Title: __SvKey__Constants
+ * @Description: __SvKey__Constants
+ * @Date:
+ * @Author: __author__
+ */
+public class __SvKey__Constants {
+
+	public __SvKey__Constants(){}
+
+	/**
+	 * 主键序列名称
+	 */
+	public static final String SEQ_NAME="";
+
+	/**
+	 * 通用
+	 */
+	public static class Common {
+		public static final String ZERO="0";
+		public static final String ONE="1";
+	}
+
+	/**
+	 * AAA
+	 */
+	public static class AAA {
+		/**
+		 * BBB
+		 */
+		public static final String AAA_BBB="";
+
+		/**
+		 * CCC
+		 */
+		public static final String AAA_CCC="";
+	}
+
+}

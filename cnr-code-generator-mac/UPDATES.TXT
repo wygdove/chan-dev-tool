@@ -1,0 +1,6 @@
+
+====== v1.0 ======
+copy cnr-code-generator-mac from chan-code-generator
+modify getBovos to a better way
+add overwritten config
+add config note

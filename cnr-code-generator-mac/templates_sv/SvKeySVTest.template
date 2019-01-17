@@ -1,0 +1,87 @@
+package com.ai.cnr.__project__.test.__package__;
+
+import com.ai.channel.base.vo.BaseResponse;
+import com.ai.channel.base.vo.PageArg;
+import com.ai.channel.base.vo.PageResult;
+import com.ai.cnr.__project__.rest.__package__.param.__SvKey__QueryRequest;
+import com.ai.cnr.__project__.rest.__package__.param.__SvKey__SaveRequest;
+import com.ai.cnr.__project__.rest.__package__.vo.__SvKey__DetailVO;
+import com.ai.cnr.__project__.rest.__package__.vo.__SvKey__ItemVO;
+import com.ai.cnr.__project__.service.business.interfaces.I__SvKey__BusiSV;
+import com.ai.cnr.__project__.test.BaseTest;
+import java.util.List;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ * @Title: __SvKey__SVTest
+ * @Description: __SvKey__SVTest
+ * @Date:
+ * @Author: __author__
+ */
+public class __SvKey__SVTest {
+
+	@Autowired
+	private I__SvKey__BusiSV __svKey__BusiSV;
+
+	@Ignore
+	@Test
+	public void add() {
+		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
+		BaseResponse<Long> response=__svKey__BusiSV.add__SvKey__(request);
+		print(response);
+	}
+
+	@Ignore
+	@Test
+	public void update() {
+		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
+		BaseResponse<Long> response=__svKey__BusiSV.update__SvKey__(request);
+		print(response);
+	}
+
+	@Ignore
+	@Test
+	public void delete() {
+		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
+		BaseResponse<Long> response=__svKey__BusiSV.delete__SvKey__(request);
+		print(response);
+	}
+
+	@Ignore
+	@Test
+	public void queryDetail() {
+		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
+		BaseResponse<__SvKey__DetailVO> response=__svKey__BusiSV.queryDetail__SvKey__(request);
+		print(response);
+	}
+
+	@Ignore
+	@Test
+	public void queryList() {
+		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
+		BaseResponse<List<__SvKey__ItemVO>> response=__svKey__BusiSV.queryList__SvKey__(request);
+		print(response);
+	}
+
+	@Ignore
+	@Test
+	public void queryPage() {
+		int pageNum=1;
+		int pageSize=3;
+		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
+		request.setPage(new PageArg(pageNum,pageSize));
+		BaseResponse<PageResult<__SvKey__ItemVO>> response=__svKey__BusiSV.queryPage__SvKey__(request);
+		print(response);
+	}
+
+	@Ignore
+	@Test
+	public void count() {
+		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
+		BaseResponse<Long> response=__svKey__BusiSV.count__SvKey__(request);
+		print(response);
+	}
+
+}

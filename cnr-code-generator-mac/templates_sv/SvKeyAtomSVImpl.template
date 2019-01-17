@@ -1,0 +1,122 @@
+package com.ai.cnr.__project__.service.atom.impl;
+
+import com.ai.channel.base.vo.PageResult;
+import com.ai.channel.common.util.CollectionUtil;
+import com.ai.channel.common.util.StringUtil;
+import com.ai.cnr.__project__.rest.__package__.constants.__SvKey__Constants;
+import com.ai.cnr.__project__.service.atom.dao.mapper.bo.__BoKey__;
+import com.ai.cnr.__project__.service.atom.dao.mapper.bo.__BoKey__Example;
+import com.ai.cnr.__project__.service.atom.dao.mapper.interfaces.__BoKey__Mapper;
+import com.ai.cnr.__project__.service.atom.interfaces.I__BoKey__AtomSV;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+/**
+ * @Title: __SvKey__AtomSVImpl
+ * @Description: __SvKey__AtomSVImpl
+ * @Date:
+ * @Author: __author__
+ */
+@Component
+public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
+
+	@Autowired
+	private __BoKey__Mapper __boKey__Mapper;
+
+	@Override
+	public long getNewId() {
+		return SeqUtil.getNewId(__SvKey__Constants.SEQ_NAME);
+	}
+
+	@Override
+	public int add(__BoKey__ request) {
+		return __boKey__Mapper.insert(request);
+	}
+
+	@Override
+	public int update(__BoKey__ request) {
+		return __boKey__Mapper.updateByPrimaryKeySelective(request);
+	}
+
+	@Override
+	public int delete(__BoKey__ request) {
+		__BoKey__Example example=this.getExample(request,null);
+		return __boKey__Mapper.deleteByExample(example);
+	}
+
+	@Override
+	public __BoKey__ queryById(Long id) {
+		return __boKey__Mapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public __BoKey__ queryOne(__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__ bean=null;
+		__BoKey__Example example=this.getExample(request,reqmap);
+		List<__BoKey__> beans=__boKey__Mapper.selectByExampleWithBLOBs(example);
+		if(!CollectionUtil.isEmpty(beans)&&beans.get(0)!=null) {
+			bean=beans.get(0);
+		}else {
+			bean=new __BoKey__();
+		}
+		return bean;
+	}
+
+	@Override
+	public List<__BoKey__> queryList(__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__Example example=this.getExample(request,reqmap);
+		return __boKey__Mapper.selectByExampleWithBLOBs(example);
+	}
+
+	@Override
+	public PageResult<__BoKey__> queryPage(__BoKey__ request,Map<String,Object> reqmap,int pageNo,int pageSize) {
+		PageResult<__BoKey__> pageResult=new PageResult<>();
+		List<__BoKey__> result=new ArrayList<>();
+		__BoKey__Example example=this.getExample(request,reqmap);
+		PageHelper.startPage(pageNo,pageSize);
+		try {
+			result=__boKey__Mapper.selectByExampleWithBLOBs(example);
+		} finally {
+			PageHelper.clearPage();
+		}
+		pageResult.setResult(result);
+		pageResult.setSuccess(Boolean.TRUE);
+		pageResult.setPageNum(pageNo);
+		pageResult.setPageSize(pageSize);
+		pageResult.setCount(((Page<__BoKey__>)result).getTotal());
+		return pageResult;
+	}
+
+	@Override
+	public Long count(__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__Example example=this.getExample(request,reqmap);
+		return __boKey__Mapper.countByExample(example);
+	}
+
+	private __BoKey__Example getExample(__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__Example example=new __BoKey__Example();
+		__BoKey__Example.Criteria criteria=example.createCriteria();
+		if(request!=null) {
+__AddCriteria__
+		}
+		if(reqmap!=null) {
+			if(reqmap.containsKey("stateIn")) {
+				List<String> values=(List<String>)reqmap.get("stateIn");
+				criteria.andStateIn(values);
+			}
+
+
+			if(reqmap.containsKey("orderByClause")) {
+				String orderByClause=(String)reqmap.get("orderByClause");
+				example.setOrderByClause(orderByClause);
+			}
+		}
+		return example;
+	}
+
+}

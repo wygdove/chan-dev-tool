@@ -1,0 +1,61 @@
+[
+
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/rest/__package__/constants/",
+    "filename": "__SvKey__Constants.java",
+    "template": "/templates_sv/SvKeyConstants"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/rest/__package__/param/",
+    "filename": "__SvKey__QueryRequest.java",
+    "template": "/templates_sv/SvKeyQueryRequest"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/rest/__package__/param/",
+    "filename": "__SvKey__SaveRequest.java",
+    "template": "/templates_sv/SvKeySaveRequest"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/rest/__package__/vo/",
+    "filename": "__SvKey__DetailVo.java",
+    "template": "/templates_sv/SvKeyDetailVo"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/rest/__package__/vo/",
+    "filename": "__SvKey__ItemVo.java",
+    "template": "/templates_sv/SvKeyItemVo"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/service/atom/interfaces/",
+    "filename": "I__SvKey__AtomSV.java",
+    "template": "/templates_sv/ISvKeyAtomSV"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/service/atom/impl/",
+    "filename": "__SvKey__AtomSVImpl.java",
+    "template": "/templates_sv/SvKeyAtomSVImpl"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/service/business/interfaces/",
+    "filename": "I__SvKey__BusiSV.java",
+    "template": "/templates_sv/ISvKeyBusiSV"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/main/java/com/ai/cnr/__project__/service/business/impl/",
+    "filename": "__SvKey__BusiSVImpl.java",
+    "template": "/templates_sv/SvKeyBusiSVImpl"
+  },
+  {
+    "filepath": "/../cnr-__project__-srv/src/test/java/com/ai/cnr/__project__/test/__package__/",
+    "filename": "__SvKey__SVTest.java",
+    "template": "/templates_sv/SvKeySVTest"
+  },
+,
+
+
+  {
+    "filepath": "/../cnr-__project__-srv/src/test/java/test/com/ai/cnr/__project__/",
+    "filename": "__SvKey__CSVTest.java",
+    "template": "/templates_sv/SvKeyCSVTest"
+  }
+]

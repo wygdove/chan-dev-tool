@@ -1,0 +1,34 @@
+package com.ai.cnr.__project__.service.atom.interfaces;
+
+import com.ai.channel.base.vo.PageResult;
+import com.ai.cnr.__project__.service.atom.dao.mapper.bo.__BoKey__;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @Title: I__SvKey__AtomSV
+ * @Description: I__SvKey__AtomSV
+ * @Date:
+ * @Author: __author__
+ */
+public interface I__SvKey__AtomSV {
+
+	long getNewId();
+
+	int add(__BoKey__ request);
+
+	int update(__BoKey__ request);
+
+	int delete(__BoKey__ request);
+
+	__BoKey__ queryById(Long id);
+
+	__BoKey__ queryOne(__BoKey__ request,Map<String,Object> reqmap);
+
+	List<__BoKey__> queryList(__BoKey__ request,Map<String,Object> reqmap);
+
+	PageResult<__BoKey__> queryPage(__BoKey__ request,Map<String,Object> reqmap,int pageNo,int pageSize);
+
+	Long count(__BoKey__ request,Map<String,Object> reqmap);
+
+}

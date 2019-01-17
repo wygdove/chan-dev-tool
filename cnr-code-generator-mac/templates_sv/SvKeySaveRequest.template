@@ -1,0 +1,20 @@
+package com.ai.cnr.__project__.rest.__package__.param;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import java.io.Serializable;
+
+/**
+ * @Title: __SvKey__SaveRequest
+ * @Description: __SvKey__SaveRequest
+ * @Date:
+ * @Author: __author__
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class __SvKey__SaveRequest implements Serializable {
+
+__AddPropertyDefine__
+
+__AddGetterSetter__
+
+}

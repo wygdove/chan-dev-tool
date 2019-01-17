@@ -1,0 +1,115 @@
+    private Long woId;
+
+    private String procInstId;
+
+    private Long mainWoId;
+
+    private String mainProcInstId;
+
+    private String systemId;
+
+    private String woTitle;
+
+    private String woBigType;
+
+    private String woType;
+
+    private String operType;
+
+    private String state;
+
+    private String busiPkId;
+
+    private Long channelId;
+
+    private String channelCode;
+
+    private String dataMongodbId;
+
+    private Date applyDate;
+
+    private String applyOperId;
+
+    private String applyOperRealName;
+
+    private String operLevel;
+
+    private String updateDepartId;
+
+    private String updateOperId;
+
+    private Date updateTime;
+
+    private Date finishDate;
+
+    private String remark;
+
+    private String chlFirstKindId;
+
+    private String chlSecondKindId;
+
+    private String chlThirdKindId;
+
+    private String chlForthKindId;
+
+    private String chlKindId;
+
+    private String chlKindName;
+
+    private String deptId1;
+
+    private String deptId2;
+
+    private String deptId3;
+
+    private String deptId4;
+
+    private String deptId5;
+
+    private String deptId6;
+
+    private String deptId;
+
+    private String deptName;
+
+    private String admRegProvinceCode;
+
+    private String admRegCityCode;
+
+    private String admRegCountyCode;
+
+    private String admRegTownCode;
+
+    private String admRegVillageCode;
+
+    private String admRegCode;
+
+    private String admRegName;
+
+    private String busiRegProvinceCode;
+
+    private String busiRegCityCode;
+
+    private String busiRegCountyCode;
+
+    private String busiRegAreaCode;
+
+    private String busiRegGridCode;
+
+    private String busiRegMicroAreaCode;
+
+    private String busiRegCode;
+
+    private String busiRegName;
+
+    private String channelClass;
+
+    private String applyReason;
+
+    private String syncCrmFlag;
+
+    private BigDecimal scoreResult;
+
+    private String procDefKey;
+
+    private String extJson;

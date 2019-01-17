@@ -1,0 +1,20 @@
+package com.ai.cnr.__project__.rest.__package__.param;
+
+import com.ai.channel.base.vo.BaseInfo;
+import java.io.Serializable;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+/**
+ * @Title: __SvKey__QueryRequest
+ * @Description: __SvKey__QueryRequest
+ * @Date:
+ * @Author: __author__
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class __SvKey__QueryRequest extends BaseInfo implements Serializable {
+
+__AddPropertyDefine__
+
+__AddGetterSetter__
+
+}
