@@ -1,4 +1,4 @@
-package com.cmi.__project__.business.interfaces;
+package com.ai.cnr.__project__.service.business.interfaces;
 
 import com.ai.channel.base.vo.BaseResponse;
 import com.ai.channel.base.vo.PageResult;

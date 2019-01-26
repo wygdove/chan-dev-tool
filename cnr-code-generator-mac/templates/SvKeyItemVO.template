@@ -1,17 +1,18 @@
 package com.ai.cnr.__project__.rest.__package__.vo;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 import java.io.Serializable;
+import java.math.*;
+import java.util.*;
 
 /**
- * @Title: __SvKey__ItemVo
- * @Description: __SvKey__ItemVo
+ * @Title: __SvKey__ItemVO
+ * @Description: __SvKey__ItemVO
  * @Date:
  * @Author: __author__
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class __SvKey__ItemVo implements Serializable {
+public class __SvKey__ItemVO implements Serializable {
 
 __AddPropertyDefine__
 

@@ -3,6 +3,8 @@ package com.ai.cnr.__project__.rest.__package__.param;
 import com.ai.channel.base.vo.BaseInfo;
 import java.io.Serializable;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import java.math.*;
+import java.util.*;
 
 /**
  * @Title: __SvKey__QueryRequest
@@ -14,7 +16,11 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class __SvKey__QueryRequest extends BaseInfo implements Serializable {
 
 __AddPropertyDefine__
+	private String orderByClause;
 
 __AddGetterSetter__
+
+	public String getOrderByClause(){return orderByClause;}
+	public void setOrderByClause(String orderByClause){this.orderByClause=orderByClause;}
 
 }

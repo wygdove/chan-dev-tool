@@ -17,13 +17,13 @@
   },
   {
     "filepath": "/../cnr-demo-srv/src/main/java/com/ai/cnr/__project__/rest/__package__/vo/",
-    "filename": "__SvKey__DetailVo.java",
-    "template": "/templates/SvKeyDetailVo"
+    "filename": "__SvKey__DetailVO.java",
+    "template": "/templates/SvKeyDetailVO"
   },
   {
     "filepath": "/../cnr-demo-srv/src/main/java/com/ai/cnr/__project__/rest/__package__/vo/",
-    "filename": "__SvKey__ItemVo.java",
-    "template": "/templates/SvKeyItemVo"
+    "filename": "__SvKey__ItemVO.java",
+    "template": "/templates/SvKeyItemVO"
   },
   {
     "filepath": "/../cnr-demo-srv/src/main/java/com/ai/cnr/__project__/service/atom/interfaces/",

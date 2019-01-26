@@ -85,7 +85,7 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 			PageHelper.clearPage();
 		}
 		pageResult.setResult(result);
-		pageResult.setSuccess(Boolean.TRUE);
+		pageResult.setSuccess(!CollectionUtil.isEmpty(result));
 		pageResult.setPageNum(pageNo);
 		pageResult.setPageSize(pageSize);
 		pageResult.setCount(((Page<__BoKey__>)result).getTotal());

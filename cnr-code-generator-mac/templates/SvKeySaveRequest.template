@@ -1,8 +1,9 @@
 package com.ai.cnr.__project__.rest.__package__.param;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 import java.io.Serializable;
+import java.math.*;
+import java.util.*;
 
 /**
  * @Title: __SvKey__SaveRequest
