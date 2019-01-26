@@ -112,8 +112,8 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 			return response;
 		}
 		__BoKey__ bean=null;
-		if(request.getWoId()>0) {
-			bean=__svKey__AtomSV.queryById(request.getWoId());
+		if(request.getId()!=null&&request.getId()>0) {
+			bean=__svKey__AtomSV.queryById(request.getId());
 		}else {
 			__BoKey__ beanRequest=new __BoKey__();
 			BeanUtil.copyProperties(beanRequest,request);

@@ -1,0 +1,140 @@
+package com.ai.cnr.__project__.rest.__package__.api;
+
+import com.ai.channel.BusinessException;
+import com.ai.channel.SystemException;
+import com.ai.channel.base.BusinessConstants;
+import com.ai.channel.base.vo.BaseResponse;
+import com.ai.channel.base.vo.PageResult;
+import com.ai.cnr.__project__.rest.__package__.param.__SvKey__QueryRequest;
+import com.ai.cnr.__project__.rest.__package__.param.__SvKey__SaveRequest;
+import com.ai.cnr.__project__.rest.__package__.vo.__SvKey__DetailVO;
+import com.ai.cnr.__project__.rest.__package__.vo.__SvKey__ItemVO;
+import com.ai.cnr.__project__.service.business.interfaces.I__SvKey__BusiSV;
+import com.alibaba.fastjson.JSON;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @Title: __SvKey__Controller
+ * @Description: __SvKey__Controller
+ * @Date:
+ * @Author: __author__
+ */
+@Api(value="/api/__project__/__package__", description="/api/__project__/__package__")
+@RequestMapping("/api/__project__/__package__")
+@RestController
+public class __SvKey__Controller {
+  private static final Logger log=LoggerFactory.getLogger(__SvKey__Controller.class);
+
+  @Autowired
+  private I__SvKey__BusiSV __svKey__BusiSV;
+
+  @ApiOperation(value="/v1.0/save__SvKey__",httpMethod="POST",consumes="application/json")
+  @ApiResponse(code=200,message="success",response=String.class)
+  @PostMapping(value="/v1.0/save__SvKey__")
+  public BaseResponse<Long> save__SvKey__(@RequestBody __SvKey__SaveRequest request) {
+    log.info("controller:/__package__/v1.0/save__SvKey__");
+    log.info("/__package__/v1.0/save__SvKey__ request:{}",JSON.toJSONString(request));
+    BaseResponse<Long> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+    if(request==null) {
+      log.error("/__package__/v1.0/save__SvKey__ request is null");
+      return response;
+    }
+    try {
+      if(request.getId()==null||request.getId()<=0) {
+        response=__svKey__BusiSV.add__SvKey__(request);
+      }else {
+        response=__svKey__BusiSV.update__SvKey__(request);
+      }
+    }catch(BusinessException|SystemException e) {
+      log.error("/__package__/v1.0/save__SvKey__ error:"+e.getErrorMessage(),e);
+      response.setResultMessage(e.getErrorMessage());
+    }catch(Exception e) {
+      log.error("/__package__/v1.0/save__SvKey__ error:"+e.getMessage(),e);
+      response.setResultMessage(JSON.toJSONString(e.getMessage()));
+    }
+    log.info("/__package__/v1.0/save__SvKey__ response:{}",JSON.toJSONString(response));
+    return response;
+  }
+
+  @ApiOperation(value="/v1.0/delete__SvKey__",httpMethod="POST",consumes="application/json")
+  @ApiResponse(code=200,message="success",response=String.class)
+  @PostMapping(value="/v1.0/delete__SvKey__")
+  public BaseResponse<Long> delete__SvKey__(@RequestBody __SvKey__SaveRequest request) {
+    log.info("controller:/__package__/v1.0/delete__SvKey__");
+    log.info("/__package__/v1.0/delete__SvKey__ request:{}",JSON.toJSONString(request));
+    BaseResponse<Long> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+    if(request==null) {
+      log.error("/__package__/v1.0/delete__SvKey__ request is null");
+      return response;
+    }
+    try {
+      response=__svKey__BusiSV.delete__SvKey__(request);
+    }catch(BusinessException|SystemException e) {
+      log.error("/__package__/v1.0/delete__SvKey__ error:"+e.getErrorMessage(),e);
+      response.setResultMessage(e.getErrorMessage());
+    }catch(Exception e) {
+      log.error("/__package__/v1.0/delete__SvKey__ error:"+e.getMessage(),e);
+      response.setResultMessage(JSON.toJSONString(e.getMessage()));
+    }
+    log.info("/__package__/v1.0/delete__SvKey__ response:{}",JSON.toJSONString(response));
+    return response;
+  }
+
+  @ApiOperation(value="/v1.0/queryDetail__SvKey__",httpMethod="POST",consumes="application/json")
+  @ApiResponse(code=200,message="success",response=String.class)
+  @PostMapping(value="/v1.0/queryDetail__SvKey__")
+  public BaseResponse<__SvKey__DetailVO> queryDetail__SvKey__(@RequestBody __SvKey__QueryRequest request) {
+    log.info("controller:/__package__/v1.0/queryDetail__SvKey__");
+    log.info("/__package__/v1.0/queryDetail__SvKey__ request:{}",JSON.toJSONString(request));
+    BaseResponse<__SvKey__DetailVO> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+    if(request==null) {
+      log.error("/__package__/v1.0/queryDetail__SvKey__ request is null");
+      return response;
+    }
+    try {
+      response=__svKey__BusiSV.queryDetail__SvKey__(request);
+    }catch(BusinessException|SystemException e) {
+      log.error("/__package__/v1.0/queryDetail__SvKey__ error:"+e.getErrorMessage(),e);
+      response.setResultMessage(e.getErrorMessage());
+    }catch(Exception e) {
+      log.error("/__package__/v1.0/queryDetail__SvKey__ error:"+e.getMessage(),e);
+      response.setResultMessage(JSON.toJSONString(e.getMessage()));
+    }
+    log.info("/__package__/v1.0/queryDetail__SvKey__ response:{}",JSON.toJSONString(response));
+    return response;
+  }
+
+  @ApiOperation(value="/v1.0/queryPage__SvKey__",httpMethod="POST",consumes="application/json")
+  @ApiResponse(code=200,message="success",response=String.class)
+  @PostMapping(value="/v1.0/queryPage__SvKey__")
+  public BaseResponse<PageResult<__SvKey__ItemVO>> queryPage__SvKey__(@RequestBody __SvKey__QueryRequest request) {
+    log.info("controller:/__package__/v1.0/queryPage__SvKey__");
+    log.info("/__package__/v1.0/queryPage__SvKey__ request:{}",JSON.toJSONString(request));
+    BaseResponse<PageResult<__SvKey__ItemVO>> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+    if(request==null||request.getPage()==null) {
+      log.error("/__package__/v1.0/queryPage__SvKey__ request is null");
+      return response;
+    }
+    try {
+      response=__svKey__BusiSV.queryPage__SvKey__(request);
+    }catch(BusinessException|SystemException e) {
+      log.error("/__package__/v1.0/queryPage__SvKey__ error:"+e.getErrorMessage(),e);
+      response.setResultMessage(e.getErrorMessage());
+    }catch(Exception e) {
+      log.error("/__package__/v1.0/queryPage__SvKey__ error:"+e.getMessage(),e);
+      response.setResultMessage(JSON.toJSONString(e.getMessage()));
+    }
+    log.info("/__package__/v1.0/queryPage__SvKey__ response:{}",JSON.toJSONString(response));
+    return response;
+  }
+
+}
