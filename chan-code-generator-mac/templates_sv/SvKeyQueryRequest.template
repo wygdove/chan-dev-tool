@@ -1,0 +1,27 @@
+package com.ai.channel.__project__.api.__package__.param;
+
+import java.io.Serializable;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import com.ai.channel.base.vo.BaseInfo;
+
+/**
+ * __SvKey__QueryRequest.java
+ *
+ *
+ * @date
+ * @author __author__
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class __SvKey__QueryRequest extends BaseInfo implements Serializable {
+
+__AddPropertyDefine__
+	private String orderByClause;
+
+__AddGetterSetter__
+
+	public String getOrderByClause(){return orderByClause;}
+	public void setOrderByClause(String orderByClause){this.orderByClause=orderByClause;}
+
+}

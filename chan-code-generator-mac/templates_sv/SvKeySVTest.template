@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ai.channel.__project__.api.__package__.interfaces.I__SvKey__SV;
-import com.ai.channel.__project__.api.__package__.param.Query__SvKey__Request;
-import com.ai.channel.__project__.api.__package__.param.Save__SvKey__Request;
+import com.ai.channel.__project__.api.__package__.param.__SvKey__QueryRequest;
+import com.ai.channel.__project__.api.__package__.param.__SvKey__SaveRequest;
 import com.ai.channel.__project__.api.__package__.vo.__SvKey__DetailVo;
 import com.ai.channel.__project__.api.__package__.vo.__SvKey__ItemVo;
 import com.ai.channel.base.vo.BaseResponse;
@@ -30,21 +30,21 @@ public class __SvKey__SVTest extends BaseTest {
 
 	@Test
 	public void add() {
-		Save__SvKey__Request request=new Save__SvKey__Request();
+		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
 		BaseResponse<String> response=__svKey__SV.add__SvKey__(request);
 		print(response);
 	}
 
 	@Test
 	public void update() {
-		Save__SvKey__Request request=new Save__SvKey__Request();
+		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
 		BaseResponse<String> response=__svKey__SV.update__SvKey__(request);
 		print(response);
 	}
 
 	@Test
 	public void delete() {
-		Save__SvKey__Request request=new Save__SvKey__Request();
+		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
 		BaseResponse<String> response=__svKey__SV.delete__SvKey__(request);
 		print(response);
 	}
@@ -53,21 +53,21 @@ public class __SvKey__SVTest extends BaseTest {
 
 	@Test
 	public void queryDetail() {
-		Query__SvKey__Request request=new Query__SvKey__Request();
+		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
 		BaseResponse<__SvKey__DetailVo> response=__svKey__SV.queryDetail__SvKey__(request);
 		print(response);
 	}
 
 	@Test
 	public void queryList() {
-		Query__SvKey__Request request=new Query__SvKey__Request();
+		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
 		BaseResponse<List<__SvKey__ItemVo>> response=__svKey__SV.queryList__SvKey__(request);
 		print(response);
 	}
 
 	@Test
 	public void queryPage() {
-		Query__SvKey__Request request=new Query__SvKey__Request();
+		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
 		request.setPage(new PageArg(1,10));
 		BaseResponse<PageResult<__SvKey__ItemVo>> response=__svKey__SV.queryPage__SvKey__(request);
 		print(response);

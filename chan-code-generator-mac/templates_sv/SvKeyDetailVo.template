@@ -5,13 +5,17 @@ import java.io.Serializable;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
- * __SvKey__ItemVo.java
+ * __SvKey__DetailVo.java
  *
  *
  * @date
  * @author __author__
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class __SvKey__ItemVo implements Serializable {
-__SetVosvs__
+public class __SvKey__DetailVo implements Serializable {
+
+__AddPropertyDefine__
+
+__AddGetterSetter__
+
 }

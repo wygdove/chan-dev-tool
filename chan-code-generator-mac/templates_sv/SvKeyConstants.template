@@ -8,8 +8,8 @@ package com.ai.channel.__project__.api.__package__.constants;
  * @author __author__
  */
 public class __SvKey__Constants {
-	public __SvKey__Constants(){}
-	
+	private __SvKey__Constants(){}
+
 	
 	
 }

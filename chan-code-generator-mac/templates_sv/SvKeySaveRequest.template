@@ -4,16 +4,18 @@ import java.io.Serializable;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-import com.ai.channel.base.vo.BaseInfo;
-
 /**
- * Query__SvKey__Request.java
+ * __SvKey__SaveRequest.java
  *
  *
  * @date
  * @author __author__
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Query__SvKey__Request extends BaseInfo implements Serializable {
-__SetVosvs__
+public class __SvKey__SaveRequest implements Serializable {
+
+__AddPropertyDefine__
+
+__AddGetterSetter__
+
 }

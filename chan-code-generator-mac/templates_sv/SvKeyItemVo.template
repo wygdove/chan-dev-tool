@@ -1,17 +1,21 @@
-package com.ai.channel.__project__.api.__package__.param;
+package com.ai.channel.__project__.api.__package__.vo;
 
 import java.io.Serializable;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
- * Save__SvKey__Request.java
+ * __SvKey__ItemVo.java
  *
  *
  * @date
  * @author __author__
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Save__SvKey__Request implements Serializable {
-__SetVosvs__
+public class __SvKey__ItemVo implements Serializable {
+
+__AddPropertyDefine__
+
+__AddGetterSetter__
+
 }

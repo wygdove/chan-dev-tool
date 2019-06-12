@@ -3,11 +3,11 @@ package com.ai.channel.__project__.service.atom.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ai.channel.common.util.CollectionUtil;
+import com.ai.channel.common.util.StringUtil;
 import com.ai.channel.__project__.dao.mapper.bo.__BoKey__;
 import com.ai.channel.__project__.dao.mapper.bo.__BoKey__Example;
 import com.ai.channel.__project__.dao.mapper.interfaces.__BoKey__Mapper;
@@ -58,7 +58,7 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 		__BoKey__Example example=new __BoKey__Example();
 		__BoKey__Example.Criteria criteria=example.createCriteria();
 		if(request!=null) {
-		    __SetBoatoms__
+__AddCriteria__
 		}
 		if(reqmap!=null) {
 			if(reqmap.containsKey("codes")) {
@@ -67,6 +67,8 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 //				criteria.andCodeIn(values);
 			}
 		}
+
+
 		if(reqmap!=null&&reqmap.containsKey("orderByClause")) {
 			String value=(String)reqmap.get("orderByClause");
 			example.setOrderByClause(value);

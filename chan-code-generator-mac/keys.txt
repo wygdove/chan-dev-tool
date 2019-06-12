@@ -1,10 +1,18 @@
-__author__=oule
+# 文件存在时是否重写文件内容（为true时重写文件内容，其他生成.temp文件）
+__overwritten__=true
 
-__datebase__=
-__table__=
+# 作者
+__author__=wygdove
 
-__project__=sys
-__package__=sysbusiareamap
-__SvKey__=SysBusiAreaMap
-__BoKey__=SysBusiAreaMap
+# 工程标识
+__project__=index
+
+# 包名
+__package__=kpiallocatedetail
+
+# 服务关键字
+__SvKey__=KpiAllocateDetail
+
+# 数据库映射对象实例
+__BoKey__=OpsDKpiAllocateDetail
 
