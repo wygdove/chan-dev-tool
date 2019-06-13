@@ -1,0 +1,165 @@
+package com.ai.channel.__project__.web.controller.__package__;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.ai.channel.base.BusinessConstants;
+import com.ai.channel.base.vo.BaseResponse;
+import com.ai.channel.base.vo.PageArg;
+import com.ai.channel.base.vo.PageResult;
+import com.ai.channel.common.dubbo.util.DubboConsumerFactory;
+import com.ai.channel.common.util.CollectionUtil;
+import com.ai.channel.common.util.StringUtil;
+import com.ai.channel.__project__.api.__package__.interfaces.I__SvKey__SV;
+import com.ai.channel.__project__.api.__package__.param.__SvKey__QueryRequest;
+import com.ai.channel.__project__.api.__package__.param.__SvKey__SaveRequest;
+import com.ai.channel.__project__.api.__package__.vo.__SvKey__DetailVo;
+import com.ai.channel.__project__.api.__package__.vo.__SvKey__ItemVo;
+import com.ai.channel.__project__.api.__package__.constants.__SvKey__Constants;
+import com.ai.channel.__project__.web.utils.SessionUserUtil;
+import com.ai.channel.sso.module.SessionUser;
+import com.alibaba.fastjson.JSON;
+
+/**
+ * __SvKey__Controller.java
+ * 
+ * 
+ * @date 
+ * @author __author__
+ */
+@Controller
+@RequestMapping("/__svkey__")
+public class __SvKey__Controller {
+	private static final Logger log=LoggerFactory.getLogger(__SvKey__Controller.class);
+	
+	@RequestMapping("/to__SvKey__List")
+    public String to__SvKey__List(HttpServletRequest request,Model model) {
+    	log.info("controller:/__svkey__/to__SvKey__List");
+    	return "__svkey__/__svkey__list";
+    }
+	
+	@RequestMapping("/to__SvKey__Save")
+    public String to__SvKey__Save(String itemId,Model model) {
+    	log.info("controller:/__svkey__/to__SvKey__Save");
+    	itemId=StringUtil.isBlank(itemId)?"":itemId;
+    	log.info("/__svkey__/to__SvKey__Save itemId: {}",itemId);
+    	model.addAttribute("itemId",itemId);
+    	return "__svkey__/__svkey__save";
+    }
+	
+	@RequestMapping("/to__SvKey__Detail")
+	public String to__SvKey__Detail(String itemId,Model model) {
+		log.info("controller:/__svkey__/to__SvKey__Detail");
+		itemId=StringUtil.isBlank(itemId)?"":itemId;
+		log.info("/__svkey__/to__SvKey__Detail itemId: {}",itemId);
+		model.addAttribute("itemId",itemId);
+		return "__svkey__/__svkey__detail";
+	}
+	
+	
+	
+	@RequiresPermissions("__project__:__svkey__:__svKey__Save")
+	@RequestMapping("__svKey__Save")
+    @ResponseBody
+    public BaseResponse<String> __svKey__Save(HttpServletRequest request,__SvKey__SaveRequest saveRequest) {
+    	log.info("controller:/__svkey__/__svKey__Save");
+    	BaseResponse<String> response=new BaseResponse<>();
+    	I__SvKey__SV __svKey__SV=DubboConsumerFactory.getService(I__SvKey__SV.class);
+    	SessionUser sessionUser=SessionUserUtil.getSessionUser();
+    	saveRequest.setUserId(sessionUser.getUserName());
+		if(log.isInfoEnabled()) log.info("/__svkey__/save saveRequest: {}",JSON.toJSONString(saveRequest));
+		if(StringUtil.isBlank(saveRequest.getId())) {
+			response=__svKey__SV.add__SvKey__(saveRequest);
+		}else {
+			response=__svKey__SV.update__SvKey__(saveRequest);
+		}
+		if(log.isInfoEnabled()) log.info("/__svkey__/__svKey__Save response: {}",JSON.toJSONString(response));
+    	return response;
+    }
+	
+	
+	@RequiresPermissions("__project__:__svkey__:__svKey__Delete")
+	@RequestMapping("__svKey__Delete")
+    @ResponseBody
+    public BaseResponse<String> __svKey__Delete(HttpServletRequest request,__SvKey__SaveRequest saveRequest) {
+    	log.info("controller:/__svkey__/__svKey__Delete");
+    	I__SvKey__SV __svKey__SV=DubboConsumerFactory.getService(I__SvKey__SV.class);
+    	SessionUser sessionUser=SessionUserUtil.getSessionUser();
+    	saveRequest.setUserId(sessionUser.getUserName());
+    	saveRequest.setDelflag(__SvKey__Constants.DelFlag.DEL_YES);
+		if(log.isInfoEnabled()) log.info("/__svkey__/__svKey__Delete saveRequest: {}",JSON.toJSONString(saveRequest));
+		BaseResponse<String> response=__svKey__SV.delete__SvKey__(saveRequest);
+		if(log.isInfoEnabled()) log.info("/__svkey__/__svKey__Delete response: {}",JSON.toJSONString(response));
+    	return response;
+    }
+	
+	
+	@RequestMapping("query__SvKey__Detail")
+    @ResponseBody
+    public BaseResponse<__SvKey__DetailVo> query_SvKey__Detail(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+    	log.info("controller:/__svkey__/query__SvKey__Detail");
+    	I__SvKey__SV __svKey__SV=DubboConsumerFactory.getService(I__SvKey__SV.class);
+		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__Detail queryRequest: {}",JSON.toJSONString(queryRequest));
+		BaseResponse<__SvKey__DetailVo> response=__svKey__SV.queryDetail__SvKey__(queryRequest);
+		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__Detail response: {}",JSON.toJSONString(response));
+    	return response;
+    }
+	
+	
+	@RequestMapping("query__SvKey__PageList")
+    @ResponseBody
+    public BaseResponse<PageResult<__SvKey__ItemVo>> query__SvKey__PageList(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+    	log.info("controller:/__svkey__/query__SvKey__PageList");
+    	SessionUser sessionUser=SessionUserUtil.getSessionUser();
+		queryRequest=this.setQueryUser(sessionUser,queryRequest);
+		if(queryRequest==null) {
+			return new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,"错误：用户没有权限！");
+		}
+    	I__SvKey__SV __svKey__SV=DubboConsumerFactory.getService(I__SvKey__SV.class);
+    	int pageNo=1,pageSize=5;
+        try{ pageNo=Integer.parseInt(request.getParameter("pageNo"));
+        	pageSize=Integer.parseInt(request.getParameter("pageSize"));
+        }catch(Exception e) {pageNo=1;pageSize=5;}
+		queryRequest.setPage(new PageArg(pageNo,pageSize));
+		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__PageList queryRequest: {}",JSON.toJSONString(queryRequest));
+		BaseResponse<PageResult<__SvKey__ItemVo>> response=__svKey__SV.queryPage__SvKey__(queryRequest);
+		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__PageList response: {}",JSON.toJSONString(response));
+    	return response;
+    }
+	@RequestMapping("query__SvKey__List")
+    @ResponseBody
+    public BaseResponse<List<__SvKey__ItemVo>> query__SvKey__List(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+    	log.info("controller:/__svkey__/query__SvKey__List");
+    	I__SvKey__SV __svKey__SV=DubboConsumerFactory.getService(I__SvKey__SV.class);
+    	SessionUser sessionUser=SessionUserUtil.getSessionUser();
+		queryRequest=this.setQueryUser(sessionUser,queryRequest);
+		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__List queryList: {}",JSON.toJSONString(queryRequest));
+		BaseResponse<List<__SvKey__ItemVo>> response=__svKey__SV.queryList__SvKey__(queryRequest);
+		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__List response: {}",JSON.toJSONString(response));
+    	return response;
+    }
+	private __SvKey__QueryRequest setQueryUser(SessionUser sessionUser,__SvKey__QueryRequest request) {
+		List<UserBusiAreaVO> userBusiRegList=sessionUser.getUserBusiRegList();
+		if(log.isInfoEnabled()) log.info("/__svkey__/setQueryUser userBusiRegList: {}",JSON.toJSONString(userBusiRegList));
+		List<String> rolenames=sessionUser.getRolenames();
+		if(log.isInfoEnabled()) log.info("/__svkey__/setQueryUser rolenames: {}",JSON.toJSONString(rolenames));
+		if(!CollectionUtil.isEmpty(userBusiRegList)&&!CollectionUtil.isEmpty(rolenames)) {
+			
+		}else {
+			request=null;
+		}
+		return request;
+	}
+
+
+}

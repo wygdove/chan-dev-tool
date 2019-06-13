@@ -1,0 +1,81 @@
+/**
+ * @Title: /__svkey__/__svkey__save.js
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+define('app/jsp/__svkey__/__svkey__save',function(require,exports,module) {
+    'use strict';
+    var $=require('jquery'),
+        Widget=require('arale-widget/1.2.0/widget'),
+        Dialog=require("app/common/ai-dialog/src/dialog"),
+        AjaxController=require('app/common/ai-ajax/1.0.0/index');
+    require("jsviews/jsrender.min");
+    require("jsviews/jsviews.min");
+    require("app/util/jsviews-ext");
+    require("jquery-validation/1.15.1/jquery.validate");
+    require("app/util/jquery-validate-ext");
+    require("app/common/ai-paging/ai.pagination");
+    require("app/util/jquery.dotdotdot");
+    require("webuploader/webuploader");
+    var CommonUtil=require('app/util/common-util');
+    var IEPlaceHolder=require("app/jsp/layout/ieplaceholder");
+    var iePlaceHolder=new IEPlaceHolder();
+    var ajaxController=new AjaxController();
+    var HEIGHT=25;
+    var that=null;
+
+
+    require('app/jsp/__svkey__/__svkey__saveframe');
+    var __SvKey__SaveFramePager;
+    seajs.use(['app/jsp/__svkey__/__svkey__saveframe'],function(__svKey__SaveFramePager) {
+        __SvKey__SaveFramePager=new __svKey__SaveFramePager({element:document.body});
+    });
+
+
+
+    var __svKey__SavePager=Widget.extend({
+        attrs:{clickId:""},
+        Statics:{DEFAULT_PAGE_SIZE:10},
+        events:{
+            "click #save__SvKey__Btn":"_saveItem"
+        },
+        setup:function() {
+            that=this;
+            if(!CommonUtil.isNullStr(itemId)) {
+                $("#navName").text("修改");
+                $("#topName").text("修改");
+            }
+            that._initEvent();
+            __SvKey__SaveFramePager._initFrame(itemId);
+            __SvKey__SaveFramePager._initUploadFile(itemId);
+            iePlaceHolder._placeholder();
+        },
+        _initEvent:function() {
+        },
+        _saveItem:function() {
+            var saveData=__SvKey__SaveFramePager._getSaveData();
+            if(saveData=='') return;
+            saveData.operId=userName;
+            saveData.applyOperName=userName;
+            saveData.applyOperRealName=userRealName;
+            console.log(saveData);
+            $("#save-btn").attr('disabled',"true");
+            ajaxController.ajax({
+                type:"post",processing:true,
+                url:_base+"/chlsocialstaff/saveDraftSocialStaff",
+                data:{"saveRequestStr":JSON.stringify(saveData)},
+                success:function(data) {
+                    console.log(data);
+                    if(data!=null&&data.resultCode=="000000"&&data.result!=null) {
+                        window.location.href='to__SvKey__Save'
+                    }else {
+                        CommonUtil.showWarn(data.resultMessage);
+                    }
+                }
+            });
+        }
+
+    });
+    module.exports=__svKey__SavePager;
+});

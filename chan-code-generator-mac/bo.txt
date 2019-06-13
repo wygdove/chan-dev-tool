@@ -1,9 +1,19 @@
-    private Long kpiDetailId;
+    private Long kpiAllocateId;
 
-    private String kpiAllocateId;
+    private String kpiAllocateCode;
 
-    private String kpiKindId;
-
-    private String kpiKindLevel;
+    private String kpiAllocateName;
 
     private String state;
+
+    private Integer weight;
+
+    private String createUser;
+
+    private Date createDate;
+
+    private String updateUser;
+
+    private Date updateDate;
+
+    private String remark;

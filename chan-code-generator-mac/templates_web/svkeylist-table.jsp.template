@@ -1,9 +1,9 @@
-<!-- 
-@filename: 
-@author: wygdove
-@date: 
-@update: 
--->
+<%--
+ * @Title: /__svkey__/__svkey__list.jsp
+ * @Description:
+ * @Date:
+ * @Author: __author__
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
 <html>
@@ -18,8 +18,8 @@
 <body>
 	<div class="l-crm">
 		<p><a href="${_base}/goHome">门户</a>></p>
-		<p><a href="${_base}/"></a>></p>
-		<p><a href="${_base}/__svkey__/index"></a></p>
+		<p><a href="${_base}/"></a>>模块</p>
+		<p><a href="${_base}/__svkey__/to__SvKey__List">列表</a></p>
 	</div>
 	<div class="l-bd">
 		<div id="funtabs" class="trading-tab seven-tab">
@@ -29,14 +29,6 @@
 					<li class="rt"><p>信息</p><p class="line"></p></li>
 				</a>
 			</ul>
-			<shiro:hasPermission name="__project__:__svkey__:save">
-				<ul class="ml-10">
-					<a href="${_base}/__svkey__/toSave">
-						<li class="bj"><i class="icon iconfont">&#xe641;</i></li>
-						<li class="rt"><p>新增</p><p class="line"></p></li>
-					</a>
-				</ul>
-			</shiro:hasPermission>
 		</div>
 		<div class="m-trk-sch">
 			<div class="m-trk-tt">
@@ -48,6 +40,11 @@
 						<a id="fuzzyquery" href="#" title="搜索"><i class="icon iconfont">&#xe65e;</i></a>
 					</span>
 					<span class="gj">高级搜索<i class="icon-double-angle-down"></i></span>
+					<shiro:hasPermission name="__project__:__svkey__:__svKey__Save">
+						<span><input type="button" style="margin-left: 10%;" class="btn btn-primary"
+							onclick="javascript:window.location.href='to__SvKey__Save'"
+							value="新增" /></span>
+					</shiro:hasPermission>
 				</p>
 			</div>
 			<div class="m-xd-warp">
@@ -58,20 +55,31 @@
 							<p><input id="searchName" name="searchName" type="text" class="int-text int180" /></p>
 						</li>
 						<li>
-							<p class="bt">网格所属区县：</p>
+							<p class="bt">所属区县：</p>
 							<p><select id="searchBusiRegCounty" name="searchBusiRegCounty" class="select select-180"></select></p>
 						</li>
 						<li><a id="highquery" href="#" class="btn btn-green btn40"><i class="icon iconfont">&#xe669;</i></a></li>
 					</ul>
 				</div>
-				<div class="sh-ct-nb">
-					<div class="m-trk-lst pd-0" id="item-list"></div>
-					<div class="m-pag">
-						<div class="paging paging-large">
-							<ul id="item-pagination"></ul>
-						</div>
+				<div class="m-tab mt-10">
+					<table class="table table-border table-bg table-hover">
+						<thead>
+							<tr>
+								<th class="text-l pl-10">编码</th>
+								<th class="text-l">名称</th>
+								<th class="text-l">状态</th>
+								<th class="text-c" width="10%">操作区</th>
+							</tr>
+						</thead>
+						<tbody id="__svkey__-list">
+						</tbody>
+					</table>
+				</div>
+				<div class="m-pag">
+					<div class="paging paging-large">
+						<ul id="__svkey__-list-pagination"></ul>
 					</div>
-					<div id="item-showMessage"></div>
+					<div id="__svkey__-list-showMessage"></div>
 				</div>
 			</div>
 		</div>
@@ -83,16 +91,29 @@
 	<option value="{{:code }}">{{:name }}</option>
 {{/for}}
 </script>
-<script id="itemTmpl" type="text/x-jsrender">
+<script id="__svKey__Tmpl" type="text/x-jsrender">
 {{for}}
-	<div class="m-trk-lst-ct backnone bb-none">
-		<div class="m-starsh-lst mb-u">
-			<ul>
-				<li class="x-wh pl-10"><p class="">编码：</p><p>{{:Code}}</p></li>
-				<li class="x-wh"><p class="">归属区县：</p><p>{{:busiRegCountyName}}</p></li>
-			</ul>
-		</div>
-	</div>
+	<tr>
+		<td class="text-l pl-10">{{:code }}</td>
+		<td class="text-l">{{:nname }}</td>
+		<td class="text-l">
+		    {{if state=='0' }}失效
+		    {{else state=='1' }}生效
+		    {{/if}}
+		</td>
+		<td class="text-c">
+            <div class="bicon" style="display:block;">
+            	<shiro:hasPermission name="__project__:__svkey__:__svKey__Save">
+                    <a href="${_base}/__svkey__/to__SvKey__Save?itemId={{:itemId }}" title="修改" class="icon1">
+                        <i class="icon iconfont">&#xe607;</i>
+                    </a>
+            	</shiro:hasPermission>
+				<a href="${_base}/__svkey__/to__SvKey__Detail?itemId={{:itemId }}" title="详情" class="icon1">
+					<i class="icon iconfont">&#xe65e;</i>
+				</a>
+			</div>
+		</td>
+	</tr>
 {{/for}}
 </script>
 <script id="sysParamTmpl" type="text/x-jsrender">
@@ -103,8 +124,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var pager;
-	seajs.use(['app/jsp/__svkey__/index'],function(svIndexPager) {
-		pager=new svIndexPager({element:document.body});
+	seajs.use(['app/jsp/__svkey__/__svkey__list'],function(__svKey__ListPager) {
+		pager=new __svKey__ListPager({element:document.body});
 		pager.render();
 	});
 });

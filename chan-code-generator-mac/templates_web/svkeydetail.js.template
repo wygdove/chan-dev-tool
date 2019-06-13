@@ -1,0 +1,61 @@
+/**
+ * @Title: /__svkey__/__svkey__detail.js
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+define('app/jsp/__svkey__/__svkey__detail',function(require,exports,module) {
+	'use strict';
+	var $=require('jquery'),
+		Widget=require('arale-widget/1.2.0/widget'),
+		Dialog=require("app/common/ai-dialog/src/dialog"),
+		AjaxController=require('app/common/ai-ajax/1.0.0/index');
+	require("jsviews/jsrender.min");
+	require("jsviews/jsviews.min");
+	require("app/util/jsviews-ext");
+	require("jquery-validation/1.15.1/jquery.validate");
+	require("app/util/jquery-validate-ext");
+	require("app/common/ai-paging/ai.pagination");
+	require("app/util/jquery.dotdotdot");
+    var CommonUtil=require('app/util/common-util');
+	var IEPlaceHolder=require("app/jsp/layout/ieplaceholder");
+	var iePlaceHolder=new IEPlaceHolder();
+	var ajaxController=new AjaxController();
+	var HEIGHT=25;
+    var that=null;
+
+	require("app/jsp/__svkey__/__svkey__detailframe");
+    var __SvKey__DetailFramePager;
+    seajs.use(['app/jsp/__svkey__/__svkey__detailframe'],function(__svKey__DetailFramePager) {
+         __SvKey__DetailFramePager=new __svKey__DetailFramePager({element:document.body});
+    });
+
+
+	var __svKey__DetailPager=Widget.extend({
+		attrs:{clickId:""},
+		Statics:{DEFAULT_PAGE_SIZE:10},
+		events:{},
+		setup:function() {
+			that=this;
+			that._showDetail();
+			iePlaceHolder._placeholder();
+		},
+		_showDetail:function(){
+			// console.log(itemId);
+			if(CommonUtil.isNullStr(itemId)) {
+				new Dialog({
+					content: "请求不能为空",
+					title:"提示",icon:'warning',
+					okValue:"确定",ok:function(){
+						this.close();
+						window.location.href=_base+"/__svkey__/to__SvKey__List";
+					}
+				}).showModal();
+				return;
+			}
+			__SvKey__DetailFramePager._initFrame(itemId);
+		}
+
+	});
+	module.exports=__svKey__DetailPager;
+});
