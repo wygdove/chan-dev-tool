@@ -106,7 +106,7 @@ public class __SvKey__Controller {
 	
 	@RequestMapping("query__SvKey__Detail")
     @ResponseBody
-    public BaseResponse<__SvKey__DetailVo> query_SvKey__Detail(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+    public BaseResponse<__SvKey__DetailVo> query__SvKey__Detail(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
     	log.info("controller:/__svkey__/query__SvKey__Detail");
     	I__SvKey__SV __svKey__SV=DubboConsumerFactory.getService(I__SvKey__SV.class);
 		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__Detail queryRequest: {}",JSON.toJSONString(queryRequest));
