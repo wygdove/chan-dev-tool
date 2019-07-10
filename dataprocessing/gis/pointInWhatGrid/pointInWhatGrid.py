@@ -133,8 +133,13 @@ for grid in gridList:
         fo.write("\n")
 fo.flush()
 fo.close()
-print 'finshed\n\n\n'
+print 'finshed\n'
 # print json.dumps(answer)
+
+
+print 'clear mongo latlng data type: '+mongotype
+res=coll.delete_many({"tYPE":mongotype})
+print 'finshed\n\n\n'
 
 
 
