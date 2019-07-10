@@ -1,6 +1,13 @@
-	private String endchannlId;
-	private Integer endchannlLat;
-	private Date phnoenoBusiRegCountyName;
-	private long busiRegCountyCode;
-	private List<String>  busiRegCountyCode;
-btyCode
+92019042701	代理商管理	代理商管理	1809280911.00	1	40.00		/channel/cmi-bulk-agent-managemen		CHANNEL	11011	2018/10/26	2099/12/31	Y	2018/10/7	74.00	2018/10/26	74.00	1	Agent Management		1
+92019042702	新增代理商	新增代理商	92019042701.00	1	1.00		/channel/cmi-bulk-agent-new		CHANNEL	11011	2018/10/26	2099/12/31	N	2018/10/7	74.00	2018/10/26	74.00	1	Add Agent Info		1
+92019042703	修改代理商	修改代理商	92019042701.00	0	2.00		/channel/cmi-agent-modify		BASE	11013	2018/10/26	2099/12/31	N	2018/10/7	74.00	2018/10/26	74.00	1	Modify Agent Info		1
+92019042704	代理商详情	代理商详情	92019042701.00	0	2.00		/channel/cmi-agent-detail		BASE	11013	2018/10/27	2099/12/31	N	2018/10/8	74.00	2018/10/27	74.00	1	Agent Info Detail		1
+92019042705	大宗订单处理	大宗订单处理	1809270911.00	1	18.00		/order/cmi-bulk-order-enquiry		CRM	11006	2018/10/28	2099/12/31	Y	2018/10/9	74.00	2018/10/28	74.00	1	Bulk Order Processing		1
+92019042706	大宗订单查询	大宗订单查询	1809270911.00	1	19.00		/order/cmi-bulk-order		CRM	11006	2018/10/29	2099/12/31	Y	2018/10/10	74.00	2018/10/29	74.00	1	Bulk Order Query		1
+92019042707	代理商购卡	代理商购卡	1809280949.00	1	40.00		/order/cmi-bulk-agent-order		ORD	11011	2018/10/30	2100/1/4	Y	2018/10/11	74.00	2018/10/30	74.00	1	Agent SIM Order		1
+92019042708	产品报价信息	产品报价信息	1809280949.00	1	70.00		/order/cmi-product-quotation-info		ORD	11011	2018/10/31	2100/1/5	Y	2018/10/12	74.00	2018/10/31	74.00	1	Product Quotation Info		1
+92019042709	代理商资料审批	代理商资料审批	1224.00	0	2.00		/order/cmi-bulk-agent-approve		ORD	11011	2018/11/1	2100/1/6	N	2018/10/13	74.00	2018/11/1	74.00	1	Agent Info Approval		1
+92019042710	代理商购卡审批	代理商购卡审批	1224.00	0	2.00		/order/cmi-agent-sim-approve		ORD	11010	2018/11/2	2100/1/7	N	2018/10/14	74.00	2018/11/2	74.00	1	Agent SIM Approval		1
+92019042711	订单审批	订单审批	1224.00	0	2.00		/order/cmi-bulk-agent-approve-detail		ORD	11010	2018/11/3	2100/1/8	N	2018/10/15	74.00	2018/11/3	74.00	1	Approve Order Info		1
+92019042712	订单审批	订单审批	1224.00	0	2.00		/order/cmi-bulk-agent-sim-approve-detail		ORD	11010	2018/11/4	2100/1/9	N	2018/10/16	74.00	2018/11/4	74.00	1	Approve Order Info		1
+92019042713	修改代理商	修改代理商	92019042705.00	0	2.00		/channel/cmi-bulk-agent-modify		BASE	11013	2018/11/5	2100/1/10		2018/10/17	74.00	2018/11/5	74.00	1			1
