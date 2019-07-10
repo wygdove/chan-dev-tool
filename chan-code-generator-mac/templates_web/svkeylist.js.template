@@ -41,17 +41,18 @@ define('app/jsp/__svkey__/__svkey__list',function(require,exports,module) {
 			iePlaceHolder._placeholder();
 		},
 		_initPage:function() {
-			// that._initBusiCountys();
+			// that._initBusiRegs("searchBusiRegCounty","busi_reg_county_code");
 			// that._initSysParams({typeCode:"",paramCode:""},"#htmlDivId","#scripTmplId");
 		},
-		_initBusiCountys:function() {
-			$("#busiRegCounty").html('<option value="">请选择</option>');
+		_initBusiRegs:function(htmlId,type) {
+            $("#"+htmlId).html('<option data-item="none" value="">请选择</option>');
 			ajaxController.ajax({
-				type:"post",data:{},processing:false,
-				url:_base+"/sysservice/getBusiCountys",
+				type:"post",processing:false,
+                data:{"busiRegType":type},
+				url:_base+"/sysservice/getBusiRegs",
 				success:function(data) {
 					if(data&&data.result) {
-						$("#busiRegCounty").append($.templates("#busiCountyTmpl").render(data.result));
+						$("#"+htmlId).append($.templates("#busiRegTmpl").render(data.result));
 					}
 				}
 			});
@@ -78,7 +79,9 @@ define('app/jsp/__svkey__/__svkey__list',function(require,exports,module) {
 		_highQuery:function() {
 			var queryData={
 				itemName:$("#itemName").val(),
-				busiRegCountyCode:$("#busiRegCounty").val()
+				busiRegCityCode:$("#searchBusiRegCity").val(),
+				busiRegCountyCode:$("#searchBusiRegCounty").val(),
+				busiRegAreaCode:$("#searchBusiRegArea").val()
 			};
 			that._queryList(queryData);
 		},
@@ -111,12 +114,12 @@ define('app/jsp/__svkey__/__svkey__list',function(require,exports,module) {
 				content:"确认要删除？<br/>删除前请确认......。",
 				ok:function(){
 					ajaxController.ajax({
-						type:"post",processing: true,message:"已提交，请稍后...",
-						url:_base+"/__svkey__/delete",
+						type:"post",processing:true,message:"已提交，请稍后...",
+						url:_base+"/__svkey__/__svKey__Delete",
 						data:{itemId:itemId,itemCode:itemCode},
 						success:function(data) {
 							if(data.resultCode=="000000") {
-								// window.location.href=_base+"/__svkey__/index";
+								// window.location.href=_base+"/__svkey__/to__SvKey__List";
 								that._queryList({});
 							}else {
 								CommonUtil.showWarn(data.resultMessage);

@@ -50,9 +50,13 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 			}
 		}catch(BusinessException|SystemException e) {
 			log.error("__SvKey__SVImpl.add__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
 			log.error("__SvKey__SVImpl.add__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
 		}
 		if(log.isInfoEnabled()) log.info("__SvKey__SVImpl.add__SvKey__ response: {}",JSON.toJSONString(response));
@@ -71,9 +75,13 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 			}
 		}catch(BusinessException|SystemException e) {
 			log.error("__SvKey__SVImpl.update__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
 			log.error("__SvKey__SVImpl.update__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
 		}
 		if(log.isInfoEnabled()) log.info("__SvKey__SVImpl.update__SvKey__ response: {}",JSON.toJSONString(response));
@@ -92,9 +100,13 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 			}
 		}catch(BusinessException|SystemException e) {
 			log.error("__SvKey__SVImpl.delete__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
 			log.error("__SvKey__SVImpl.delete__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
 		}
 		if(log.isInfoEnabled()) log.info("__SvKey__SVImpl.delete__SvKey__ response: {}",JSON.toJSONString(response));
@@ -115,9 +127,13 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 			}
 		}catch(BusinessException|SystemException e) {
 			log.error("__SvKey__SVImpl.queryDetail__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
 			log.error("__SvKey__SVImpl.queryDetail__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
 		}
 		if(log.isInfoEnabled()) log.info("__SvKey__SVImpl.queryDetail__SvKey__ response: {}",JSON.toJSONString(response));
@@ -136,9 +152,13 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 			}
 		}catch(BusinessException|SystemException e) {
 			log.error("__SvKey__SVImpl.queryList__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
 			log.error("__SvKey__SVImpl.queryList__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
 		}
 		if(log.isInfoEnabled()) log.info("__SvKey__SVImpl.queryList__SvKey__ response: {}",JSON.toJSONString(response));
@@ -157,9 +177,13 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 			}
 		}catch(BusinessException|SystemException e) {
 			log.error("__SvKey__SVImpl.queryPage__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
 			log.error("__SvKey__SVImpl.queryPage__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
 		}
 		if(log.isInfoEnabled()) log.info("__SvKey__SVImpl.queryPage__SvKey__ response: {}",JSON.toJSONString(response));
@@ -178,9 +202,13 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 			}
 		}catch(BusinessException|SystemException e) {
 			log.error("__SvKey__SVImpl.count__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
 			log.error("__SvKey__SVImpl.count__SvKey__ error: : {}",e.getMessage(),e);
+            response.setSuccess(false);
+            response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
 		}
 		if(log.isInfoEnabled()) log.info("__SvKey__SVImpl.count__SvKey__ response: {}",JSON.toJSONString(response));

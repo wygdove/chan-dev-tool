@@ -1,19 +1,37 @@
-    private Long kpiAllocateId;
+    private Long subsidiesId;
 
-    private String kpiAllocateCode;
+    private Long channelId;
 
-    private String kpiAllocateName;
+    private String channelCode;
 
-    private String state;
+    private String channelName;
 
-    private Integer weight;
+    private String shopType;
+
+    private String businessLevel;
+
+    private String businessLevelName;
+
+    private BigDecimal shopArea;
+
+    private BigDecimal shopRent;
+
+    private BigDecimal subsidiesAmount;
+
+    private String applyType;
+
+    private Integer subsidiesState;
+
+    private Integer effectiveType;
+
+    private String lastApprovalInfo;
+
+    private Date createTime;
 
     private String createUser;
 
-    private Date createDate;
+    private Date updateTime;
 
     private String updateUser;
-
-    private Date updateDate;
 
     private String remark;

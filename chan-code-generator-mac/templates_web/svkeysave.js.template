@@ -63,7 +63,7 @@ define('app/jsp/__svkey__/__svkey__save',function(require,exports,module) {
             $("#save-btn").attr('disabled',"true");
             ajaxController.ajax({
                 type:"post",processing:true,
-                url:_base+"/chlsocialstaff/saveDraftSocialStaff",
+                url:_base+"/__svkey__/__svKey__Save",
                 data:{"saveRequestStr":JSON.stringify(saveData)},
                 success:function(data) {
                     console.log(data);

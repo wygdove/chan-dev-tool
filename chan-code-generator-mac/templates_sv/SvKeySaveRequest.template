@@ -1,6 +1,7 @@
 package com.ai.channel.__project__.api.__package__.param;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 

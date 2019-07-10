@@ -5,14 +5,14 @@ __overwritten__=true
 __author__=wygdove
 
 # 工程标识
-__project__=ops
+__project__=mgmt
 
 # 包名
-__package__=kpiallocate
+__package__=storesubsidies
 
 # 服务关键字
-__SvKey__=KpiAllocate
+__SvKey__=StoreSubsidies
 
 # 数据库映射对象实例
-__BoKey__=OpsDKpiAllocate
+__BoKey__=MgmtStoreSubsidiesInfo
 

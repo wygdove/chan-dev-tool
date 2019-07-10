@@ -83,67 +83,73 @@
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/java/com/ai/channel/__project__/web/controller/__package__/",
     "filename":"__SvKey__Controller.java",
     "template":"/templates_web/SvKeyController",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/jsp/__svkey__/",
+    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/WEB-INF/jsp/__svkey__/",
     "filename":"__svkey__list.jsp",
     "template":"/templates_web/svkeylist-table.jsp",
+    "isEffect":"yes"
+  },
+  {
+    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/WEB-INF/jsp/__svkey__/",
+    "filename":"__svkey__list.jsp",
+    "template":"/templates_web/svkeylist-ul.jsp",
     "isEffect":"no"
   },
   {
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/resources/spm_modules/app/jsp/__svkey__/",
     "filename":"__svkey__list.js",
     "template":"/templates_web/svkeylist.js",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/jsp/__svkey__/",
+    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/WEB-INF/jsp/__svkey__/",
     "filename":"__svkey__save.jsp",
     "template":"/templates_web/svkeysave.jsp",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/resources/spm_modules/app/jsp/__svkey__/",
     "filename":"__svkey__save.js",
     "template":"/templates_web/svkeysave.js",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/jsp/__svkey__/",
+    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/WEB-INF/jsp/__svkey__/",
     "filename":"__svkey__saveframe.jsp",
     "template":"/templates_web/svkeysaveframe.jsp",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/resources/spm_modules/app/jsp/__svkey__/",
     "filename":"__svkey__saveframe.js",
     "template":"/templates_web/svkeysaveframe.js",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/jsp/__svkey__/",
+    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/WEB-INF/jsp/__svkey__/",
     "filename":"__svkey__detail.jsp",
     "template":"/templates_web/svkeydetail.jsp",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/resources/spm_modules/app/jsp/__svkey__/",
     "filename":"__svkey__detail.js",
     "template":"/templates_web/svkeydetail.js",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/jsp/__svkey__/",
+    "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/WEB-INF/jsp/__svkey__/",
     "filename":"__svkey__detailframe.jsp",
     "template":"/templates_web/svkeydetailframe.jsp",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/resources/spm_modules/app/jsp/__svkey__/",
     "filename":"__svkey__detailframe.js",
     "template":"/templates_web/svkeydetailframe.js",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
 
 

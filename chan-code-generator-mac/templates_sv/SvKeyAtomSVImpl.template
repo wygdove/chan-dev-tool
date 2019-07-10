@@ -3,6 +3,9 @@ package com.ai.channel.__project__.service.atom.impl;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +25,7 @@ import com.ai.channel.__project__.service.atom.interfaces.I__SvKey__AtomSV;
  */
 @Component
 public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
+    private static final Logger log=LoggerFactory.getLogger(__SvKey__AtomSVImpl.class);
 
 	@Autowired
 	__BoKey__Mapper __boKey__Mapper;
@@ -56,18 +60,8 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 	
 	private __BoKey__Example getExample(__BoKey__ request,Map<String,Object> reqmap) {
 		__BoKey__Example example=new __BoKey__Example();
-		__BoKey__Example.Criteria criteria=example.createCriteria();
-		if(request!=null) {
-__AddCriteria__
-		}
-		if(reqmap!=null) {
-			if(reqmap.containsKey("codes")) {
-				@SuppressWarnings("unchecked")
-				List<String> values=(List<String>)reqmap.get("codes");
-//				criteria.andCodeIn(values);
-			}
-		}
-
+        __BoKey__Example.Criteria criteria=this.getCriteria(example,request,reqmap);
+        if(log.isDebugEnabled()) log.debug("MicroGridAtomSVImpl.getExample criteria: {}",JSON.toJSONString(criteria));
 
 		if(reqmap!=null&&reqmap.containsKey("orderByClause")) {
 			String value=(String)reqmap.get("orderByClause");
@@ -78,4 +72,22 @@ __AddCriteria__
 		return example;
 	}
 
+	private __BoKey__Example.Criteria getCriteria(__BoKey__Example example,__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__Example.Criteria criteria=example.createCriteria();
+		if(request!=null) {
+__AddCriteria__
+		}
+		if(reqmap!=null) {
+			if(reqmap.containsKey("nameLike")) {
+                String value=(String)reqmap.get("nameLike");
+                criteria.andNameLike("%"+value+"%");
+			}
+			if(reqmap.containsKey("codes")) {
+				@SuppressWarnings("unchecked")
+				List<String> values=(List<String>)reqmap.get("codes");
+//				criteria.andCodeIn(values);
+			}
+		}
+        return criteria;
+    }
 }

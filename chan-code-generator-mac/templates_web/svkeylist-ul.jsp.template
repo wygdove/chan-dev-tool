@@ -58,8 +58,16 @@
 							<p><input id="searchName" name="searchName" type="text" class="int-text int180" /></p>
 						</li>
 						<li>
+							<p class="bt">所属地市：</p>
+							<p><select id="searchBusiRegCity" name="searchBusiRegCity" class="select select-180"></select></p>
+						</li>
+						<li>
 							<p class="bt">所属区县：</p>
 							<p><select id="searchBusiRegCounty" name="searchBusiRegCounty" class="select select-180"></select></p>
+						</li>
+						<li>
+							<p class="bt">所属片区：</p>
+							<p><select id="searchBusiRegArea" name="searchBusiRegArea" class="select select-180"></select></p>
 						</li>
 						<li><a id="highquery" href="#" class="btn btn-green btn40"><i class="icon iconfont">&#xe669;</i></a></li>
 					</ul>
@@ -78,14 +86,24 @@
 	</div>
 
 
-<script id="searchBusiCountyTmpl" type="text/x-jsrender">
+<script id="busiRegTmpl" type="text/x-jsrender">
 {{for}}
-	<option value="{{:code }}">{{:name }}</option>
+	<option data-type="{{:type }}" data-id="{{:id }}" data-parentid="{{:parentId }}" data-parentids="{{:parentIds }}" value="{{:code }}">{{:name }}</option>
 {{/for}}
 </script>
 <script id="__svKey__Tmpl" type="text/x-jsrender">
 {{for}}
 	<div class="m-trk-lst-ct backnone bb-none">
+	    <div class="lstct-tt star-fb">
+			<p>{{:itemName }}</p>
+			<p class="rt" data-id="{{:itemId }}" data-code="{{:itemCode }}">
+				<span class="gj" title="详情"><a href="${_base}/__svkey__/to__SvKey__Detail?itemId={{:itemId }}"><i class="icon iconfont">&#xe678;</i></a></span>
+				<shiro:hasPermission name="__project__:__svkey__:__svKey__Save">
+                    <span class="gj" title="修改"><a href="${_base}/__svkey__/to__SvKey__Save?itemId={{:itemId }}"><i class="icon iconfont">&#xe61d;</i></a></span>
+                    <span class="gj itemdelete" title="删除"><i class="icon iconfont">&#xe604;</i></span>
+                </shiro:hasPermission>
+			</p>
+		</div>
 		<div class="m-starsh-lst mb-u">
 			<ul>
 				<li class="x-wh pl-10"><p class="">编码：</p><p>{{:Code}}</p></li>
