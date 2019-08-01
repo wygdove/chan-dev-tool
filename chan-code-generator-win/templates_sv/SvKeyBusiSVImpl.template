@@ -1,0 +1,277 @@
+package com.ai.channel.__project__.service.business.impl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.alibaba.fastjson.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ai.channel.__project__.api.__package__.param.__SvKey__QueryRequest;
+import com.ai.channel.__project__.api.__package__.param.__SvKey__SaveRequest;
+import com.ai.channel.__project__.api.__package__.vo.__SvKey__DetailVo;
+import com.ai.channel.__project__.api.__package__.vo.__SvKey__ItemVo;
+import com.ai.channel.__project__.dao.mapper.bo.__BoKey__;
+import com.ai.channel.__project__.service.atom.interfaces.I__SvKey__AtomSV;
+import com.ai.channel.__project__.service.business.interfaces.I__SvKey__BusiSV;
+import com.ai.channel.base.BusinessConstants;
+import com.ai.channel.base.vo.BaseResponse;
+import com.ai.channel.base.vo.PageResult;
+import com.ai.channel.common.cmpt.sequence.util.SeqUtil;
+import com.ai.channel.common.util.BeanUtil;
+import com.ai.channel.common.util.CollectionUtil;
+import com.ai.channel.common.util.StringUtil;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+
+/**
+ * __SvKey__BusiSVImpl.java
+ *
+ *
+ * @date
+ * @author __author__
+ */
+@Component
+public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
+	private static Logger log=LoggerFactory.getLogger(__SvKey__BusiSVImpl.class);
+
+	@Autowired
+	I__SvKey__AtomSV __svKey__AtomSV;
+
+
+
+	@Transactional
+	@Override
+	public BaseResponse<String> add__SvKey__(__SvKey__SaveRequest request) {
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.add__SvKey__ request: {}",JSON.toJSONString(request));
+		BaseResponse<String> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+
+		// Long itemId=SeqUtil.getNewId(SeqConstants.ID);
+		// request.setId(""+itemId);
+
+		__BoKey__ __boKey__Request=this.setAtomSave(request);
+		int res=__svKey__AtomSV.add(__boKey__Request);
+		if(res<=0) {
+			response.setResult("");
+			response.setResultMessage("保存失败");
+			return response;
+		}
+
+		// response.setResult(StringUtil.toString(request.getId()));
+		// response.setInfo("");
+		response.setSuccess(true);
+		response.setResultCode(BusinessConstants.BUSI_SUCCESS_CODE);
+		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.add__SvKey__ response: {}",JSON.toJSONString(response));
+		return response;
+	}
+
+	@Transactional
+	@Override
+	public BaseResponse<String> update__SvKey__(__SvKey__SaveRequest request) {
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.update__SvKey__ request: {}",JSON.toJSONString(request));
+		BaseResponse<String> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+		// if(StringUtil.isBlank(request.getId())) {
+		// 	response.setResult("");
+		// 	response.setResultMessage("请求不能为空");
+		// 	return response;
+		// }
+
+		__BoKey__ __boKey__Request=this.setAtomSave(request);
+		__svKey__AtomSV.update(__boKey__Request);
+
+		// response.setResult(StringUtil.toString(request.getId()));
+		// response.setInfo("");
+		response.setSuccess(true);
+		response.setResultCode(BusinessConstants.BUSI_SUCCESS_CODE);
+		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.update__SvKey__ response: {}",JSON.toJSONString(response));
+		return response;
+	}
+
+
+
+	@Transactional
+	@Override
+	public BaseResponse<String> delete__SvKey__(__SvKey__SaveRequest request) {
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.delete__SvKey__ request: {}",JSON.toJSONString(request));
+		BaseResponse<String> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+		// if(StringUtil.isBlank(request.getId())) {
+		// 	response.setResult("");
+		// 	response.setResultMessage("请求不能为空");
+		// 	return response;
+		// }
+
+		__BoKey__ __boKey__Request=new __BoKey__();
+		// __boKey__Request.setId(request.getId());
+		// __boKey__Request.setDelFlag(delFlag);
+		// __boKey__Request.setUpdateUser(request.getUserId());
+		// __boKey__Request.setUpdateTime(DateUtil.getSysDate());
+		int res=__svKey__AtomSV.update(__boKey__Request);
+		if(res<=0) {
+			response.setResult("");
+			response.setResultMessage("删除失败");
+			return response;
+		}
+
+		// response.setResult(StringUtil.toString(request.getId()));
+		response.setSuccess(true);
+		response.setResultCode(BusinessConstants.BUSI_SUCCESS_CODE);
+		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.delete__SvKey__ response: {}",JSON.toJSONString(response));
+		return response;
+	}
+
+
+
+	@Override
+	public BaseResponse<__SvKey__DetailVo> queryDetail__SvKey__(__SvKey__QueryRequest request) {
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ request: {}",JSON.toJSONString(request));
+		BaseResponse<__SvKey__DetailVo> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+		__SvKey__DetailVo res=new __SvKey__DetailVo();
+		__BoKey__ __boKey__=null;
+//		if(!StringUtil.isBlank(request.getId())) {
+//			__boKey__=__svKey__AtomSV.queryById(request.getId());
+//		}else if(!StringUtil.isBlank(request.getCode())) {
+			__BoKey__ __boKey__Request=new __BoKey__();
+//			__boKey__Request.setCode(request.getCode());
+			List<__BoKey__> __boKey__List=__svKey__AtomSV.query(__boKey__Request,null);
+			if(!CollectionUtil.isEmpty(__boKey__List)) {
+				__boKey__=__boKey__List.get(0);
+			}
+//		}
+		if(__boKey__==null) {
+			response.setResult(res);
+			response.setResultMessage("详情查询出错");
+			return response;
+		}
+		res=this.setVoDetail(__boKey__);
+		response.setResult(res);
+		response.setSuccess(true);
+		response.setResultCode(BusinessConstants.BUSI_SUCCESS_CODE);
+		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ response: {}",JSON.toJSONString(response));
+		return response;
+	}
+
+
+
+	@Override
+	public BaseResponse<List<__SvKey__ItemVo>> queryList__SvKey__(__SvKey__QueryRequest request) {
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryList__SvKey__ request: {}",JSON.toJSONString(request));
+		BaseResponse<List<__SvKey__ItemVo>> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+		List<__SvKey__ItemVo> result=new ArrayList<>();
+
+		__BoKey__ queryRequest=this.setAtomQuery(request);
+		Map<String,Object> reqmap=this.setAtomQueryMap(request);
+		List<__BoKey__> resList=__svKey__AtomSV.query(queryRequest,reqmap);
+		if(!CollectionUtil.isEmpty(resList)) {
+			__SvKey__ItemVo itemVo=null;
+			for(__BoKey__ item:resList) {
+				itemVo=this.setVoItem(item);
+				result.add(itemVo);
+			}
+		}
+		response.setSuccess(true);
+		response.setResult(result);
+		response.setResultCode(BusinessConstants.BUSI_SUCCESS_CODE);
+		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryList__SvKey__ response: {}",JSON.toJSONString(response));
+		return response;
+	}
+	@Override
+	public BaseResponse<PageResult<__SvKey__ItemVo>> queryPage__SvKey__(__SvKey__QueryRequest request) {
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryPage__SvKey__ request: {}",JSON.toJSONString(request));
+		BaseResponse<PageResult<__SvKey__ItemVo>> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+		PageResult<__SvKey__ItemVo> pageResult=new PageResult<>();
+		List<__SvKey__ItemVo> result=new ArrayList<>();
+
+		__BoKey__ queryRequest=this.setAtomQuery(request);
+		Map<String,Object> reqmap=this.setAtomQueryMap(request);
+		int pageNum=request.getPage().getPageNum();
+		int pageSize=request.getPage().getPageSize();
+		PageHelper.startPage(pageNum,pageSize);
+
+		List<__BoKey__> resList=new ArrayList<>();
+		try {
+			resList=__svKey__AtomSV.query(queryRequest,reqmap);
+		}finally {
+			PageHelper.clearPage();
+		}
+		if(!CollectionUtil.isEmpty(resList)) {
+			__SvKey__ItemVo itemVo=null;
+			for(__BoKey__ item:resList) {
+				itemVo=this.setVoItem(item);
+				result.add(itemVo);
+			}
+			pageResult.setCount(((Page<__BoKey__>)resList).getTotal());
+			pageResult.setSuccess(true);
+		} else {
+			pageResult.setSuccess(false);
+		}
+
+		pageResult.setPageNum(pageNum);
+		pageResult.setPageSize(pageSize);
+		pageResult.setResult(result);
+        response.setResult(pageResult);
+        response.setSuccess(true);
+		response.setResultCode(BusinessConstants.BUSI_SUCCESS_CODE);
+		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryPage__SvKey__ response: {}",JSON.toJSONString(response));
+		return response;
+	}
+
+	@Override
+	public BaseResponse<Long> count__SvKey__(__SvKey__QueryRequest request) {
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.count__SvKey__ request: {}",JSON.toJSONString(request));
+		BaseResponse<Long> response=new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,BusinessConstants.BUSI_FAILURE_MESSAGE);
+		__BoKey__ queryRequest=this.setAtomQuery(request);
+		Map<String,Object> reqmap=this.setAtomQueryMap(request);
+		long result=__svKey__AtomSV.count(queryRequest,reqmap);
+		response.setResult(result);
+		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.count__SvKey__ response: {}",JSON.toJSONString(response));
+		return response;
+	}
+
+
+
+	private __BoKey__ setAtomSave(__SvKey__SaveRequest src) {
+		__BoKey__ res=new __BoKey__();
+        BeanUtil.copyPropertiesIgnoreNull(res,src);
+		return res;
+	}
+
+	private __BoKey__ setAtomQuery(__SvKey__QueryRequest src) {
+		__BoKey__ res=new __BoKey__();
+		if(src==null) return res;
+		BeanUtil.copyPropertiesIgnoreNull(res,src);
+		return res;
+	}
+	private Map<String,Object> setAtomQueryMap(__SvKey__QueryRequest src) {
+		Map<String,Object> res=new HashMap<>();
+		if(src==null) return res;
+		if(!StringUtil.isBlank(src.getOrderByClause())) {
+		    res.put("orderByClause",src.getOrderByClause());
+        }
+		return res;
+	}
+
+	private __SvKey__DetailVo setVoDetail(__BoKey__ src) {
+		__SvKey__DetailVo res=new __SvKey__DetailVo();
+		if(src==null) return res;
+		BeanUtil.copyPropertiesIgnoreNull(res,src);
+		return res;
+	}
+	private __SvKey__ItemVo setVoItem(__BoKey__ src) {
+		__SvKey__ItemVo res=new __SvKey__ItemVo();
+		if(src==null) return res;
+		BeanUtil.copyPropertiesIgnoreNull(res,src);
+		return res;
+	}
+
+}

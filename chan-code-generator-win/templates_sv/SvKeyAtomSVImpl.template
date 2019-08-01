@@ -1,0 +1,105 @@
+package com.ai.channel.__project__.service.atom.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.alibaba.fastjson.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.ai.channel.common.util.CollectionUtil;
+import com.ai.channel.common.util.StringUtil;
+import com.ai.channel.__project__.dao.mapper.bo.__BoKey__;
+import com.ai.channel.__project__.dao.mapper.bo.__BoKey__Example;
+import com.ai.channel.__project__.dao.mapper.interfaces.__BoKey__Mapper;
+import com.ai.channel.__project__.service.atom.interfaces.I__SvKey__AtomSV;
+
+/**
+ * __SvKey__AtomSVImpl.java
+ *
+ *
+ * @date
+ * @author __author__
+ */
+@Component
+public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
+    private static final Logger log=LoggerFactory.getLogger(__SvKey__AtomSVImpl.class);
+
+	@Autowired
+	__BoKey__Mapper __boKey__Mapper;
+
+	@Override
+	public int add(__BoKey__ request) {
+		return __boKey__Mapper.insertSelective(request);
+	}
+
+	@Override
+	public int update(__BoKey__ request) {
+		return __boKey__Mapper.updateByPrimaryKeySelective(request);
+	}
+
+
+	@Override
+	public __BoKey__ queryById(__BoKey__ request) {
+		return __boKey__Mapper.selectByPrimaryKey(request);
+	}
+
+	@Override
+	public List<__BoKey__> query(__BoKey__ request) {
+		__BoKey__Example example=this.getExample(request,null);
+		return __boKey__Mapper.selectByExample(example);
+	}
+
+	@Override
+	public List<__BoKey__> query(__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__Example example=this.getExample(request,reqmap);
+		return __boKey__Mapper.selectByExample(example);
+	}
+	
+	@Override
+	public long count(__BoKey__ request) {
+		__BoKey__Example example=this.getExample(request,null);
+		return __boKey__Mapper.countByExample(example);
+	}
+
+	@Override
+	public long count(__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__Example example=this.getExample(request,reqmap);
+		return __boKey__Mapper.countByExample(example);
+	}
+	
+	private __BoKey__Example getExample(__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__Example example=new __BoKey__Example();
+        __BoKey__Example.Criteria criteria=this.getCriteria(example,request,reqmap);
+        if(log.isDebugEnabled()) log.debug("MicroGridAtomSVImpl.getExample criteria: {}",JSON.toJSONString(criteria));
+
+		if(reqmap!=null&&reqmap.containsKey("orderByClause")) {
+			String value=(String)reqmap.get("orderByClause");
+			example.setOrderByClause(value);
+//		}else {
+//			example.setOrderByClause("");	// 加else则必填
+		}
+		return example;
+	}
+
+	private __BoKey__Example.Criteria getCriteria(__BoKey__Example example,__BoKey__ request,Map<String,Object> reqmap) {
+		__BoKey__Example.Criteria criteria=example.createCriteria();
+		if(request!=null) {
+__AddCriteria__
+		}
+		if(reqmap!=null) {
+			if(reqmap.containsKey("nameLike")) {
+                String value=(String)reqmap.get("nameLike");
+                criteria.andNameLike("%"+value+"%");
+			}
+			if(reqmap.containsKey("codes")) {
+				@SuppressWarnings("unchecked")
+				List<String> values=(List<String>)reqmap.get("codes");
+//				criteria.andCodeIn(values);
+			}
+		}
+        return criteria;
+    }
+}

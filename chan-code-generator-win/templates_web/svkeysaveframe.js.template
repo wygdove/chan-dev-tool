@@ -1,0 +1,216 @@
+/**
+ * @Title: /__svkey__/__svkey__saveframe.js
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+define('app/jsp/__svkey__/__svkey__saveframe',function(require,exports,module) {
+    'use strict';
+    var $=require('jquery'),
+        Widget=require('arale-widget/1.2.0/widget'),
+        Dialog=require("app/common/ai-dialog/src/dialog"),
+        AjaxController=require('app/common/ai-ajax/1.0.0/index');
+    require("jsviews/jsrender.min");
+    require("jsviews/jsviews.min");
+    require("app/util/jsviews-ext");
+    require("jquery-validation/1.15.1/jquery.validate");
+    require("app/util/jquery-validate-ext");
+    require("app/common/ai-paging/ai.pagination");
+    require("app/util/jquery.dotdotdot");
+    require("webuploader/webuploader");
+    var CommonUtil=require('app/util/common-util');
+    var IEPlaceHolder=require("app/jsp/layout/ieplaceholder");
+    var iePlaceHolder=new IEPlaceHolder();
+    var ajaxController=new AjaxController();
+    var HEIGHT=25;
+    var that=null;
+
+
+    var __svKey__SaveFramePager=Widget.extend({
+
+        attrs:{clickId:""},
+        Statics:{DEFAULT_PAGE_SIZE:10},
+        events:{},
+        params:{},
+        fileUploader:{
+            xxxFileUploader:{}
+        },
+        setup:function() {
+            that=this;
+            iePlaceHolder._placeholder();
+        },
+        _initFrame:function(itemId) {
+            that=this;
+            that._initPage();
+            that._initData(itemId);
+            that._initEvent();
+        },
+        _initUploadFile:function() {
+            that=this;
+            if(CommonUtil.isNullObj(that.fileUploader.xxxFileUploader)) {
+                that._initXxxUploadFile();
+                $("#xxxFiles .delfileicon").off("click");
+                $("#xxxFiles").delegate(".delfileicon","click",function() {
+                    // console.log($(this).parent().data("id"));
+                    $(this).parent().detach();
+                });
+            }
+        },
+        _initPage:function() {
+        },
+        _initEvent:function() {
+            $("#item__SvKey__Form :input").bind("focusout",function() {
+                var formValidator=that._initValidate();
+                formValidator.element(this);
+            });
+            $("#item__SvKey__Form").delegate("input[name='busiRegName']","click",function() {
+                QHBusiRegCity(this,e);
+            });
+            $("#xxxFiles").delegate(".delfileicon","click",function() {
+                // console.log($(this).parent().data("id"));
+                $(this).parent().detach();
+            });
+        },
+        _initData:function(itemId) {
+            if(CommonUtil.isNullStr(itemId)) return;
+            ajaxController.ajax({
+                type:"post",processing:true,
+                url:_base+"/__svkey__/query__SvKey__Detail",
+                data:{itemId:itemId},
+                success:function(data) {
+					// console.log(data);
+                    if(data.resultCode=="000000") {
+                        var fields=["id","code","name","phone"];
+                        for(var i in fields) {
+                            if(typeof(fields[i])=='function')continue;
+                            $("#item__SvKey__Form #"+fields[i]).val(data.result[fields[i]]);
+                        }
+                        $(data.result.xxxFiles).each(function() {
+                            that._appendFileView(this.attachFileMongodb,this.attachFileName,'xxxFiles');
+                        });
+                    }
+                }
+            });
+        },
+        _initValidate:function() {
+            var formValidator=$("#item__SvKey__Form").validate({
+                rules:{
+                    code:{required:true},
+                    name:{required:true},
+                    phone:{required:true,isMobile:true}
+                },
+                messages:{
+                    code:{required:"字段不允许为空"},
+                    name:{required:"字段不允许为空"},
+                    phone:{required:"字段不允许为空",isMobile:"请输入有效的手机号码"}
+                }
+            });
+            return formValidator;
+        },
+        _initXxxUploadFile:function() {
+            if(!WebUploader.Uploader.support()) {
+                alert('文件上传不支持您的浏览器！如果你使用的是IE浏览器，请尝试升级 flash 播放器');
+            }
+            var waitDialog=Dialog({closeIconShow:false,title:"提示",content:"文件处理中,请稍后...",icon:'loading'});
+            that.fileUploader.xxxFileUploader=WebUploader.create({
+                auto:true,duplicate:true,swf:_spm_res+"/webuploader/Uploader.swf",
+                server:_base+'/filehandler/uploadFile',
+                pick:{id:"#xxxFilePicker",multiple:false},
+                accept:{title:'intoTypes',extensions:'jpg,jpeg,png,gif',mimeTypes:'image/*'},
+                fileNumLimit:1,fileSizeLimit:5*1024*1024,fileSingleSizeLimit:5*1024*1024
+            });
+            that.fileUploader.xxxFileUploader.on("error",function(type) {
+                if(type==="F_EXCEED_SIZE"){CommonUtil.showWarn("单个文件大小不能超过5M");}
+                else if(type==="Q_EXCEED_SIZE_LIMIT"){CommonUtil.showWarn("文件大小不能超过5M");}
+                else if(type==="Q_TYPE_DENIED"){CommonUtil.showWarn("上传正确的格式");}
+                return false;
+            });
+            that.fileUploader.xxxFileUploader.on('beforeFileQueued',function(file) {
+                if($("#customerfiles").children().length>=10) {
+                    CommonUtil.showWarn("上传文件最多10个");
+                    return false;
+                }
+                console.log(file.name.length);
+                if (file!=null&&!CommonUtil.isNullStr(file.name)&&file.name.length>20) {
+                    CommonUtil.showWarn("文件名过长")
+                    return false;
+                }
+            });
+            that.fileUploader.xxxFileUploader.on('fileQueued',function(file) {
+//				console.log(file);
+            });
+            that.fileUploader.xxxFileUploader.on('uploadBeforeSend',function(object,data,headers) {
+                waitDialog.showModal();
+            });
+            that.fileUploader.xxxFileUploader.on('uploadSuccess',function(file,responseData) {
+//				console.log(responseData);
+                if(responseData.resultCode=='000000') {
+                    that._appendFileView(responseData.result,CommonUtil.decodeURIStrVl(responseData.info),'xxxFiles');
+                } else{
+                    CommonUtil.showWarn("文件处理失败:"+CommonUtil.decodeURIStrVl(responseData.result));
+                }
+            });
+            that.fileUploader.xxxFileUploader.on('uploadError',function(file,reason) {
+                that.fileUploader.xxxFileUploader.removeFile(file);
+                CommonUtil.showWarn("上传失败："+reason);
+            });
+            that.fileUploader.xxxFileUploader.on('uploadComplete',function(file,reason) {
+                try{ that.fileUploader.xxxFileUploader.removeFile(file);
+                }finally{waitDialog.close();}
+            });
+        },
+        _appendFileView:function(fileId,fileName,htmlId) {
+            var htmlfile='<p data-id="'+fileId+'" data-name="'+fileName+'"><a href="'+_base+'/filehandler/downloadFile2?fileId='+fileId+'&fileName='+encodeURI(encodeURI(fileName))+'">'+fileName+'</a>'
+                +'<i class="icon iconfont delfileicon" style="background-color:#EEEEE0;position:relative;left:auto;right:-3px;top:0;">&#xe652;</i></p>';
+            $("#"+htmlId).append(htmlfile);
+        },
+        _getFileList:function(htmlId) {
+            var sortNo=1;
+            var attachFiles=[];
+            $("#"+htmlId+" p").each(function() {
+//				console.log($(this).data("id"));
+                var file={};
+                var fname=$(this).data("name");
+                file.attachFileName=fname;
+                if(fname.lastIndexOf('.')!=-1) {
+                    fname=fname.substr(fname.lastIndexOf("."),fname.length);
+                    file.attachFileType=fname;
+                }
+                file.attachFileMongodb=$(this).data("id");
+                file.attachSort=''+(sortNo++);
+                attachFiles.push(file);
+            });
+            return attachFiles;
+        },
+
+        _getSaveData:function() {
+            var formValidator=that._initValidate();
+            formValidator.form();
+            if(!$("#item__SvKey__Form").valid()){
+                return '';
+            }
+            var saveData=CommonUtil.serializeObject('item__SvKey__Form');
+            saveData.xxxFiles=that._getFileList("xxxFiles");
+            $("#xxxFiles-error").hide();
+            if(CommonUtil.isNullObj(saveData.xxxFiles)||saveData.xxxFiles.length==0) {
+                $("#xxxFiles-error").show();
+                return '';
+            }
+            console.log(saveData);
+            return saveData;
+        }
+
+    });
+    module.exports=__svKey__SaveFramePager;
+
+
+    jQuery.validator.addMethod("isMobile",function(value,element) {
+        if(value==null) return false;
+        var length=value.length;
+        var mobile=/^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+        return this.optional(element)||(length==11&&mobile.test(value));
+    }, "请正确填写您的手机号码");
+
+});
+
+

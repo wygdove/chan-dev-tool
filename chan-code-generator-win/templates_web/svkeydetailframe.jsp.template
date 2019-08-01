@@ -1,0 +1,43 @@
+<%--
+ * @Title: /__svkey__/__svkey__detailframe.jsp
+ * @Description:
+ * @Date:
+ * @Author: __author__
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<div id="__svKey__DetailInfo" style="display:none;">
+</div>
+
+<script id="__svKey__DetailTmpl" type="text/x-jsrender">
+	<div id="" style="display:block;">
+		<div class="m-trk-tt mt-10 bdnone">
+			<p class="line"></p><p class="title">信息</p>
+		</div>
+		<div class="m-vis-fm star-fm pb-10 xd-lst-wh">
+			<ul class="s-sh"><li class="bt">编码：</li><li>{{:code }}</li></ul>
+			<ul class="s-sh"><li class="bt">名称：</li><li>{{:name }}</li></ul>
+		</div>
+	</div>
+	<div id="" style="display:block;">
+		<div class="m-trk-tt mt-10 bdnone">
+			<p class="line"></p><p class="title">信息</p>
+		</div>
+		<div class="m-vis-fm star-fm pb-10 xd-lst-wh">
+			<ul class="s-sh"><li class="bt">手机号：</li><li>{{:phone }}</li></ul>
+			<ul class="s-sh"><li class="bt">是否：</li><li>{{if state=='1' }}是{{else}}否{{/if}}</li></ul>
+			<ul><li class="bt">附件：</li>
+				<li class="p-mr" style="width:75%;">
+					{{if xxxFiles}}
+						{{for xxxFiles}}
+							<p data-id="{{:attachFileMongodb }}" data-name="{{:attachFileName }}">
+								<a href="/chan-__project__/filehandler/downloadFile2?fileId={{:attachFileMongodb }}&amp;fileName={{:attachFileName2 }}">{{:attachFileName }}</a>
+							</p>
+						{{/for}}
+					{{/if}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</script>
+
+
