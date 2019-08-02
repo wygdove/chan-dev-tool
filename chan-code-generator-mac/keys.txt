@@ -5,14 +5,14 @@ __overwritten__=true
 __author__=wygdove
 
 # 工程标识
-__project__=mgmt
+__project__=gis
 
 # 包名
-__package__=storesubsidies
+__package__=gisbasestation
 
 # 服务关键字
-__SvKey__=StoreSubsidies
+__SvKey__=GisBasestation
 
 # 数据库映射对象实例
-__BoKey__=MgmtStoreSubsidiesInfo
+__BoKey__=GisBasestationInfo
 

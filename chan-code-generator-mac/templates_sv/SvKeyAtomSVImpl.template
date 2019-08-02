@@ -47,11 +47,23 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 	}
 
 	@Override
+	public List<__BoKey__> query(__BoKey__ request) {
+		__BoKey__Example example=this.getExample(request,null);
+		return __boKey__Mapper.selectByExample(example);
+	}
+
+	@Override
 	public List<__BoKey__> query(__BoKey__ request,Map<String,Object> reqmap) {
 		__BoKey__Example example=this.getExample(request,reqmap);
 		return __boKey__Mapper.selectByExample(example);
 	}
 	
+	@Override
+	public long count(__BoKey__ request) {
+		__BoKey__Example example=this.getExample(request,null);
+		return __boKey__Mapper.countByExample(example);
+	}
+
 	@Override
 	public long count(__BoKey__ request,Map<String,Object> reqmap) {
 		__BoKey__Example example=this.getExample(request,reqmap);
@@ -80,7 +92,7 @@ __AddCriteria__
 		if(reqmap!=null) {
 			if(reqmap.containsKey("nameLike")) {
                 String value=(String)reqmap.get("nameLike");
-                criteria.andNameLike("%"+value+"%");
+//              criteria.andNameLike("%"+value+"%");
 			}
 			if(reqmap.containsKey("codes")) {
 				@SuppressWarnings("unchecked")

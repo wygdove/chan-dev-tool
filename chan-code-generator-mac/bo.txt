@@ -1,37 +1,37 @@
-    private Long subsidiesId;
+ private String basestationId;
 
-    private Long channelId;
+    private String basestationCode;
 
-    private String channelCode;
+    private BigDecimal populationMaxnum;
 
-    private String channelName;
+    private String coverageRadius;
 
-    private String shopType;
+    private String busiRegGridCode;
 
-    private String businessLevel;
+    private String busiRegCountyCode;
 
-    private String businessLevelName;
+    private String busiRegCityCode;
 
-    private BigDecimal shopArea;
-
-    private BigDecimal shopRent;
-
-    private BigDecimal subsidiesAmount;
-
-    private String applyType;
-
-    private Integer subsidiesState;
-
-    private Integer effectiveType;
-
-    private String lastApprovalInfo;
-
-    private Date createTime;
+    private String areaLatlngId;
 
     private String createUser;
 
-    private Date updateTime;
+    private Date createTime;
 
-    private String updateUser;
+    private Integer boundFlag;
 
-    private String remark;
+    private Integer delFlag;
+
+    private String busiRegGridName;
+
+    private String busiRegCountyName;
+
+    private String busiRegCityName;
+
+    private String basestationType;
+
+    private String basestationName;
+
+    private String lac;
+
+    private String ci;

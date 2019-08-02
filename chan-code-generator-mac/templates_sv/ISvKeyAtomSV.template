@@ -17,6 +17,8 @@ public interface I__SvKey__AtomSV {
 	int add(__BoKey__ request);
 	int update(__BoKey__ request);
 	__BoKey__ queryById(__BoKey__ request);
+	List<__BoKey__> query(__BoKey__ request);
 	List<__BoKey__> query(__BoKey__ request,Map<String,Object> reqmap);
+	long count(__BoKey__ request);
 	long count(__BoKey__ request,Map<String,Object> reqmap);
 }
