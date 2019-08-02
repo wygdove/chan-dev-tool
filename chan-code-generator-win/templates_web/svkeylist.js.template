@@ -1,0 +1,149 @@
+/**
+ * @Title: /__svkey__/__svkey__list.js
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+define('app/jsp/__svkey__/__svkey__list',function(require,exports,module) {
+	'use strict';
+	var $=require('jquery'),
+		Widget=require('arale-widget/1.2.0/widget'),
+		Dialog=require("app/common/ai-dialog/src/dialog"),
+		AjaxController=require('app/common/ai-ajax/1.0.0/index');
+	require("jsviews/jsrender.min");
+	require("jsviews/jsviews.min");
+	require("app/util/jsviews-ext");
+	require("jquery-validation/1.15.1/jquery.validate");
+	require("app/util/jquery-validate-ext");
+	require("app/common/ai-paging/ai.pagination");
+	require("app/util/jquery.dotdotdot");
+    var CommonUtil=require('app/util/common-util');
+	var IEPlaceHolder=require("app/jsp/layout/ieplaceholder");
+	var iePlaceHolder=new IEPlaceHolder();
+	var ajaxController=new AjaxController();
+	var HEIGHT=25;
+	var that=null;
+	
+	var __svKey__ListPager=Widget.extend({
+		attrs:{clickId:""},
+		Statics:{DEFAULT_PAGE_SIZE:10},
+		params:{},
+		events:{
+			"click #tab-query":"_seeTabQuery",
+			"click #highquery":"_highQuery",
+			"click #fuzzyquery":"_fuzzyQuery"
+		},
+		setup:function() {
+			that=this;
+			that._initPage();
+			that._initEvent();
+			that._queryList({});
+			iePlaceHolder._placeholder();
+		},
+		_initPage:function() {
+			// that._initBusiRegs("searchBusiRegCounty","busi_reg_county_code");
+			// that._initSysParams({typeCode:"",paramCode:""},"#htmlDivId","#scripTmplId");
+		},
+		_initBusiRegs:function(htmlId,type) {
+            $("#"+htmlId).html('<option data-item="none" value="">请选择</option>');
+			ajaxController.ajax({
+				type:"post",processing:false,
+                data:{"busiRegType":type},
+				url:_base+"/sysservice/getBusiRegs",
+				success:function(data) {
+					if(data&&data.result) {
+						$("#"+htmlId).append($.templates("#busiRegTmpl").render(data.result));
+					}
+				}
+			});
+		},
+		
+		_initEvent:function() {
+			$("#__svkey__-list").delegate(".itemdelete","click",function() {
+				var itemId=$(this).parent().attr("data-id");
+				var itemCode=$(this).parent().attr("data-code");
+				that._delItem(itemId,itemCode);
+			});
+		},
+		
+
+		_seeTabQuery:function() {
+			that._queryList({});
+		},
+		_fuzzyQuery:function() {
+			var queryData={
+				itemName:$("#fuzzyinput").val()
+			};
+			that._queryList(queryData);
+		},
+		_highQuery:function() {
+			var queryData={
+				itemName:$("#itemName").val(),
+				busiRegCityCode:$("#searchBusiRegCity").val(),
+				busiRegCountyCode:$("#searchBusiRegCounty").val(),
+				busiRegAreaCode:$("#searchBusiRegArea").val()
+			};
+			that._queryList(queryData);
+		},
+		_queryList:function(queryData) {
+			// console.log(queryData);
+			$("#__svkey__-list-pagination").runnerPagination({
+				method:"POST",dataType:"json",data:queryData,
+				url:_base+"/__svkey__/query__SvKey__PageList",
+				renderId:"__svkey__-list",messageId:"__svkey__-list-showMessage",
+				pageSize:5,visiblePages:5,processing:true,
+				message:"正在为您查询数据...",
+				render:function(data) {
+					// console.log(data);
+					if(data&&data.result) {
+						$("#__svkey__-list").html($.templates("#__svKey__Tmpl").render(data.result));
+						// that._clearQueryInput();
+					}
+				}
+			});
+		},
+		_clearQueryInput:function() {
+			$(":text").val('');
+			$("select").val('');
+		},
+		
+		
+		_delItem:function(itemId,itemCode) {
+			new Dialog({
+				title:"提示",icon:'prompt',okValue:"确定",cancelValue:"取消",
+				content:"确认要删除？<br/>删除前请确认......。",
+				ok:function(){
+					ajaxController.ajax({
+						type:"post",processing:true,message:"已提交，请稍后...",
+						url:_base+"/__svkey__/__svKey__Delete",
+						data:{itemId:itemId,itemCode:itemCode},
+						success:function(data) {
+							if(data.resultCode=="000000") {
+								// window.location.href=_base+"/__svkey__/to__SvKey__List";
+								that._queryList({});
+							}else {
+								CommonUtil.showWarn(data.resultMessage);
+							}
+						}
+					});
+				},
+				cancel:function(){this.close();}
+			}).showModal();
+		},
+		
+		_initSysParams:function(queryData,htmlId,TmplId) {
+			$(htmlId).html('<option value="">请选择</option>');
+			ajaxController.ajax({
+				type:"post",data:queryData,
+				url:_base+"/sysparam/getParams",
+				success:function(data) {
+					if(data.success&&data.result) {
+						$(htmlId).append($.templates(TmplId).render(data.result));
+					}
+				}
+			});
+		}
+	
+	});
+	module.exports=__svKey__ListPager;
+});

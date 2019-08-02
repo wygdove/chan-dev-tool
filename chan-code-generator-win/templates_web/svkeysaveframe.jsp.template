@@ -1,0 +1,86 @@
+<%--
+ * @Title: /__svkey__/__svkey__saveframe.jsp
+ * @Description:
+ * @Date:
+ * @Author: __author__
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<style>
+    .webuploader-pick {
+        border: 1px solid #e8e8e8;
+        background: #fff;
+        color: #666;
+        width: 80px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        padding: 0;
+    }
+    .m-vis-fm ul label {
+        display: inline-block;
+        z-index: 99;
+        padding: 0 10px;
+        height: 30px;
+        background: #fcece4;
+        line-height: 30px;
+        font-size: 12px;
+        color: #f00;
+    }
+</style>
+
+<form id="item__SvKey__Form" valid="true">
+    <div class="m-trk-tt mt-10 bdnone">
+        <p class="line"></p><p class="title">信息</p>
+    </div>
+    <div class="m-vis-fm star-fm pb-10 xd-lst-wh m-xd-sh">
+        <ul class="s-sh">
+            <li class="bt"><span class="red">*</span>工号：</li>
+            <li>
+                <input id="id" name="id" type="hidden" />
+                <input id="code" name="code" type="text" class="int-text int180" />
+            </li>
+        </ul>
+        <ul class="s-sh">
+            <li class="bt"><span class="red">*</span>姓名：</li>
+            <li><input id="name" name="name" type="text" class="int-text int180 input-disabled" readonly="readonly" /></li>
+        </ul>
+        <ul class="s-sh">
+            <li class="bt"><span class="red">*</span>手机号码：</li>
+            <li><input id="phone" name="phone" type="text" class="int-text int180" /></li>
+        </ul>
+    </div>
+    <div class="m-trk-tt mt-10 bdnone">
+        <p class="line"></p><p class="title">信息</p>
+    </div>
+    <div class="m-vis-fm star-fm pb-20 xd-lst-wh m-xd-sh">
+        <ul class="s-sh">
+            <li class="bt"><span class="red">*</span>渠道编码：</li>
+            <li>
+                <input id="channelId" name="channelId" value="" type="hidden" />
+                <input id="channelCode" name="channelCode" type="text" class="int-text int180 input-disabled" readonly="readonly"/>
+            </li>
+        </ul>
+        <ul class="s-sh">
+            <li class="bt"><span class="red">*</span>是否：</li>
+            <li><select id="state" name="state" class="select select-180">
+                <option value="">请选择</option>
+                <option value="1">是</option>
+                <option value="2">否</option>
+            </select></li>
+        </ul>
+        <ul >
+            <li class="bt"><span class="red">*</span>文件上传：</li>
+            <li id="xxxFiles" class="p-mr" style="width:60%;">
+            </li>
+        </ul>
+        <ul>
+            <li class="bt">&nbsp;</li>
+            <li class="kh-file">
+                <a id="xxxFilePicker" href="#" class="btn border-default btn-small"><i class="icon iconfont">&#xe6c3;</i>上传附件</a>
+                <span class="yellow-fc">支持附件格式包括 jpg / jpeg / png，单个文件大小不超过5M（上传文件最多10个）</span>
+            </li>
+            <li id="xxxFiles-error" style="display:none;"><label class="error">附件不能为空</label></li>
+        </ul>
+    </div>
+</form>
+

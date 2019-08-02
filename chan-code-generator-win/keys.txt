@@ -1,0 +1,18 @@
+# 文件存在时是否重写文件内容（为true时重写文件内容，其他生成.temp文件）
+__overwritten__=true
+
+# 作者
+__author__=wygdove
+
+# 工程标识
+__project__=mgmt
+
+# 包名
+__package__=storesubsidies
+
+# 服务关键字
+__SvKey__=StoreSubsidies
+
+# 数据库映射对象实例
+__BoKey__=MgmtStoreSubsidiesInfo
+

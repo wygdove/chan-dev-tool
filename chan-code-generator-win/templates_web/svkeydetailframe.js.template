@@ -1,0 +1,68 @@
+/**
+ * @Title: /__svkey__/__svkey__detailframe.js
+ * @Description:
+ * @Date:
+ * @Author: __author__
+ */
+define('app/jsp/__svkey__/__svkey__detailframe',function(require,exports,module) {
+	'use strict';
+	var $=require('jquery'),
+		Widget=require('arale-widget/1.2.0/widget'),
+		Dialog=require("app/common/ai-dialog/src/dialog"),
+		AjaxController=require('app/common/ai-ajax/1.0.0/index');
+	require("jsviews/jsrender.min");
+	require("jsviews/jsviews.min");
+	require("app/util/jsviews-ext");
+	require("jquery-validation/1.15.1/jquery.validate");
+	require("app/util/jquery-validate-ext");
+	require("app/common/ai-paging/ai.pagination");
+	require("app/util/jquery.dotdotdot");
+    var CommonUtil=require('app/util/common-util');
+	var IEPlaceHolder=require("app/jsp/layout/ieplaceholder");
+	var iePlaceHolder=new IEPlaceHolder();
+	var ajaxController=new AjaxController();
+	var HEIGHT=25;
+    var that=null;
+
+
+	var __svKey__DetailFramePager=Widget.extend({
+		attrs:{clickId:""},
+		Statics:{DEFAULT_PAGE_SIZE:10},
+		events:{},
+		setup:function() {
+			that=this;
+			iePlaceHolder._placeholder();
+		},
+        _initFrame:function(itemId) {
+            that=this;
+            that._queryDetailInfo(itemId);
+        },
+		_queryDetailInfo:function(itemId) {
+            that=this;
+            $("#__svKey__DetailInfo").hide();
+			ajaxController.ajax({
+				type:"post",processing:true,
+				url:_base+"/__svkey__/query__SvKey__Detail",
+				data:{itemId:itemId},
+				success:function(data) {
+					// console.log(data);
+					if(data.success&&data.result) {
+						if(data.result.xxxFiles) {
+							$(data.result.xxxFiles).each(function() {
+								var filename=this.attachFileName;
+								filename=CommonUtil.isNullStr(filename)?'':filename;
+								this.attachFileName2=encodeURI(encodeURI(filename));
+							});
+						}
+						$("#__svKey__DetailInfo").html($.templates("#__svKey__DetailTmpl").render(data.result));
+						$("#__svKey__DetailInfo").show();
+					}
+				}
+			});
+		}
+
+	});
+	module.exports=__svKey__DetailFramePager;
+});
+
+
