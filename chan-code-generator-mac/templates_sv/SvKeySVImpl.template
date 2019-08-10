@@ -49,12 +49,12 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 				response=__svKey__BusiSV.add__SvKey__(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("__SvKey__SVImpl.add__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.add__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("__SvKey__SVImpl.add__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.add__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -74,12 +74,12 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 				response=__svKey__BusiSV.update__SvKey__(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("__SvKey__SVImpl.update__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.update__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("__SvKey__SVImpl.update__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.update__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -99,12 +99,12 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 				response=__svKey__BusiSV.delete__SvKey__(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("__SvKey__SVImpl.delete__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.delete__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("__SvKey__SVImpl.delete__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.delete__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -126,12 +126,12 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 				response=__svKey__BusiSV.queryDetail__SvKey__(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("__SvKey__SVImpl.queryDetail__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.queryDetail__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("__SvKey__SVImpl.queryDetail__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.queryDetail__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -151,12 +151,12 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 				response=__svKey__BusiSV.queryList__SvKey__(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("__SvKey__SVImpl.queryList__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.queryList__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("__SvKey__SVImpl.queryList__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.queryList__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -176,12 +176,12 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 				response=__svKey__BusiSV.queryPage__SvKey__(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("__SvKey__SVImpl.queryPage__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.queryPage__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("__SvKey__SVImpl.queryPage__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.queryPage__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());
@@ -201,12 +201,12 @@ public class __SvKey__SVImpl implements I__SvKey__SV {
 				response=__svKey__BusiSV.count__SvKey__(request);
 			}
 		}catch(BusinessException|SystemException e) {
-			log.error("__SvKey__SVImpl.count__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.count__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getErrorMessage());
 		}catch(Exception e) {
-			log.error("__SvKey__SVImpl.count__SvKey__ error: : {}",e.getMessage(),e);
+			log.error("__SvKey__SVImpl.count__SvKey__ error: {}",e.getMessage(),e);
             response.setSuccess(false);
             response.setResultCode(BusinessConstants.BUSI_FAILURE_CODE);
 			response.setResultMessage(e.getMessage());

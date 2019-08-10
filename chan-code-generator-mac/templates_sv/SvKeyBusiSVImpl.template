@@ -234,6 +234,9 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 		Map<String,Object> reqmap=this.setAtomQueryMap(request);
 		long result=__svKey__AtomSV.count(queryRequest,reqmap);
 		response.setResult(result);
+        response.setSuccess(true);
+		response.setResultCode(BusinessConstants.BUSI_SUCCESS_CODE);
+		response.setResultMessage(BusinessConstants.BUSI_SUCCESS_MESSAGE);
 		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.count__SvKey__ response: {}",JSON.toJSONString(response));
 		return response;
 	}
