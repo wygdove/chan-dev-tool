@@ -1,26 +1,22 @@
+    private Long flowConfigItemId;
+
     private Long flowConfigId;
 
-    private String flowName;
+    private String taskName;
 
-    private String woBigType;
+    private String busiRegType;
 
-    private String woType;
+    private String roleEnname;
 
-    private String woFirstType;
+    private String isSendNotify;
 
-    private String woSecondType;
+    private String notifyType;
 
-    private String busiRegProvinceCode;
+    private String handlingTime;
 
-    private String busiRegCityCode;
+    private String notifyFrequency;
 
-    private String busiRegCountyCode;
-
-    private String busiRegAreaCode;
-
-    private String busiRegGridCode;
-
-    private String busiRegMicroAreaCode;
+    private String notifyTime;
 
     private String state;
 

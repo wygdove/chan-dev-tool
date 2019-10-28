@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ai.channel.common.util.CollectionUtil;
 import com.ai.channel.common.util.StringUtil;
 import com.asiainfo.grid.sop.manage.atom.interfaces.I__SvKey__AtomSV;
 import com.asiainfo.grid.sop.manage.dao.mapper.gsop.bo.__BoKey__;

@@ -8,11 +8,11 @@ __author__=wygdove
 __project__=gsop
 
 # 包名
-__package__=flowconfig
+__package__=flowconfigitem
 
 # 服务关键字
-__SvKey__=FlowConfig
+__SvKey__=FlowConfigItem
 
 # 数据库映射对象实例
-__BoKey__=GsopFlowConfig
+__BoKey__=GsopFlowConfigItem
 
