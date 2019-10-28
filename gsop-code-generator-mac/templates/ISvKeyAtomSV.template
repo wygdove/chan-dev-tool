@@ -1,0 +1,24 @@
+package com.asiainfo.grid.sop.manage.atom.interfaces;
+
+import java.util.List;
+import java.util.Map;
+
+import com.asiainfo.grid.sop.manage.dao.mapper.gsop.bo.__BoKey__;
+
+
+/**
+ * I__SvKey__AtomSV.java
+ *
+ *
+ * @date
+ * @author __author__
+ */
+public interface I__SvKey__AtomSV {
+	int add(__BoKey__ request);
+	int update(__BoKey__ request);
+	__BoKey__ queryById(__BoKey__ request);
+	List<__BoKey__> query(__BoKey__ request);
+	List<__BoKey__> query(__BoKey__ request,Map<String,Object> reqmap);
+	long count(__BoKey__ request);
+	long count(__BoKey__ request,Map<String,Object> reqmap);
+}

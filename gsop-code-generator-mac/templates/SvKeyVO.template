@@ -1,0 +1,22 @@
+package com.asiainfo.grid.sop.manage.model.__package__;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+/**
+ * __SvKey__VO.java
+ *
+ *
+ * @date
+ * @author __author__
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class __SvKey__VO implements Serializable {
+
+__AddPropertyDefine__
+
+__AddGetterSetter__
+
+}

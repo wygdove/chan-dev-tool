@@ -1,0 +1,39 @@
+    private Long flowConfigId;
+
+    private String flowName;
+
+    private String woBigType;
+
+    private String woType;
+
+    private String woFirstType;
+
+    private String woSecondType;
+
+    private String busiRegProvinceCode;
+
+    private String busiRegCityCode;
+
+    private String busiRegCountyCode;
+
+    private String busiRegAreaCode;
+
+    private String busiRegGridCode;
+
+    private String busiRegMicroAreaCode;
+
+    private String state;
+
+    private Date effectTime;
+
+    private Date ineffectTime;
+
+    private String createUser;
+
+    private Date createTime;
+
+    private String updateUser;
+
+    private Date updateTime;
+
+    private String remark;
