@@ -113,7 +113,7 @@ def getCriteria(type,property):
     res="\t\t\t"
     if type=="String":
         res+='''if(!StringUtil.isBlank(request.get'''+propertyu+'''())){criteria.and'''+propertyu+'''EqualTo(request.get'''+propertyu+'''());}'''
-    elif type=="Short" or type=="Integer" or type=="Long" or type=="Float" or type=="Double":
+    elif type=="Short" or type=="short" or type=="Integer" or type=="int" or type=="Long" or type=="long" or type=="Float" or type=="float" or type=="Double" or type=="double":
         res+='''if(request.get'''+propertyu+'''()!=null&&request.get'''+propertyu+'''()>0){criteria.and'''+propertyu+'''EqualTo(request.get'''+propertyu+'''());}'''
     else :
         res+='''if(request.get'''+propertyu+'''()!=null){criteria.and'''+propertyu+'''EqualTo(request.get'''+propertyu+'''());}'''

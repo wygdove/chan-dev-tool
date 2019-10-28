@@ -121,7 +121,9 @@ public class __SvKey__Controller {
     public BaseResponse<PageResult<__SvKey__ItemVo>> query__SvKey__PageList(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
     	log.info("controller:/__svkey__/query__SvKey__PageList");
     	SessionUser sessionUser=SessionUserUtil.getSessionUser();
-		queryRequest=this.setQueryUser(sessionUser,queryRequest);
+        if(!"true".equalsIgnoreCase(request.getParameter("isFilterUserRight"))) {
+            queryRequest=this.setQueryUser(sessionUser,queryRequest);
+        }
 		if(queryRequest==null) {
 			return new BaseResponse<>(Boolean.FALSE,BusinessConstants.BUSI_FAILURE_CODE,"错误：用户没有权限！");
 		}
@@ -136,18 +138,37 @@ public class __SvKey__Controller {
 		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__PageList response: {}",JSON.toJSONString(response));
     	return response;
     }
+
 	@RequestMapping("query__SvKey__List")
     @ResponseBody
     public BaseResponse<List<__SvKey__ItemVo>> query__SvKey__List(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
     	log.info("controller:/__svkey__/query__SvKey__List");
     	I__SvKey__SV __svKey__SV=DubboConsumerFactory.getService(I__SvKey__SV.class);
     	SessionUser sessionUser=SessionUserUtil.getSessionUser();
-		queryRequest=this.setQueryUser(sessionUser,queryRequest);
+        if(!"1".equalsIgnoreCase(request.getParameter("isFilterUserRight"))) {
+            queryRequest=this.setQueryUser(sessionUser,queryRequest);
+        }
 		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__List queryList: {}",JSON.toJSONString(queryRequest));
 		BaseResponse<List<__SvKey__ItemVo>> response=__svKey__SV.queryList__SvKey__(queryRequest);
 		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__List response: {}",JSON.toJSONString(response));
     	return response;
     }
+
+    @RequestMapping("count__SvKey__")
+    @ResponseBody
+    public BaseResponse<Long> count__SvKey__(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+        log.info("controller:/__svkey__/count__SvKey__");
+        I__SvKey__SV __svKey__SV=DubboConsumerFactory.getService(I__SvKey__SV.class);
+        SessionUser sessionUser=SessionUserUtil.getSessionUser();
+        if(!"1".equalsIgnoreCase(request.getParameter("isFilterUserRight"))) {
+            queryRequest=this.setQueryUser(sessionUser,queryRequest);
+        }
+        if(log.isInfoEnabled()) log.info("/__svkey__/count__SvKey__ queryList: {}",JSON.toJSONString(queryRequest));
+        BaseResponse<Long> response=__svKey__SV.count__SvKey__(queryRequest);
+        if(log.isInfoEnabled()) log.info("/__svkey__/count__SvKey__ response: {}",JSON.toJSONString(response));
+        return response;
+    }
+
 	private __SvKey__QueryRequest setQueryUser(SessionUser sessionUser,__SvKey__QueryRequest request) {
 		List<UserBusiAreaVO> userBusiRegList=sessionUser.getUserBusiRegList();
 		if(log.isInfoEnabled()) log.info("/__svkey__/setQueryUser userBusiRegList: {}",JSON.toJSONString(userBusiRegList));

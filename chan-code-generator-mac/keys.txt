@@ -8,11 +8,11 @@ __author__=wygdove
 __project__=gis
 
 # 包名
-__package__=gisbasestation
+__package__=gishousing
 
 # 服务关键字
-__SvKey__=GisBasestation
+__SvKey__=GisHousing
 
 # 数据库映射对象实例
-__BoKey__=GisBasestationInfo
+__BoKey__=GisHousingestateInfo
 

@@ -1,10 +1,12 @@
- private String basestationId;
+private String housingId;
 
-    private String basestationCode;
+    private String housingName;
 
-    private BigDecimal populationMaxnum;
+    private String housingAddress;
 
-    private String coverageRadius;
+    private Date createTime;
+
+    private String createUser;
 
     private String busiRegGridCode;
 
@@ -13,10 +15,6 @@
     private String busiRegCityCode;
 
     private String areaLatlngId;
-
-    private String createUser;
-
-    private Date createTime;
 
     private Integer boundFlag;
 
@@ -28,10 +26,72 @@
 
     private String busiRegCityName;
 
-    private String basestationType;
+    private String housingCode;
 
-    private String basestationName;
+    private String netinTime;
 
-    private String lac;
+    private String netinEnterTime;
 
-    private String ci;
+    private String accessMode;
+
+    private String communityProperty;
+
+    private String overCustNum;
+
+    private String broadbandinCustNum;
+
+    private String broadbandativeCustNum;
+
+    private String broadbandvalidityCustNum;
+
+    private String mbhCustNum;
+
+    private String mbhCustPop;
+
+    private String fixCustNum;
+
+    private String fixCustPop;
+
+    private String housingPermCrm;
+
+    private String jkHosingFlag;
+
+    private String informationCustNum;
+
+    private String cttHosingFlag;
+
+    private String cttHosingoverFlag;
+
+    private String actualPortNum;
+
+    private String actualPortPop;
+
+    private String housingLinkman;
+
+    private String statDay;
+
+    private Integer managerBoundFlag;
+
+    private String chanmanagerId;
+
+    private String mangeruserName;
+
+    private String mangeruserPhone;
+
+    private BigDecimal piecePayCount;
+
+    private BigDecimal piecePayAmount;
+
+    private String valuableFlag;
+
+    private String gridManager;
+
+    private String busiRegAreaCode;
+
+    private String busiRegMircoGridCode;
+
+    private String busiRegAreaName;
+
+    private String housingPermCrmFirst;
+
+    private String housingLnglat;
