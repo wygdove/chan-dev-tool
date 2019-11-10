@@ -18,9 +18,8 @@ import com.alibaba.fastjson.JSON;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 
 /**
@@ -30,7 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 
  * @author __author__
  */
-@Controller
+@RestController
 @RequestMapping("/__svkey__")
 public class __SvKey__Controller {
 	private static final Logger log=LoggerFactory.getLogger(__SvKey__Controller.class);
@@ -40,7 +39,6 @@ public class __SvKey__Controller {
 
 	
 	@RequestMapping("__svKey__Save")
-    @ResponseBody
     public Object __svKey__Save(HttpServletRequest request,__SvKey__SaveRequest saveRequest) {
     	log.info("controller:/__svkey__/__svKey__Save");
         UserSessionModel user=TokenUtil.getUser(request);
@@ -63,7 +61,6 @@ public class __SvKey__Controller {
 	
 	
 	@RequestMapping("__svKey__Delete")
-    @ResponseBody
     public Object __svKey__Delete(HttpServletRequest request,__SvKey__SaveRequest saveRequest) {
     	log.info("controller:/__svkey__/__svKey__Delete");
         UserSessionModel user=TokenUtil.getUser(request);
@@ -81,7 +78,6 @@ public class __SvKey__Controller {
 	
 	
 	@RequestMapping("query__SvKey__Detail")
-    @ResponseBody
     public Object query__SvKey__Detail(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
     	log.info("controller:/__svkey__/query__SvKey__Detail");
 		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__Detail queryRequest: {}",JSON.toJSONString(queryRequest));
@@ -95,7 +91,6 @@ public class __SvKey__Controller {
 	
 	
 	@RequestMapping("query__SvKey__PageList")
-    @ResponseBody
     public Object query__SvKey__PageList(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
     	log.info("controller:/__svkey__/query__SvKey__PageList");
         UserSessionModel user=TokenUtil.getUser(request);
@@ -121,7 +116,6 @@ public class __SvKey__Controller {
     }
 
 	@RequestMapping("query__SvKey__List")
-    @ResponseBody
     public Object query__SvKey__List(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
     	log.info("controller:/__svkey__/query__SvKey__List");
         UserSessionModel user=TokenUtil.getUser(request);
@@ -141,7 +135,6 @@ public class __SvKey__Controller {
     }
 
     @RequestMapping("count__SvKey__")
-    @ResponseBody
     public Object count__SvKey__(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
         log.info("controller:/__svkey__/count__SvKey__");
         UserSessionModel user=TokenUtil.getUser(request);

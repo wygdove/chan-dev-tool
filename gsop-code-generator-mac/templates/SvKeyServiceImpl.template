@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ai.channel.common.cmpt.sequence.util.SeqUtil;
+import com.asiainfo.grid.sop.manage.constants.SequencesConstant;
 import com.asiainfo.grid.sop.manage.atom.interfaces.I__SvKey__AtomSV;
 import com.asiainfo.grid.sop.manage.constants.GsopConstants;
 import com.asiainfo.grid.sop.manage.dao.mapper.gsop.bo.__BoKey__;
@@ -46,8 +48,8 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 	@Override
 	public String add__SvKey__(__SvKey__SaveRequest request) {
 		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.add__SvKey__ request: {}",JSON.toJSONString(request));
-		// Long itemId=SeqUtil.getNewId(SeqConstants.ID);
-		// request.setId(""+itemId);
+		// Long itemId=SeqUtil.getNewId(SequencesConstant.ID);
+		// request.setId(itemId);
 		__BoKey__ __boKey__Request=this.setAtomSave(request);
 		int res=__svKey__AtomSV.add(__boKey__Request);
 		String result=StringUtil.toString(res);
@@ -90,20 +92,16 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ request: {}",JSON.toJSONString(request));
 		__SvKey__VO result=null;
 		__BoKey__ __boKey__=null;
-//		if(!StringUtil.isBlank(request.getId())) {
-//			__boKey__=__svKey__AtomSV.queryById(request.getId());
-//		}else if(!StringUtil.isBlank(request.getCode())) {
-			__BoKey__ __boKey__Request=new __BoKey__();
-//			__boKey__Request.setCode(request.getCode());
-			List<__BoKey__> __boKey__List=__svKey__AtomSV.query(__boKey__Request,null);
-			if(!CollectionUtil.isEmpty(__boKey__List)) {
-				__boKey__=__boKey__List.get(0);
-			}
-//		}
+        __BoKey__ __boKey__Request=new __BoKey__();
+        List<__BoKey__> __boKey__List=__svKey__AtomSV.query(__boKey__Request,null);
+        BeanUtil.copyPropertiesIgnoreNull(__boKey__Request,request);
+        if(!CollectionUtil.isEmpty(__boKey__List)) {
+            __boKey__=__boKey__List.get(0);
+        }
 		if(__boKey__==null) {
 			return result;
 		}
-		result=this.setVoDetail(__boKey__);
+		result=this.setVoQuery(__boKey__);
 		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ result: {}",JSON.toJSONString(result));
 		return result;
 	}
@@ -120,7 +118,7 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 		if(!CollectionUtil.isEmpty(resList)) {
 			__SvKey__VO itemVo=null;
 			for(__BoKey__ item:resList) {
-				itemVo=this.setVoItem(item);
+				itemVo=this.setVoQuery(item);
 				result.add(itemVo);
 			}
 		}
@@ -148,7 +146,7 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 		if(!CollectionUtil.isEmpty(resList)) {
 			__SvKey__VO itemVo=null;
 			for(__BoKey__ item:resList) {
-				itemVo=this.setVoItem(item);
+				itemVo=this.setVoQuery(item);
 				result.add(itemVo);
 			}
 			pageResult.setCount(((Page<__BoKey__>)resList).getTotal());
@@ -197,13 +195,7 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 		return res;
 	}
 
-	private __SvKey__VO setVoDetail(__BoKey__ src) {
-		__SvKey__VO res=new __SvKey__VO();
-		if(src==null) return res;
-		BeanUtil.copyPropertiesIgnoreNull(res,src);
-		return res;
-	}
-	private __SvKey__VO setVoItem(__BoKey__ src) {
+	private __SvKey__VO setVoQuery(__BoKey__ src) {
 		__SvKey__VO res=new __SvKey__VO();
 		if(src==null) return res;
 		BeanUtil.copyPropertiesIgnoreNull(res,src);
