@@ -93,8 +93,8 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 		__SvKey__VO result=null;
 		__BoKey__ __boKey__=null;
         __BoKey__ __boKey__Request=new __BoKey__();
-        List<__BoKey__> __boKey__List=__svKey__AtomSV.query(__boKey__Request,null);
         BeanUtil.copyPropertiesIgnoreNull(__boKey__Request,request);
+        List<__BoKey__> __boKey__List=__svKey__AtomSV.query(__boKey__Request,null);
         if(!CollectionUtil.isEmpty(__boKey__List)) {
             __boKey__=__boKey__List.get(0);
         }
