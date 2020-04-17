@@ -2,6 +2,7 @@ package test.com.ai.channel.__project__.__package__;
 
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,6 +29,7 @@ public class __SvKey__SVTest extends BaseTest {
 	@Autowired
 	I__SvKey__SV __svKey__SV;
 
+	@Ignore
 	@Test
 	public void add() {
 		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
@@ -35,6 +37,7 @@ public class __SvKey__SVTest extends BaseTest {
 		print(response);
 	}
 
+	@Ignore
 	@Test
 	public void update() {
 		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
@@ -42,6 +45,7 @@ public class __SvKey__SVTest extends BaseTest {
 		print(response);
 	}
 
+	@Ignore
 	@Test
 	public void delete() {
 		__SvKey__SaveRequest request=new __SvKey__SaveRequest();
@@ -51,6 +55,7 @@ public class __SvKey__SVTest extends BaseTest {
 
 
 
+	@Ignore
 	@Test
 	public void queryDetail() {
 		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
@@ -58,6 +63,7 @@ public class __SvKey__SVTest extends BaseTest {
 		print(response);
 	}
 
+	@Ignore
 	@Test
 	public void queryList() {
 		__SvKey__QueryRequest request=new __SvKey__QueryRequest();
@@ -65,6 +71,7 @@ public class __SvKey__SVTest extends BaseTest {
 		print(response);
 	}
 
+	@Ignore
 	@Test
 	public void queryPage() {
 		__SvKey__QueryRequest request=new __SvKey__QueryRequest();

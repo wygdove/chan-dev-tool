@@ -75,10 +75,7 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 	public String delete__SvKey__(__SvKey__SaveRequest request) {
 		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.delete__SvKey__ request: {}",JSON.toJSONString(request));
 		__BoKey__ __boKey__Request=new __BoKey__();
-		// __boKey__Request.setId(request.getId());
-		// __boKey__Request.setDelFlag(delFlag);
-		// __boKey__Request.setUpdateUser(request.getUserId());
-		// __boKey__Request.setUpdateTime(DateUtil.getSysDate());
+        BeanUtil.copyPropertiesIgnoreNull(__boKey__Request,request);
 		int res=__svKey__AtomSV.update(__boKey__Request);
 		String result=StringUtil.toString(res);
 		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.delete__SvKey__ result: {}",JSON.toJSONString(result));
