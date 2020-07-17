@@ -1,18 +1,18 @@
 # 文件存在时是否重写文件内容（为true时重写文件内容，其他生成.temp文件）
-__overwritten__=false
+__overwritten__=true
 
 # 作者
 __author__=wygdove
 
 # 工程标识
-__project__=mgmt
+__project__=gsop
 
 # 包名
-__package__=esopcell
+__package__=workreport
 
 # 服务关键字
-__SvKey__=EsopCellUncovered
+__SvKey__=WorkReportNote
 
 # 数据库映射对象实例
-__BoKey__=EsopCellUncovered
+__BoKey__=GsopWorkReportNote
 

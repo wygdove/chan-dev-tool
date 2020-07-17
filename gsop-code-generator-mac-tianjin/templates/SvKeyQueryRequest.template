@@ -1,0 +1,34 @@
+package com.asiainfo.grid.sop.tianjin.model.__package__;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+
+/**
+ * __SvKey__QueryRequest.java
+ *
+ *
+ * @date
+ * @author __author__
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class __SvKey__QueryRequest implements Serializable {
+
+__AddPropertyDefine__
+    private Integer pageNo;
+    private Integer pageSize;
+	private String orderByClause;
+
+
+__AddGetterSetter__
+
+    public Integer getPageNo(){return pageNo;}
+    public void setPageNo(Integer pageNo){this.pageNo=pageNo;}
+    public Integer getPageSize(){return pageSize;}
+    public void setPageSize(Integer pageSize){this.pageSize=pageSize;}
+	public String getOrderByClause(){return orderByClause;}
+	public void setOrderByClause(String orderByClause){this.orderByClause=orderByClause;}
+
+}

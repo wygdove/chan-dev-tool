@@ -1,0 +1,30 @@
+package com.asiainfo.grid.sop.tianjin.service.interfaces.__package__;
+
+import java.util.List;
+
+import com.asiainfo.grid.sop.tianjin.model.__package__.__SvKey__QueryRequest;
+import com.asiainfo.grid.sop.tianjin.model.__package__.__SvKey__SaveRequest;
+import com.asiainfo.grid.sop.tianjin.model.__package__.__SvKey__VO;
+import com.ai.channel.base.vo.PageResult;
+
+/**
+ * I__SvKey__BusiSV.java
+ *
+ *
+ * @date
+ * @author __author__
+ */
+public interface I__SvKey__Service {
+
+	public String add__SvKey__(__SvKey__SaveRequest request);
+	public String update__SvKey__(__SvKey__SaveRequest request);
+
+	public String delete__SvKey__(__SvKey__SaveRequest request);
+
+	public __SvKey__VO queryDetail__SvKey__(__SvKey__QueryRequest request);
+
+	public List<__SvKey__VO> queryList__SvKey__(__SvKey__QueryRequest request);
+	public PageResult<__SvKey__VO> queryPage__SvKey__(__SvKey__QueryRequest request);
+	public Long count__SvKey__(__SvKey__QueryRequest request);
+
+}

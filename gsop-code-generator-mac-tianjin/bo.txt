@@ -1,0 +1,8 @@
+
+    private Long reportNoteId;
+
+    private Long reportInfoId;
+
+    private String reportNoteClass;
+
+    private String reportNoteValue;

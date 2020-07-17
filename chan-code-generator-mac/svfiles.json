@@ -69,7 +69,7 @@
     "filepath":"../../../../../channel/chan-srv-__project__/chan-srv-__project__-core/src/main/java/com/ai/channel/__project__/service/atom/impl/",
     "filename":"__SvKey__AtomSVImpl.java",
     "template":"/templates_sv/SvKeyAtomSVImpl",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
     "filepath":"../../../../../channel/chan-srv-__project__/chan-srv-__project__-core/src/test/java/test/com/ai/channel/__project__/__package__/",
@@ -95,13 +95,13 @@
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/WEB-INF/jsp/__svkey__/",
     "filename":"__svkey__list.jsp",
     "template":"/templates_web/svkeylist-ul.jsp",
-    "isEffect":"yes"
+    "isEffect":"no"
   },
   {
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/resources/spm_modules/app/jsp/__svkey__/",
     "filename":"__svkey__list.js",
     "template":"/templates_web/svkeylist.js",
-    "isEffect":"yes"
+    "isEffect":"no"
   },
   {
     "filepath":"../../../../../channel/chan-pc-web-base-__project__/src/main/webapp/WEB-INF/jsp/__svkey__/",

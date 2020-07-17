@@ -22,12 +22,15 @@ from bson.objectid import ObjectId
 # conf={"mongoServer":"10.1.234.150:37017","database":"dsswosh","userName":"dsswoshser","password":"ddsswoshpwd","bucket":"dsswohisfs"}
 
 # qinghai dev filefs
-conf={"mongoServer":"10.1.234.150:37017","database":"dss001","userName":"dss001user","password":"dss001pwd","bucket":"fs"}
+# conf={"mongoServer":"10.1.234.150:37017","database":"dss001","userName":"dss001user","password":"dss001pwd","bucket":"fs"}
+
+# local
+conf={"mongoServer":"127.0.0.1:37017","database":"quantization","userName":"quantization","password":"okmPL<","bucket":"UserAccount"}
 
 
 conn=pymongo.MongoClient('mongodb://'+conf["mongoServer"])
 db=conn.get_database(conf["database"])
-db.authenticate(conf["userName"],conf["password"])
+# db.authenticate(conf["userName"],conf["password"])
 coll=db.get_collection(conf["bucket"])
 
 
@@ -37,8 +40,10 @@ coll=db.get_collection(conf["bucket"])
 
 # coll.update_one({"_id":ObjectId(id)},{"$set":data})
 
+# coll.insert({"classCode":"indexFund","className":"指数基金"})
 
-
+query={}
+# query={"_id":ObjectId("5e1d7fd43b7750424eaef071")}
 # query={"tYPE":"GIS-GRID"}
 # query={"tYPE":"GIS-GRID","cODE":"B1WG0301"}
 # query={"tYPE":"GIS-MICRO-GRID"}
@@ -51,15 +56,14 @@ coll=db.get_collection(conf["bucket"])
 
 # query={"woId":66402}
 # query={"channelCode": "12110123"}
-query={"_id":ObjectId("5943eb264f2d0c5da6aef121")}
+# query={"_id":ObjectId("5943eb264f2d0c5da6aef121")}
 
 
+# coll.delete_one(query)
 # coll.delete_many(query)
 data=coll.find(query)
 data=json.loads(dumps(data))
 print json.dumps(data)
-
-
 
 
 

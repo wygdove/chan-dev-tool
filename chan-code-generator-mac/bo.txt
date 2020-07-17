@@ -1,97 +1,185 @@
-private String housingId;
+private Long esopCellId;
 
-    private String housingName;
+    private String esopCellName;
 
-    private String housingAddress;
+    private String ownSubsi;
 
-    private Date createTime;
+    private String ownTown;
+
+    private Long orgId;
+
+    private String areaCode;
+
+    private String townId;
+
+    private String gridId;
+
+    private String gridName;
+
+    private String areaId;
+
+    private String areaName;
+
+    private String managerName;
+
+    private String managerTel;
+
+    private String managerNo;
+
+    private String cellState;
+
+    private String esopCellType;
+
+    private String esopCellTypeName;
+
+    private String buidPlan;
+
+    private String cellAddress;
+
+    private Timestamp buidDate;
+
+    private BigDecimal buidArea;
+
+    private String constInfo;
+
+    private Integer buidCount;
+
+    private Integer buidUnitCount;
+
+    private BigDecimal doorCount;
+
+    private String livePercent;
+
+    private String isCmcc;
+
+    private String isOther;
+
+    private String otherCompany;
+
+    private String serviceCompany;
+
+    private String linkManPhone;
+
+    private String linkManName;
+
+    private Long mgrId;
+
+    private String mgrName;
+
+    private String mgrPhone;
+
+    private Short isCooperation;
+
+    private String cooperationName;
+
+    private String boardbandType;
+
+    private String isSva;
+
+    private String base23station;
+
+    private String base4station;
+
+    private String linePlan;
+
+    private String buidLinePlan;
+
+    private String isAdver;
+
+    private String maintainCompany;
+
+    private String maintainCompanyNumber;
+
+    private String cityCountryside;
+
+    private String cellType;
+
+    private String maintenanceId;
+
+    private String maintenanceName;
+
+    private String modelcellflag;
+
+    private BigDecimal longitude;
+
+    private BigDecimal latitude;
+
+    private Long portnum;
+
+    private Long occuppyEquipPorts;
 
     private String createUser;
 
-    private String busiRegGridCode;
+    private Timestamp createTime;
 
-    private String busiRegCountyCode;
+    private String updateUser;
+
+    private Timestamp updateTime;
+
+    private String admRegProvinceCode;
+
+    private String admRegCityCode;
+
+    private String admRegCountyCode;
+
+    private String admRegTownCode;
+
+    private String admRegVillageCode;
+
+    private String admRegCode;
+
+    private String admRegName;
+
+    private String busiRegProvinceCode;
 
     private String busiRegCityCode;
 
-    private String areaLatlngId;
-
-    private Integer boundFlag;
-
-    private Integer delFlag;
-
-    private String busiRegGridName;
-
-    private String busiRegCountyName;
-
-    private String busiRegCityName;
-
-    private String housingCode;
-
-    private String netinTime;
-
-    private String netinEnterTime;
-
-    private String accessMode;
-
-    private String communityProperty;
-
-    private String overCustNum;
-
-    private String broadbandinCustNum;
-
-    private String broadbandativeCustNum;
-
-    private String broadbandvalidityCustNum;
-
-    private String mbhCustNum;
-
-    private String mbhCustPop;
-
-    private String fixCustNum;
-
-    private String fixCustPop;
-
-    private String housingPermCrm;
-
-    private String jkHosingFlag;
-
-    private String informationCustNum;
-
-    private String cttHosingFlag;
-
-    private String cttHosingoverFlag;
-
-    private String actualPortNum;
-
-    private String actualPortPop;
-
-    private String housingLinkman;
-
-    private String statDay;
-
-    private Integer managerBoundFlag;
-
-    private String chanmanagerId;
-
-    private String mangeruserName;
-
-    private String mangeruserPhone;
-
-    private BigDecimal piecePayCount;
-
-    private BigDecimal piecePayAmount;
-
-    private String valuableFlag;
-
-    private String gridManager;
+    private String busiRegCountyCode;
 
     private String busiRegAreaCode;
 
-    private String busiRegMircoGridCode;
+    private String busiRegGridCode;
 
-    private String busiRegAreaName;
+    private String busiRegMicroAreaCode;
 
-    private String housingPermCrmFirst;
+    private String busiRegCode;
 
-    private String housingLnglat;
+    private String busiRegName;
+
+    private String isBondFlag;
+
+    private String remark;
+
+    private String ext1;
+
+    private String ext2;
+
+    private String ifHeHotel;
+
+    private String positionAdjusted;
+
+    private String ifThreeBroadCell;
+
+    private Long cellId;
+
+    private String cellCode;
+
+    private String cellName;
+
+    private String thirdCoveredFlag;
+
+    private String cuEnterFlag;
+
+    private String ctEnterFlag;
+
+    private String developableFlag;
+
+    private String undevelopableReason;
+
+    private String standardProvince;
+
+    private String standardCity;
+
+    private String standardCounty;
+
+    private String standardRoad;

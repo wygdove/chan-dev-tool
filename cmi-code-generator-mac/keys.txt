@@ -2,8 +2,8 @@ __author__=wygdove
 
 __project__=cust
 __package__=subsuser
-__SvKey__=SubsIdentityInfo
-__BoKey__=SubsIdentityInfo
+__SvKey__=SubsAttach
+__BoKey__=SubsAttach
 
 
 
