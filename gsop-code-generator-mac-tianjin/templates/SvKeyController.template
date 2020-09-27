@@ -47,14 +47,18 @@ public class __SvKey__Controller {
         if(user==null) {
             return AjaxResult.markNoLogin();
         }
-		if(log.isInfoEnabled()) log.info("/__svkey__/save saveRequest: {}",JSON.toJSONString(saveRequest));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/save saveRequest: {}",JSON.toJSONString(saveRequest));
+		}
 		String response=null;
 		if(StringUtil.isBlank(saveRequest.getId())) {
 			response=__svKey__Service.add__SvKey__(saveRequest);
 		}else {
 			response=__svKey__Service.update__SvKey__(saveRequest);
 		}
-		if(log.isInfoEnabled()) log.info("/__svkey__/__svKey__Save response: {}",JSON.toJSONString(response));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/__svKey__Save response: {}",JSON.toJSONString(response));
+		}
     	if(response!=null) {
             return AjaxResult.markSuccess(response);
         }
@@ -69,9 +73,13 @@ public class __SvKey__Controller {
         if(user==null) {
             return AjaxResult.markNoLogin();
         }
-		if(log.isInfoEnabled()) log.info("/__svkey__/__svKey__Delete saveRequest: {}",JSON.toJSONString(saveRequest));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/__svKey__Delete saveRequest: {}",JSON.toJSONString(saveRequest));
+		}
 		String response=__svKey__Service.delete__SvKey__(saveRequest);
-		if(log.isInfoEnabled()) log.info("/__svkey__/__svKey__Delete response: {}",JSON.toJSONString(response));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/__svKey__Delete response: {}",JSON.toJSONString(response));
+		}
     	if(response!=null) {
             return AjaxResult.markSuccess(response);
         }
@@ -82,9 +90,13 @@ public class __SvKey__Controller {
 	@RequestMapping("query__SvKey__Detail")
     public Object query__SvKey__Detail(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
     	log.info("controller:/__svkey__/query__SvKey__Detail");
-		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__Detail queryRequest: {}",JSON.toJSONString(queryRequest));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/query__SvKey__Detail queryRequest: {}",JSON.toJSONString(queryRequest));
+		}
 		__SvKey__VO response=__svKey__Service.queryDetail__SvKey__(queryRequest);
-		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__Detail response: {}",JSON.toJSONString(response));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/query__SvKey__Detail response: {}",JSON.toJSONString(response));
+		}
     	if(response!=null) {
             return AjaxResult.markSuccess(response);
         }
@@ -108,9 +120,13 @@ public class __SvKey__Controller {
         if(!"1".equalsIgnoreCase(request.getParameter("isFilterUserRight"))) {
             this.setQueryUser(user,queryRequest);
         }
-		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__PageList queryRequest: {}",JSON.toJSONString(queryRequest));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/query__SvKey__PageList queryRequest: {}",JSON.toJSONString(queryRequest));
+		}
 		PageResult<__SvKey__VO> response=__svKey__Service.queryPage__SvKey__(queryRequest);
-		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__PageList response: {}",JSON.toJSONString(response));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/query__SvKey__PageList response: {}",JSON.toJSONString(response));
+		}
     	if(response!=null) {
             return AjaxResult.markSuccess(response);
         }
@@ -127,9 +143,13 @@ public class __SvKey__Controller {
         if(!"1".equalsIgnoreCase(request.getParameter("isFilterUserRight"))) {
             this.setQueryUser(user,queryRequest);
         }
-		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__List queryList: {}",JSON.toJSONString(queryRequest));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/query__SvKey__List queryList: {}",JSON.toJSONString(queryRequest));
+		}
 		List<__SvKey__VO> response=__svKey__Service.queryList__SvKey__(queryRequest);
-		if(log.isInfoEnabled()) log.info("/__svkey__/query__SvKey__List response: {}",JSON.toJSONString(response));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/query__SvKey__List response: {}",JSON.toJSONString(response));
+		}
     	if(response!=null) {
             return AjaxResult.markSuccess(response);
         }
@@ -146,9 +166,13 @@ public class __SvKey__Controller {
         if(!"1".equalsIgnoreCase(request.getParameter("isFilterUserRight"))) {
             this.setQueryUser(user,queryRequest);
         }
-        if(log.isInfoEnabled()) log.info("/__svkey__/count__SvKey__ queryList: {}",JSON.toJSONString(queryRequest));
+        if(log.isInfoEnabled()) {
+            log.info("/__svkey__/count__SvKey__ queryList: {}",JSON.toJSONString(queryRequest));
+        }
         Long response=__svKey__Service.count__SvKey__(queryRequest);
-        if(log.isInfoEnabled()) log.info("/__svkey__/count__SvKey__ response: {}",JSON.toJSONString(response));
+        if(log.isInfoEnabled()) {
+            log.info("/__svkey__/count__SvKey__ response: {}",JSON.toJSONString(response));
+        }
     	if(response!=null) {
             return AjaxResult.markSuccess(response);
         }
@@ -157,7 +181,9 @@ public class __SvKey__Controller {
 
 	private __SvKey__QueryRequest setQueryUser(UserSessionModel user,__SvKey__QueryRequest request) {
         SysUserRightsVo userRights=TokenUtil.getUserRights(user);
-		if(log.isInfoEnabled()) log.info("/__svkey__/setQueryUser userRights: {}",JSON.toJSONString(userRights));
+		if(log.isInfoEnabled()) {
+		    log.info("/__svkey__/setQueryUser userRights: {}",JSON.toJSONString(userRights));
+		}
 		return request;
 	}
 

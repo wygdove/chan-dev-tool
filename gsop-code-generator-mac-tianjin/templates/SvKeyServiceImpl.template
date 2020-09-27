@@ -35,7 +35,7 @@ import com.github.pagehelper.PageHelper;
  */
 @Service
 public class __SvKey__ServiceImpl implements I__SvKey__Service {
-	private static Logger log=LoggerFactory.getLogger(__SvKey__ServiceImpl.class);
+	private static final Logger log=LoggerFactory.getLogger(__SvKey__ServiceImpl.class);
 
     @Resource
 	I__SvKey__AtomSV __svKey__AtomSV;
@@ -45,24 +45,32 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 	@Transactional(value=GsopConstants.Transaction.GSOP)
 	@Override
 	public String add__SvKey__(__SvKey__SaveRequest request) {
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.add__SvKey__ request: {}",JSON.toJSONString(request));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.add__SvKey__ request: {}",JSON.toJSONString(request));
+		}
 		// Long itemId=SeqUtil.getNewId(SequencesConstant.ID);
 		// request.setId(itemId);
 		__BoKey__ __boKey__Request=this.setAtomSave(request);
 		int res=__svKey__AtomSV.add(__boKey__Request);
 		String result=StringUtil.toString(res);
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.add__SvKey__ result: {}",JSON.toJSONString(result));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.add__SvKey__ result: {}",JSON.toJSONString(result));
+		}
 		return result;
 	}
 
 	@Transactional(value=GsopConstants.Transaction.GSOP)
 	@Override
 	public String update__SvKey__(__SvKey__SaveRequest request) {
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.update__SvKey__ request: {}",JSON.toJSONString(request));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.update__SvKey__ request: {}",JSON.toJSONString(request));
+		}
 		__BoKey__ __boKey__Request=this.setAtomSave(request);
 		int res=__svKey__AtomSV.update(__boKey__Request);
 		String result=StringUtil.toString(res);
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.update__SvKey__ response: {}",JSON.toJSONString(result));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.update__SvKey__ response: {}",JSON.toJSONString(result));
+		}
 		return result;
 	}
 
@@ -71,12 +79,16 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 	@Transactional(value=GsopConstants.Transaction.GSOP)
 	@Override
 	public String delete__SvKey__(__SvKey__SaveRequest request) {
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.delete__SvKey__ request: {}",JSON.toJSONString(request));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.delete__SvKey__ request: {}",JSON.toJSONString(request));
+		}
 		__BoKey__ __boKey__Request=new __BoKey__();
         BeanUtil.copyPropertiesIgnoreNull(__boKey__Request,request);
 		int res=__svKey__AtomSV.update(__boKey__Request);
 		String result=StringUtil.toString(res);
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.delete__SvKey__ result: {}",JSON.toJSONString(result));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.delete__SvKey__ result: {}",JSON.toJSONString(result));
+		}
 		return result;
 	}
 
@@ -84,7 +96,9 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 
 	@Override
 	public __SvKey__VO queryDetail__SvKey__(__SvKey__QueryRequest request) {
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ request: {}",JSON.toJSONString(request));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ request: {}",JSON.toJSONString(request));
+		}
 		__SvKey__VO result=null;
 		__BoKey__ __boKey__=null;
         __BoKey__ __boKey__Request=new __BoKey__();
@@ -97,7 +111,9 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 			return result;
 		}
 		result=this.setVoQuery(__boKey__);
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ result: {}",JSON.toJSONString(result));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ result: {}",JSON.toJSONString(result));
+		}
 		return result;
 	}
 
@@ -105,7 +121,9 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 
 	@Override
 	public List<__SvKey__VO> queryList__SvKey__(__SvKey__QueryRequest request) {
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryList__SvKey__ request: {}",JSON.toJSONString(request));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.queryList__SvKey__ request: {}",JSON.toJSONString(request));
+		}
 		List<__SvKey__VO> result=new ArrayList<>();
 		__BoKey__ queryRequest=this.setAtomQuery(request);
 		Map<String,Object> reqmap=this.setAtomQueryMap(request);
@@ -117,12 +135,16 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 				result.add(itemVo);
 			}
 		}
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryList__SvKey__ result: {}",JSON.toJSONString(result));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.queryList__SvKey__ result: {}",JSON.toJSONString(result));
+		}
 		return result;
 	}
 	@Override
 	public PageResult<__SvKey__VO> queryPage__SvKey__(__SvKey__QueryRequest request) {
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryPage__SvKey__ request: {}",JSON.toJSONString(request));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.queryPage__SvKey__ request: {}",JSON.toJSONString(request));
+		}
 		PageResult<__SvKey__VO> pageResult=new PageResult<>();
 		List<__SvKey__VO> result=new ArrayList<>();
 
@@ -153,17 +175,23 @@ public class __SvKey__ServiceImpl implements I__SvKey__Service {
 		pageResult.setPageNum(pageNum);
 		pageResult.setPageSize(pageSize);
 		pageResult.setResult(result);
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryPage__SvKey__ pageResult: {}",JSON.toJSONString(pageResult));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.queryPage__SvKey__ pageResult: {}",JSON.toJSONString(pageResult));
+		}
 		return pageResult;
 	}
 
 	@Override
 	public Long count__SvKey__(__SvKey__QueryRequest request) {
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.count__SvKey__ request: {}",JSON.toJSONString(request));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.count__SvKey__ request: {}",JSON.toJSONString(request));
+		}
 		__BoKey__ queryRequest=this.setAtomQuery(request);
 		Map<String,Object> reqmap=this.setAtomQueryMap(request);
 		long result=__svKey__AtomSV.count(queryRequest,reqmap);
-		if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.count__SvKey__ result: {}",JSON.toJSONString(result));
+		if(log.isDebugEnabled()) {
+		    log.debug("__SvKey__BusiSVImpl.count__SvKey__ result: {}",JSON.toJSONString(result));
+		}
 		return result;
 	}
 

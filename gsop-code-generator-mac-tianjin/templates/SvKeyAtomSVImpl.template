@@ -72,7 +72,9 @@ public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
 	private __BoKey__Example getExample(__BoKey__ request,Map<String,Object> reqmap) {
 		__BoKey__Example example=new __BoKey__Example();
         __BoKey__Example.Criteria criteria=this.getCriteria(example,request,reqmap);
-        if(log.isDebugEnabled()) log.debug("__SvKey__AtomSVImpl.getExample criteria: {}",JSON.toJSONString(criteria));
+        if(log.isDebugEnabled()) {
+            log.debug("__SvKey__AtomSVImpl.getExample criteria: {}",JSON.toJSONString(criteria));
+        }
 
 		if(reqmap!=null&&reqmap.containsKey("orderByClause")) {
 			String value=(String)reqmap.get("orderByClause");
