@@ -1,0 +1,185 @@
+package com.__author__.__project__.service.busi.impl;
+
+import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.__author__.__project__.constants.CommonConstants;
+import com.__author__.__project__.dao.bo.__BoKey__;
+import com.__author__.__project__.model.__package__.__SvKey__QueryRequest;
+import com.__author__.__project__.model.__package__.__SvKey__SaveRequest;
+import com.__author__.__project__.model.__package__.__SvKey__VO;
+import com.__author__.__project__.service.atom.interfaces.I__SvKey__AtomSV;
+import com.__author__.__project__.service.busi.interfaces.I__SvKey__BusiSV;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import javax.annotation.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
+
+/**
+ * @Title: __SvKey__BusiSVImpl
+ * @Description:
+ */
+@Service
+public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
+    private static Logger log=LoggerFactory.getLogger(__SvKey__BusiSVImpl.class);
+
+    @Resource
+    private I__SvKey__AtomSV __svKey__AtomSV;
+
+
+    @Transactional
+    @Override
+    public String add__SvKey__(__SvKey__SaveRequest request) {
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.add__SvKey__ request: {}",JSON.toJSONString(request));
+//        Long itemId=seqUtil.getNextLongValue(SequencesConstant.ASSETS_STOCK_SEQ_ID);
+//        request.setId(itemId);
+        __BoKey__ __boKey__Request=new __BoKey__();
+        BeanUtils.copyProperties(request,__boKey__Request);
+        int res=__svKey__AtomSV.add(__boKey__Request);
+        String result=Integer.toString(res);
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.add__SvKey__ result: {}",JSON.toJSONString(result));
+        return result;
+    }
+
+    @Transactional
+    @Override
+    public String update__SvKey__(__SvKey__SaveRequest request) {
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.update__SvKey__ request: {}",JSON.toJSONString(request));
+//        if(Objects.isNull(request)||Objects.isNull(request.getId())||request.getId()<=0) {
+//            return CommonConstants.STR_0;
+//        }
+        __BoKey__ __boKey__Request=new __BoKey__();
+        BeanUtils.copyProperties(request,__boKey__Request);
+        int res=__svKey__AtomSV.update(__boKey__Request);
+        String result=Integer.toString(res);
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.update__SvKey__ response: {}",JSON.toJSONString(result));
+        return result;
+    }
+
+    @Override
+    public String delete__SvKey__(__SvKey__SaveRequest request) {
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.delete__SvKey__ request: {}",JSON.toJSONString(request));
+//        if(Objects.isNull(request)||Objects.isNull(request.getId())||request.getId()<=0) {
+//            return CommonConstants.STR_0;
+//        }
+        __BoKey__ __boKey__Request=new __BoKey__();
+        BeanUtils.copyProperties(request,__boKey__Request);
+        int res=__svKey__AtomSV.update(__boKey__Request);
+        String result=Integer.toString(res);
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.delete__SvKey__ result: {}",JSON.toJSONString(result));
+        return result;
+    }
+
+    @Override
+    public __SvKey__VO queryDetail__SvKey__(__SvKey__QueryRequest request) {
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ request: {}",JSON.toJSONString(request));
+        __SvKey__VO result=null;
+        __BoKey__ __boKey__Request=new __BoKey__();
+        BeanUtils.copyProperties(request,__boKey__Request);
+        __BoKey__ __boKey__=null;
+//        if(!Objects.isNull(request.getId())&&request.getId()>0) {
+//            __boKey__=__svKey__AtomSV.queryById(__boKey__Request);
+//        }else {
+            List<GsopWoOrdInfo> __boKey__List=__svKey__AtomSV.queryList(__boKey__Request);
+            if(!CollectionUtils.isEmpty(__boKey__List)) {
+                __boKey__=__boKey__List.get(0);
+            }
+//        }
+        if(!Objects.isNull(__boKey__)) {
+            result=new __SvKey__VO();
+            BeanUtils.copyProperties(__boKey__,result);
+        }
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryDetail__SvKey__ result: {}",JSON.toJSONString(result));
+        return result;
+    }
+
+    @Override
+    public List<__SvKey__VO> queryList__SvKey__(__SvKey__QueryRequest request) {
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryList__SvKey__ request: {}",JSON.toJSONString(request));
+        List<__SvKey__VO> result=new ArrayList<>();
+        __BoKey__ queryRequest=new __BoKey__();
+        BeanUtils.copyProperties(request,queryRequest);
+        Map<String,Object> reqmap=this.setAtomQueryMap(request);
+        List<__BoKey__> resList=__svKey__AtomSV.queryList(queryRequest,reqmap);
+        if(!CollectionUtils.isEmpty(resList)) {
+            __SvKey__VO itemVo=null;
+            for(__BoKey__ item:resList) {
+                itemVo=new __SvKey__VO();
+                BeanUtils.copyProperties(item,itemVo);
+                result.add(itemVo);
+            }
+        }
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryList__SvKey__ result: {}",JSON.toJSONString(result));
+        return result;
+    }
+
+    @Override
+    public PageInfo<__SvKey__VO> queryPage__SvKey__(__SvKey__QueryRequest request) {
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryPage__SvKey__ request: {}",JSON.toJSONString(request));
+        PageInfo<__SvKey__VO> pageResult=new PageInfo<>();
+        List<__SvKey__VO> result=new ArrayList<>();
+
+        __BoKey__ queryRequest=new __BoKey__();
+        BeanUtils.copyProperties(request,queryRequest);
+        Map<String,Object> reqmap=this.setAtomQueryMap(request);
+
+        List<__BoKey__> resList;
+        Page<__BoKey__> pageData;
+        PageHelper.startPage(request.getPageNo(),request.getPageSize());
+        try {
+            resList=__svKey__AtomSV.queryList(queryRequest,reqmap);
+            pageData=(Page<__BoKey__>)resList;
+        }finally {
+            PageHelper.clearPage();
+        }
+        if(!CollectionUtils.isEmpty(resList)) {
+            __SvKey__VO itemVo=null;
+            for(__BoKey__ item:resList) {
+                itemVo=new __SvKey__VO();
+                BeanUtils.copyProperties(item,itemVo);
+                result.add(itemVo);
+            }
+            BeanUtils.copyProperties(pageData,pageResult);
+        }
+        pageResult.setList(result);
+
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.queryPage__SvKey__ result: {}",JSON.toJSONString(result));
+        return pageResult;
+    }
+
+    @Override
+    public Integer count__SvKey__(__SvKey__QueryRequest request) {
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.count__SvKey__ request: {}",JSON.toJSONString(request));
+        __BoKey__ queryRequest=new __BoKey__();
+        BeanUtils.copyProperties(request,queryRequest);
+        Map<String,Object> reqmap=this.setAtomQueryMap(request);
+        int result=__svKey__AtomSV.count(queryRequest,reqmap);
+        if(log.isDebugEnabled()) log.debug("__SvKey__BusiSVImpl.count__SvKey__ result: {}",JSON.toJSONString(result));
+        return result;
+    }
+
+
+    private Map<String,Object> setAtomQueryMap(__SvKey__QueryRequest src) {
+        Map<String,Object> res=new HashMap<>();
+        if(src==null) return res;
+//        if(StringUtils.hasText(src.getFieldLike())) {
+//            res.put("fieldLike",src.getFieldLike());
+//        }
+//        if(!CollectionUtils.isEmpty(src.getFieldIn())) {
+//            res.put("fieldIn",src.getFieldIn());
+//        }
+        return res;
+    }
+    
+    
+}

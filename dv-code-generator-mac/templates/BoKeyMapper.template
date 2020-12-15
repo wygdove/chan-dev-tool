@@ -1,0 +1,11 @@
+package com.__author__.__project__.dao.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.__author__.__project__.dao.bo.__BoKey__;
+
+/**
+ * @Title: __BoKey__Mapper
+ * @Description:
+ */
+public interface __BoKey__Mapper extends BaseMapper<__BoKey__> {
+}

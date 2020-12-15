@@ -1,0 +1,21 @@
+# 文件存在时是否重写文件内容（为true时重写文件内容，其他生成.temp文件）
+__overwritten__=true
+
+# 作者
+__author__=wygdove
+
+# 工程标识
+__path__=/Users/wyg/use/work/code/middle_java/multi_province
+__project__=multiprovince
+
+# 包名
+__package__=gsopwoordinfo
+
+# 服务关键字
+__SvKey__=GsopWoordInfo
+
+# 数据库映射对象实例
+__FieldFrom__=table
+__BoKey__=GsopWoOrdInfo
+__Table__=GSOP_WO_ORD_INFO
+

@@ -1,0 +1,19 @@
+package com.__author__.__project__.model.__package__;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+/**
+ * @Title: __SvKey__VO
+ * @Description:
+ */
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class __SvKey__VO implements Serializable {
+
+__AddPropertyDefine__
+
+__AddGetterSetter__
+
+}

@@ -1,0 +1,19 @@
+package com.__author__.__project__.service.atom.interfaces;
+
+import com.__author__.__project__.dao.bo.__BoKey__;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @Title: I__SvKey__AtomSV
+ * @Description:
+ */
+public interface I__SvKey__AtomSV {
+    int add(__BoKey__ request);
+    int update(__BoKey__ request);
+    __BoKey__ queryById(__BoKey__ request);
+    List<__BoKey__> queryList(__BoKey__ request);
+    List<__BoKey__> queryList(__BoKey__ request,Map<String,Object> reqmap);
+    int count(__BoKey__ request);
+    int count(__BoKey__ request,Map<String,Object> reqmap);
+}

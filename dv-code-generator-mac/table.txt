@@ -1,0 +1,10 @@
+
+  WO_ID                   NUMBER(16) ,
+  PROC_INST_ID            VARCHAR2(255),
+  ASSOCIATION_ID          NUMBER(16),
+  WO_CODE                 VARCHAR2(500 char),
+  WO_TITLE                VARCHAR2(255),
+  WO_BIG_TYPE             VARCHAR2(255),
+  WO_TYPE                 VARCHAR2(255),
+  WO_FIRST_TYPE           VARCHAR2(64),
+  WO_SECOND_TYPE          VARCHAR2(64),

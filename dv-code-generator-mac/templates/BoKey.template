@@ -1,0 +1,14 @@
+package com.__author__.__project__.dao.bo;
+
+
+/**
+ * @Title: __BoKey__
+ * @Description:
+ */
+public class __BoKey__ {
+
+__AddPropertyDefine__
+
+__AddGetterSetter__
+
+}

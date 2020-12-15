@@ -1,0 +1,10 @@
+
+private String guidkey;
+private String typeCode;
+private String paramCode;
+private String subParamCode;
+private String columnValue;
+private String columnDesc;
+private Long dispord;
+private String descb;
+private String state;

@@ -1,0 +1,139 @@
+package com.__author__.__project__.controller.__package__;
+
+import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageInfo;
+import com.__author__.__project__.model.__package__.__SvKey__QueryRequest;
+import com.__author__.__project__.model.__package__.__SvKey__SaveRequest;
+import com.__author__.__project__.model.__package__.__SvKey__VO;
+import com.__author__.__project__.model.common.AjaxResult;
+import com.__author__.__project__.service.busi.interfaces.I__SvKey__BusiSV;
+import com.__author__.__project__.utils.AjaxUtil;
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.Objects;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @Title: __SvKey__Controller
+ * @Description:
+ */
+@RestController
+@RequestMapping("__package__")
+public class __SvKey__Controller {
+    private static final Logger log=LoggerFactory.getLogger(__SvKey__Controller.class);
+
+    @Resource
+    private I__SvKey__BusiSV __svKey__BusiSV;
+
+
+    @RequestMapping("save__SvKey__")
+    public AjaxResult save__SvKey__(HttpServletRequest request,@RequestBody __SvKey__SaveRequest saveRequest) {
+        log.info("controller:/__package__/save__SvKey__");
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/save__SvKey__ saveRequest: {}",JSON.toJSONString(saveRequest));
+        }
+        String response=null;
+        if(!Objects.isNull(saveRequest.getId())&&saveRequest.getId()>0) {
+            response=__svKey__BusiSV.update__SvKey__(saveRequest);
+        }else {
+            response=__svKey__BusiSV.add__SvKey__(saveRequest);
+        }
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/save__SvKey__ response: {}",JSON.toJSONString(response));
+        }
+        if(response!=null) {
+            return AjaxUtil.markSuccess(response);
+        }
+        return AjaxUtil.markError();
+    }
+
+
+    @RequestMapping("delete__SvKey__")
+    public AjaxResult delete__SvKey__(HttpServletRequest request,@RequestBody __SvKey__SaveRequest saveRequest) {
+        log.info("controller:/__package__/delete__SvKey__");
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/delete__SvKey__ saveRequest: {}",JSON.toJSONString(saveRequest));
+        }
+        String response=__svKey__BusiSV.delete__SvKey__(saveRequest);
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/delete__SvKey__ response: {}",JSON.toJSONString(response));
+        }
+        if(response!=null) {
+            return AjaxUtil.markSuccess(response);
+        }
+        return AjaxUtil.markError();
+    }
+
+
+    @RequestMapping("queryDetail__SvKey__")
+    public AjaxResult queryDetail__SvKey__(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+        log.info("controller:/__package__/queryDetail__SvKey__");
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/queryDetail__SvKey__ queryRequest: {}",JSON.toJSONString(queryRequest));
+        }
+        __SvKey__VO response=__svKey__BusiSV.queryDetail__SvKey__(queryRequest);
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/queryDetail__SvKey__ response: {}",JSON.toJSONString(response));
+        }
+        if(response!=null) {
+            return AjaxUtil.markSuccess(response);
+        }
+        return AjaxUtil.markError();
+    }
+
+    @RequestMapping("queryList__SvKey__")
+    public AjaxResult queryList__SvKey__(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+        log.info("controller:/__package__/queryList__SvKey__");
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/queryList__SvKey__ queryRequest: {}",JSON.toJSONString(queryRequest));
+        }
+        List<__SvKey__VO> response=__svKey__BusiSV.queryList__SvKey__(queryRequest);
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/queryList__SvKey__ response: {}",JSON.toJSONString(response));
+        }
+        if(response!=null) {
+            return AjaxUtil.markSuccess(response);
+        }
+        return AjaxUtil.markError();
+    }
+
+    @RequestMapping("queryPage__SvKey__")
+    public AjaxResult queryPage__SvKey__(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+        log.info("controller:/__package__/queryPage__SvKey__");
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/queryPage__SvKey__ queryRequest: {}",JSON.toJSONString(queryRequest));
+        }
+        PageInfo<__SvKey__VO> response=__svKey__BusiSV.queryPage__SvKey__(queryRequest);
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/queryPage__SvKey__ response: {}",JSON.toJSONString(response));
+        }
+        if(response!=null) {
+            return AjaxUtil.markSuccess(response);
+        }
+        return AjaxUtil.markError();
+    }
+
+    @RequestMapping("count__SvKey__")
+    public AjaxResult count__SvKey__(HttpServletRequest request,__SvKey__QueryRequest queryRequest) {
+        log.info("controller:/__package__/count__SvKey__");
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/count__SvKey__ queryRequest: {}",JSON.toJSONString(queryRequest));
+        }
+        Integer response=__svKey__BusiSV.count__SvKey__(queryRequest);
+        if(log.isInfoEnabled()) {
+            log.info("/__package__/count__SvKey__ response: {}",JSON.toJSONString(response));
+        }
+        if(response!=null) {
+            return AjaxUtil.markSuccess(response);
+        }
+        return AjaxUtil.markError();
+    }
+
+
+}

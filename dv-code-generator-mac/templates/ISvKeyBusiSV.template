@@ -1,0 +1,29 @@
+package com.__author__.__project__.service.busi.interfaces;
+
+import com.github.pagehelper.PageInfo;
+import com.__author__.__project__.model.__package__.__SvKey__QueryRequest;
+import com.__author__.__project__.model.__package__.__SvKey__SaveRequest;
+import com.__author__.__project__.model.__package__.__SvKey__VO;
+import java.util.List;
+
+/**
+ * @Title: I__SvKey__BusiSV
+ * @Description:
+ */
+public interface I__SvKey__BusiSV {
+
+    public String add__SvKey__(__SvKey__SaveRequest request);
+
+    public String update__SvKey__(__SvKey__SaveRequest request);
+
+    public String delete__SvKey__(__SvKey__SaveRequest request);
+
+    public __SvKey__VO queryDetail__SvKey__(__SvKey__QueryRequest request);
+
+    public List<__SvKey__VO> queryList__SvKey__(__SvKey__QueryRequest request);
+
+    public PageInfo<__SvKey__VO> queryPage__SvKey__(__SvKey__QueryRequest request);
+
+    public Integer count__SvKey__(__SvKey__QueryRequest request);
+
+}
