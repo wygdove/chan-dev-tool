@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.__author__.__project__.constants.CommonConstants;
 import com.__author__.__project__.dao.bo.__BoKey__;
 import com.__author__.__project__.model.__package__.__SvKey__QueryRequest;
 import com.__author__.__project__.model.__package__.__SvKey__SaveRequest;
@@ -20,16 +19,18 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
+
 
 /**
  * @Title: __SvKey__BusiSVImpl
  * @Description:
  */
 @Service
+@ConditionalOnMissingBean(value=I__SvKey__BusiSV.class,ignored=__SvKey__BusiSVImpl.class)
 public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
     private static Logger log=LoggerFactory.getLogger(__SvKey__BusiSVImpl.class);
 
@@ -90,7 +91,7 @@ public class __SvKey__BusiSVImpl implements I__SvKey__BusiSV {
 //        if(!Objects.isNull(request.getId())&&request.getId()>0) {
 //            __boKey__=__svKey__AtomSV.queryById(__boKey__Request);
 //        }else {
-            List<GsopWoOrdInfo> __boKey__List=__svKey__AtomSV.queryList(__boKey__Request);
+            List<__BoKey__> __boKey__List=__svKey__AtomSV.queryList(__boKey__Request);
             if(!CollectionUtils.isEmpty(__boKey__List)) {
                 __boKey__=__boKey__List.get(0);
             }

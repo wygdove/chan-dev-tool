@@ -7,6 +7,7 @@ import com.__author__.__project__.service.atom.interfaces.I__SvKey__AtomSV;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -15,6 +16,7 @@ import org.springframework.util.StringUtils;
  * @Description:
  */
 @Repository
+@ConditionalOnMissingBean(value=I__SvKey__AtomSV.class,ignored=__SvKey__AtomSVImpl.class)
 public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {
     
     @Resource
