@@ -7,8 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.ai.channel.base.BusinessConstants;
 import com.ai.channel.base.vo.PageResult;
+import com.ai.channel.common.util.StringUtil;
 import com.asiainfo.boot.core.model.AjaxResult;
-import com.asiainfo.grid.sop.base.model.UserSessionModel;
+import com.asiainfo.grid.__project__.base.model.UserSessionModel;
 import __basepackage__.model.__package__.__SvKey__QueryRequest;
 import __basepackage__.model.__package__.__SvKey__SaveRequest;
 import __basepackage__.model.__package__.__SvKey__VO;

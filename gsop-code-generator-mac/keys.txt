@@ -5,14 +5,16 @@ __overwritten__=true
 __author__=wygdove
 
 # 工程标识
-__project__=gsop
+__path__=../coms-chnl-grid-dispatch-manage
+__project__=dispatch
 
 # 包名
-__package__=flowconfigitem
+__basepackage__=com.asiainfo.grid.dispatch.manage
+__package__=flowconfig
 
 # 服务关键字
-__SvKey__=FlowConfigItem
+__SvKey__=FlowConfig
 
 # 数据库映射对象实例
-__BoKey__=GsopFlowConfigItem
+__BoKey__=DpFlowConfig
 

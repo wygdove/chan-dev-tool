@@ -1,48 +1,48 @@
 [
   {
-    "filepath":"../../../../../chnlgrid/coms-chnl-grid-sop/coms-chnl-grid-sop-manage/src/main/java/com/asiainfo/grid/sop/manage/controller/__package__/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/controller/__package__/",
     "filename":"__SvKey__Controller.java",
     "template":"/templates/SvKeyController",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../chnlgrid/coms-chnl-grid-sop/coms-chnl-grid-sop-manage/src/main/java/com/asiainfo/grid/sop/manage/model/__package__/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/model/__package__/",
     "filename":"__SvKey__SaveRequest.java",
     "template":"/templates/SvKeySaveRequest",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../chnlgrid/coms-chnl-grid-sop/coms-chnl-grid-sop-manage/src/main/java/com/asiainfo/grid/sop/manage/model/__package__/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/model/__package__/",
     "filename":"__SvKey__QueryRequest.java",
     "template":"/templates/SvKeyQueryRequest",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../chnlgrid/coms-chnl-grid-sop/coms-chnl-grid-sop-manage/src/main/java/com/asiainfo/grid/sop/manage/model/__package__/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/model/__package__/",
     "filename":"__SvKey__VO.java",
     "template":"/templates/SvKeyVO",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../chnlgrid/coms-chnl-grid-sop/coms-chnl-grid-sop-manage/src/main/java/com/asiainfo/grid/sop/manage/service/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/service/",
     "filename":"I__SvKey__Service.java",
     "template":"/templates/ISvKeyService",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../chnlgrid/coms-chnl-grid-sop/coms-chnl-grid-sop-manage/src/main/java/com/asiainfo/grid/sop/manage/service/impl/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/service/impl/",
     "filename":"__SvKey__ServiceImpl.java",
     "template":"/templates/SvKeyServiceImpl",
-    "isEffect":"no"
+    "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../chnlgrid/coms-chnl-grid-sop/coms-chnl-grid-sop-manage/src/main/java/com/asiainfo/grid/sop/manage/atom/interfaces/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/atom/interfaces/",
     "filename":"I__SvKey__AtomSV.java",
     "template":"/templates/ISvKeyAtomSV",
     "isEffect":"yes"
   },
   {
-    "filepath":"../../../../../chnlgrid/coms-chnl-grid-sop/coms-chnl-grid-sop-manage/src/main/java/com/asiainfo/grid/sop/manage/atom/impl/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/atom/impl/",
     "filename":"__SvKey__AtomSVImpl.java",
     "template":"/templates/SvKeyAtomSVImpl",
     "isEffect":"yes"

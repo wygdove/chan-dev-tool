@@ -25,7 +25,7 @@ def dosv():
         for ce in contentExpand:
             content=content.replace(ce,getBovos(ce))
 
-        fopn=getCurPath()+svi['filepath']
+        fopn=svi['filepath']
         # check out path, if not exists, create it
         checkOutPath(fopn)
         fopn=fopn+svi['filename']
@@ -47,6 +47,7 @@ def getKvs():
         kvs[kv[0]]=kv[1]
     kvs["@date"]="@date "+getNow()
     kvs["@Date:"]="@Date: "+getNow()
+    kvs["__basepackagepath__"]=kvs["__basepackage__"].replace('.','/')
     f.close()
     nkvs={}
     for kv in kvs:

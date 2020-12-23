@@ -1,28 +1,43 @@
-    private Long flowConfigItemId;
 
-    private Long flowConfigId;
+    private String flowConfigId;
 
-    private String taskName;
+    private String flowDiagramId;
+
+    private String flowConfigName;
+
+    private String businessType;
+
+    private String woBigType;
+
+    private String woType;
+
+    private String applyRoles;
+
+    private String applySystem;
+
+    private String needEvaluate;
+
+    private String isTemplate;
+
+    private String isQuatable;
+
+    private String flowConfigDesc;
+
+    private String busiRegProvinceCode;
+
+    private String busiRegCityCode;
+
+    private String busiRegCountyCode;
+
+    private String busiRegAreaCode;
+
+    private String busiRegGridCode;
+
+    private String busiRegMicroAreaCode;
+
+    private String busiRegCode;
 
     private String busiRegType;
-
-    private String roleEnname;
-
-    private String isSendNotify;
-
-    private String notifyType;
-
-    private String handlingTime;
-
-    private String notifyFrequency;
-
-    private String notifyTime;
-
-    private String state;
-
-    private Date effectTime;
-
-    private Date ineffectTime;
 
     private String createUser;
 
@@ -31,5 +46,7 @@
     private String updateUser;
 
     private Date updateTime;
+
+    private String state;
 
     private String remark;
