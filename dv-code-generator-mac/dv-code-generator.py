@@ -126,25 +126,25 @@ def getTableVos(flag,bokey):
         elif fieldType.startswith('Date'):type='Timestamp'
         else:continue
 
-        if flag=='__AddPropertyDefine__':res+=getPropertyDefine(bokey,type,property)
-        elif flag=='__AddGetterSetter__':res+=getGetterSetter(bokey,type,property)
-        elif flag=='__AddCriteria__':res+=getCriteria(bokey,type,property)
+        if flag=='__AddPropertyDefine__':res+=getPropertyDefine(type,property)
+        elif flag=='__AddGetterSetter__':res+=getGetterSetter(type,property)
+        elif flag=='__AddCriteria__':res+=getCriteria(type,property)
         elif flag=='__AddQueryWrapper__':res+=getQueryWrapper(bokey,type,property)
         else:continue
     return res
 
-def getPropertyDefine(bokey,type,property):
+def getPropertyDefine(type,property):
     res="\tprivate "+type+" "+property+";\r\n"
     return res
 
-def getGetterSetter(bokey,type,property):
+def getGetterSetter(type,property):
     propertyu=property[0].upper()+property[1:len(property)]
     res=""
     res+='''\tpublic '''+type+''' get'''+propertyu+'''(){return '''+property+''';}\r\n'''
     res+='''\tpublic void set'''+propertyu+'''('''+type+''' '''+property+''') {this.'''+property+'''='''+property+''';}\r\n'''
     return res
 
-def getCriteria(bokey,type,property):
+def getCriteria(type,property):
     propertyu=property[0].upper()+property[1:len(property)]
     res="\t\t\t"
     if type=="String":
