@@ -6,15 +6,13 @@ import os
 import time
 import json
 
-# ------ do sv start ------
-def dosv():
-    kvs=getKvs()
+# ------ do generate start ------
+def doGenerate():
+    kvs=getKeyValues()
     overwritten=kvs["__overwritten__"]
     field_from=kvs["__FieldFrom__"]
     bokey=kvs["__BoKey__"]
-    # print kvs["__overwritten__"]
-    svs=getSvs(kvs)
-    # print svs
+    svs=getServiceKeyValues(kvs)
     for svi in svs:
         if "yes"!=svi['isEffect']: continue
         ftpn=getCurPath()+svi['template']+".template"
@@ -42,7 +40,7 @@ def dosv():
         ft.close()
 
 
-def getKvs():
+def getKeyValues():
     f=open(getCurPath()+"/keys.txt","r")
     lines=f.readlines()
     kvs={}
@@ -52,14 +50,16 @@ def getKvs():
         kvs[kv[0]]=kv[1]
     kvs["@date"]="@date "+getNow()
     kvs["@Date:"]="@Date: "+getNow()
+    if kvs["__FieldFrom__"]=="table":kvs["__BoKey__"]=getBoKeyByTable(kvs["__Table__"])
     f.close()
+
     nkvs={}
     for kv in kvs:
         nkvs[kv]=kvs[kv]
         if kv[:2] != '__' and kv[-2:] != '__': continue
         key=kv.replace('__', '')
         value=kvs[kv]
-        if key[0] >= 'A' and key[0] <= 'Z':
+        if key[0] >= 'A' and key[0] <= 'Z' and str(value)!="":
             nkey='__'+key[0].lower()+key[1:]+'__'
             nvalue=value[0].lower()+value[1:]
             nkvs[nkey]=nvalue
@@ -69,7 +69,7 @@ def getKvs():
             nkvs[nkey]=nvalue
     return nkvs
 
-def getSvs(kvs):
+def getServiceKeyValues(kvs):
     f=open(getCurPath()+"/cg-config.json","r")
     data=f.read()
     for key in kvs.keys(): data=data.replace(key,kvs[key])
@@ -168,7 +168,7 @@ def getQueryWrapper(bokey,type,property):
     res+='\r\n'
     return res
 
-# ------ do sv end ------
+# ------ do generate end ------
 
 
 
@@ -197,19 +197,21 @@ def checkOutFile(fopn):
 def getNow():
     return time.strftime("%Y-%m-%d %H:%M",time.localtime())
 
-def upperline(str):
+def upperline(value):
     res=''
-    for c in str:
+    if str(value)=="":return res
+    for c in value:
         if c>='A' and c<='Z':
             res+='_'+c.lower()
         else:
             res+=c
     return res
 
-def lineupper(str):
+def lineupper(value):
     res=''
+    if str(value)=="":return res
     bl=False
-    for c in str:
+    for c in value:
         if c=='_':
             res+=''
             bl=True
@@ -221,9 +223,27 @@ def lineupper(str):
                 res+=c
     return res
 
+def getBoKeyByTable(value):
+    res=''
+    if str(value)=="":return res
+    value=value.lower()
+    bl=False
+    for c in value:
+        if c=='_':
+            res+=''
+            bl=True
+        else:
+            if bl:
+                res+=c.upper()
+                bl=False
+            else:
+                res+=c
+    res=res[0].upper()+res[1:]
+    return res
+
 # ------ base end ------
 
 
 
 if __name__ == '__main__':
-    dosv()
+    doGenerate()
