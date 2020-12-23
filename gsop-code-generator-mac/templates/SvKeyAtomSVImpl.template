@@ -1,4 +1,4 @@
-package com.asiainfo.grid.sop.manage.atom.impl;
+package __basepackage__.atom.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -10,17 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ai.channel.common.util.StringUtil;
-import com.asiainfo.grid.sop.manage.atom.interfaces.I__SvKey__AtomSV;
-import com.asiainfo.grid.sop.manage.dao.mapper.gsop.bo.__BoKey__;
-import com.asiainfo.grid.sop.manage.dao.mapper.gsop.bo.__BoKey__Example;
-import com.asiainfo.grid.sop.manage.dao.mapper.gsop.interfaces.__BoKey__Mapper;
+import __basepackage__.atom.interfaces.I__SvKey__AtomSV;
+import __basepackage__.dao.mapper.__project__.bo.__BoKey__;
+import __basepackage__.dao.mapper.__project__.bo.__BoKey__Example;
+import __basepackage__.dao.mapper.__project__.interfaces.__BoKey__Mapper;
 
 /**
- * __SvKey__AtomSVImpl.java
- *
- *
- * @date
- * @author __author__
+ * @Title: __SvKey__AtomSVImpl
+ * @Description:
  */
 @Component
 public class __SvKey__AtomSVImpl implements I__SvKey__AtomSV {

@@ -1,4 +1,4 @@
-package com.asiainfo.grid.sop.manage.controller.__package__;
+package __basepackage__.controller.__package__;
 
 import java.util.List;
 
@@ -9,11 +9,11 @@ import com.ai.channel.base.BusinessConstants;
 import com.ai.channel.base.vo.PageResult;
 import com.asiainfo.boot.core.model.AjaxResult;
 import com.asiainfo.grid.sop.base.model.UserSessionModel;
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__QueryRequest;
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__SaveRequest;
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__VO;
-import com.asiainfo.grid.sop.manage.service.I__SvKey__Service;
-import com.asiainfo.grid.sop.manage.utils.TokenUtil;
+import __basepackage__.model.__package__.__SvKey__QueryRequest;
+import __basepackage__.model.__package__.__SvKey__SaveRequest;
+import __basepackage__.model.__package__.__SvKey__VO;
+import __basepackage__.service.I__SvKey__Service;
+import __basepackage__.utils.TokenUtil;
 import com.alibaba.fastjson.JSON;
 
 import org.slf4j.Logger;
@@ -23,11 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * __SvKey__Controller.java
- * 
- * 
- * @date 
- * @author __author__
+ * @Title: __SvKey__Controller
+ * @Description:
  */
 @RestController
 @RequestMapping("/__svkey__")

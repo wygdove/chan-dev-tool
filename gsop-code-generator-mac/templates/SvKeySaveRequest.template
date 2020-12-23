@@ -1,4 +1,4 @@
-package com.asiainfo.grid.sop.manage.model.__package__;
+package __basepackage__.model.__package__;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,11 +6,8 @@ import java.util.Date;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
- * __SvKey__SaveRequest.java
- *
- *
- * @date
- * @author __author__
+ * @Title: __SvKey__SaveRequest
+ * @Description:
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class __SvKey__SaveRequest implements Serializable {

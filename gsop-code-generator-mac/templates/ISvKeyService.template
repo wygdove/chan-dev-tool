@@ -1,18 +1,15 @@
-package com.asiainfo.grid.sop.manage.service;
+package __basepackage__.service;
 
 import java.util.List;
 
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__QueryRequest;
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__SaveRequest;
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__VO;
+import __basepackage__.model.__package__.__SvKey__QueryRequest;
+import __basepackage__.model.__package__.__SvKey__SaveRequest;
+import __basepackage__.model.__package__.__SvKey__VO;
 import com.ai.channel.base.vo.PageResult;
 
 /**
- * I__SvKey__BusiSV.java
- *
- *
- * @date
- * @author __author__
+ * @Title: I__SvKey__Service
+ * @Description:
  */
 public interface I__SvKey__Service {
 

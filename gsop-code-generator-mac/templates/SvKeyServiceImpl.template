@@ -1,4 +1,4 @@
-package com.asiainfo.grid.sop.manage.service.impl;
+package __basepackage__.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,14 +13,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ai.channel.common.cmpt.sequence.util.SeqUtil;
-import com.asiainfo.grid.sop.manage.constants.SequencesConstant;
-import com.asiainfo.grid.sop.manage.atom.interfaces.I__SvKey__AtomSV;
-import com.asiainfo.grid.sop.manage.constants.GsopConstants;
-import com.asiainfo.grid.sop.manage.dao.mapper.gsop.bo.__BoKey__;
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__QueryRequest;
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__SaveRequest;
-import com.asiainfo.grid.sop.manage.model.__package__.__SvKey__VO;
-import com.asiainfo.grid.sop.manage.service.I__SvKey__Service;
+import __basepackage__.constants.SequencesConstant;
+import __basepackage__.atom.interfaces.I__SvKey__AtomSV;
+import __basepackage__.constants.GsopConstants;
+import __basepackage__.dao.mapper.__project__.bo.__BoKey__;
+import __basepackage__.model.__package__.__SvKey__QueryRequest;
+import __basepackage__.model.__package__.__SvKey__SaveRequest;
+import __basepackage__.model.__package__.__SvKey__VO;
+import __basepackage__.service.I__SvKey__Service;
 import com.ai.channel.base.vo.PageResult;
 import com.ai.channel.common.util.BeanUtil;
 import com.ai.channel.common.util.CollectionUtil;
@@ -29,11 +29,8 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 
 /**
- * __SvKey__ServiceImpl.java
- *
- *
- * @date
- * @author __author__
+ * @Title: __SvKey__ServiceImpl
+ * @Description:
  */
 @Service
 public class __SvKey__ServiceImpl implements I__SvKey__Service {
