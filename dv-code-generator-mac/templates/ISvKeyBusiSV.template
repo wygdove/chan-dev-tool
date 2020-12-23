@@ -1,9 +1,9 @@
-package com.__author__.__project__.service.busi.interfaces;
+package __basepackage__.service.busi.interfaces;
 
 import com.github.pagehelper.PageInfo;
-import com.__author__.__project__.model.__package__.__SvKey__QueryRequest;
-import com.__author__.__project__.model.__package__.__SvKey__SaveRequest;
-import com.__author__.__project__.model.__package__.__SvKey__VO;
+import __basepackage__.model.__package__.__SvKey__QueryRequest;
+import __basepackage__.model.__package__.__SvKey__SaveRequest;
+import __basepackage__.model.__package__.__SvKey__VO;
 import java.util.List;
 
 /**

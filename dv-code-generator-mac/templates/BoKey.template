@@ -1,4 +1,4 @@
-package com.__author__.__project__.dao.bo;
+package __basepackage__.dao.bo;
 
 
 /**

@@ -1,12 +1,12 @@
-package com.__author__.__project__.service.busi.impl;
+package __basepackage__.service.busi.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
-import com.__author__.__project__.model.__package__.__SvKey__QueryRequest;
-import com.__author__.__project__.model.__package__.__SvKey__SaveRequest;
-import com.__author__.__project__.model.__package__.__SvKey__VO;
-import com.__author__.__project__.service.atom.interfaces.I__SvKey__AtomSV;
-import com.__author__.__project__.service.busi.interfaces.I__SvKey__BusiSV;
+import __basepackage__.model.__package__.__SvKey__QueryRequest;
+import __basepackage__.model.__package__.__SvKey__SaveRequest;
+import __basepackage__.model.__package__.__SvKey__VO;
+import __basepackage__.service.atom.interfaces.I__SvKey__AtomSV;
+import __basepackage__.service.busi.interfaces.I__SvKey__BusiSV;
 import java.util.List;
 import javax.annotation.Resource;
 import org.slf4j.Logger;

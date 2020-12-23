@@ -1,15 +1,15 @@
-package com.__author__.__project__.service.atom.impl;
+package __basepackage__.service.atom.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.__author__.__project__.dao.bo.__BoKey__;
-import com.__author__.__project__.dao.mapper.__BoKey__Mapper;
-import com.__author__.__project__.model.__package__.__SvKey__QueryRequest;
-import com.__author__.__project__.model.__package__.__SvKey__SaveRequest;
-import com.__author__.__project__.model.__package__.__SvKey__VO;
-import com.__author__.__project__.service.atom.interfaces.I__SvKey__AtomSV;
+import __basepackage__.dao.bo.__BoKey__;
+import __basepackage__.dao.mapper.__BoKey__Mapper;
+import __basepackage__.model.__package__.__SvKey__QueryRequest;
+import __basepackage__.model.__package__.__SvKey__SaveRequest;
+import __basepackage__.model.__package__.__SvKey__VO;
+import __basepackage__.service.atom.interfaces.I__SvKey__AtomSV;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;

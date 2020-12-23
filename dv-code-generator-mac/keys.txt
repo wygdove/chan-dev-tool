@@ -9,13 +9,16 @@ __path__=/Users/wyg/use/work/code/middle_java/multi_province
 __project__=multiprovince
 
 # 包名
-__package__=gsopwoordinfo
+__basepackage__=com.wygdove.multiprovince
+__package__=gsopsysparam
 
 # 服务关键字
-__SvKey__=GsopWoordInfo
+__SvKey__=GsopSysParam
 
 # 数据库映射对象实例
 __FieldFrom__=table
-__BoKey__=GsopWoOrdInfo
-__Table__=GSOP_WO_ORD_INFO
+__Table__=GSOP_GRID_SYS_PARAM
+
+# __FieldFrom__=bo
+# __BoKey__=
 

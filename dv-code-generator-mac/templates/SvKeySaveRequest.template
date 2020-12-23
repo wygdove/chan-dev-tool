@@ -1,4 +1,4 @@
-package com.__author__.__project__.model.__package__;
+package __basepackage__.model.__package__;
 
 import java.io.Serializable;
 import java.util.Date;
