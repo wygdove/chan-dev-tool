@@ -26,7 +26,7 @@ def doGenerate():
                 content=content.replace(ce,getTableVos(ce,generateConfig["__BoKey__"]))
 
         # print content
-        continue
+        # continue
 
         fopn=fileConfig['filepath']
         # check out path, if not exists, create it
@@ -50,6 +50,7 @@ def getGenerateConfigs():
         kvs[kv[0]]=kv[1]
     kvs["@date"]="@date "+getNow()
     kvs["@Date:"]="@Date: "+getNow()
+    kvs["__basepackagepath__"]=kvs["__basepackage__"].replace('.','/')
     if kvs["__FieldFrom__"]=="table":kvs["__BoKey__"]=getBoKeyByTable(kvs["__Table__"])
     f.close()
 

@@ -1,61 +1,61 @@
 [
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/controller/__package__/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/controller/__package__/",
     "filename":"__SvKey__Controller.java",
     "template":"/templates/SvKeyController",
     "isEffect":"no"
   },
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/model/__package__/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/model/__package__/",
     "filename":"__SvKey__SaveRequest.java",
     "template":"/templates/SvKeySaveRequest",
     "isEffect":"no"
   },
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/model/__package__/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/model/__package__/",
     "filename":"__SvKey__QueryRequest.java",
     "template":"/templates/SvKeyQueryRequest",
     "isEffect":"no"
   },
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/model/__package__/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/model/__package__/",
     "filename":"__SvKey__VO.java",
     "template":"/templates/SvKeyVO",
     "isEffect":"no"
   },
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/service/busi/interfaces/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/service/busi/interfaces/",
     "filename":"I__SvKey__BusiSV.java",
     "template":"/templates/ISvKeyBusiSV",
     "isEffect":"no"
   },
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/service/busi/impl/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/service/busi/impl/",
     "filename":"__SvKey__BusiSVImpl.java",
     "template":"/templates/SvKeyBusiSVImpl",
     "isEffect":"no"
   },
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/service/atom/interfaces/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/service/atom/interfaces/",
     "filename":"I__SvKey__AtomSV.java",
     "template":"/templates/ISvKeyAtomSV",
     "isEffect":"no"
   },
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/service/atom/impl/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/service/atom/impl/",
     "filename":"__SvKey__AtomSVImpl.java",
     "template":"/templates/SvKeyAtomSVImpl",
     "isEffect":"yes"
   },
 
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/dao/bo/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/dao/bo/",
     "filename":"__BoKey__.java",
     "template":"/templates/BoKey",
     "isEffect":"no"
   },
   {
-    "filepath":"__path__/src/main/java/com/__author__/__project__/dao/mapper/",
+    "filepath":"__path__/src/main/java/__basepackagepath__/dao/mapper/",
     "filename":"__BoKey__Mapper.java",
     "template":"/templates/BoKeyMapper",
     "isEffect":"no"
