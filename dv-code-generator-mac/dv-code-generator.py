@@ -8,31 +8,31 @@ import json
 
 # ------ do generate start ------
 def doGenerate():
-    kvs=getKeyValues()
-    overwritten=kvs["__overwritten__"]
-    field_from=kvs["__FieldFrom__"]
-    bokey=kvs["__BoKey__"]
-    svs=getServiceKeyValues(kvs)
-    for svi in svs:
-        if "yes"!=svi['isEffect']: continue
-        ftpn=getCurPath()+svi['template']+".template"
+    generateConfig=getGenerateConfigs()
+    fileConfigs=getFileConfigs(generateConfig)
+    for fileConfig in fileConfigs:
+        if "yes"!=fileConfig['isEffect']: continue
+        ftpn=getCurPath()+fileConfig['template']+".template"
         if not isFile(ftpn):continue
         ft=open(ftpn,"r")
         content=ft.read()
-        for key in kvs.keys():
-            content=content.replace(key,kvs[key])
+        for key in generateConfig.keys():
+            content=content.replace(key,generateConfig[key])
         contentExpand=['__AddPropertyDefine__','__AddGetterSetter__','__AddCriteria__','__AddQueryWrapper__']
         for ce in contentExpand:
-            if field_from=='bo':
-                content=content.replace(ce,getBovos(ce,bokey))
-            elif field_from=='table':
-                content=content.replace(ce,getTableVos(ce,bokey))
+            if generateConfig["__FieldFrom__"]=='bo':
+                content=content.replace(ce,getBovos(ce,generateConfig["__BoKey__"]))
+            elif generateConfig["__FieldFrom__"]=='table':
+                content=content.replace(ce,getTableVos(ce,generateConfig["__BoKey__"]))
 
-        fopn=svi['filepath']
+        # print content
+        continue
+
+        fopn=fileConfig['filepath']
         # check out path, if not exists, create it
         checkOutPath(fopn)
-        fopn=fopn+svi['filename']
-        if overwritten!="true" and not checkOutFile(fopn):fopn=fopn+".temp"
+        fopn=fopn+fileConfig['filename']
+        if generateConfig["__overwritten__"]!="true" and not checkOutFile(fopn):fopn=fopn+".temp"
         fo=open(fopn,'w')
         fo.writelines(content)
         fo.flush()
@@ -40,7 +40,7 @@ def doGenerate():
         ft.close()
 
 
-def getKeyValues():
+def getGenerateConfigs():
     f=open(getCurPath()+"/keys.txt","r")
     lines=f.readlines()
     kvs={}
@@ -69,7 +69,7 @@ def getKeyValues():
             nkvs[nkey]=nvalue
     return nkvs
 
-def getServiceKeyValues(kvs):
+def getFileConfigs(kvs):
     f=open(getCurPath()+"/cg-config.json","r")
     data=f.read()
     for key in kvs.keys(): data=data.replace(key,kvs[key])
