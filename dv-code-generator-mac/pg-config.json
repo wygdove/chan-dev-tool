@@ -1,0 +1,46 @@
+[
+  {
+    "filepath":"__path__/__project__/",
+    "filename":"build.gradle",
+    "template":"/templates-project/build.gradle",
+    "isEffect":"yes"
+  },
+  {
+    "filepath":"__path__/__project__/src/main/resources/",
+    "filename":"application.properties",
+    "template":"/templates-project/application.properties",
+    "isEffect":"yes"
+  },
+  {
+    "filepath":"__path__/__project__/src/main/resources/",
+    "filename":"logback.xml",
+    "template":"/templates-project/logback.xml",
+    "isEffect":"yes"
+  },
+  {
+    "filepath":"__path__/__project__/src/main/java/__basepackagepath__/",
+    "filename":"Application.java",
+    "template":"/templates-project/Application",
+    "isEffect":"yes"
+  },
+  {
+    "filepath":"__path__/__project__/src/main/java/__basepackagepath__/config/",
+    "filename":"DataSourceConfig.java",
+    "template":"/templates-project/DataSourceConfig",
+    "isEffect":"yes"
+  },
+  {
+    "filepath":"__path__/__project__/src/main/java/__basepackagepath__/model/common/",
+    "filename":"AjaxResult.java",
+    "template":"/templates-project/AjaxResult",
+    "isEffect":"yes"
+  },
+  {
+    "filepath":"__path__/__project__/src/main/java/__basepackagepath__/utils/",
+    "filename":"AjaxUtil.java",
+    "template":"/templates-project/AjaxUtil",
+    "isEffect":"yes"
+  }
+
+
+]

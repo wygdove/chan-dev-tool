@@ -1,0 +1,13 @@
+server.port=8880
+server.servlet.context-path=/__project__
+spring.web.resources.static-locations=classpath:/static/
+logging.config=classpath:logback.xml
+
+
+
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@host:port:database
+spring.datasource.username=username
+spring.datasource.password=password
+
+

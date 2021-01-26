@@ -5,11 +5,13 @@ __overwritten__=true
 __author__=wygdove
 
 # 工程标识
-__path__=/Users/wyg/use/work/code/middle_java/multi_province
-__project__=multiprovince
+__path__=/Users/wyg/use/work/code/middle_java
+__project__=testppp
+
+# 基础包名
+__basepackage__=
 
 # 包名
-__basepackage__=com.wygdove.multiprovince
 __package__=gsopsysparam
 
 # 服务关键字
