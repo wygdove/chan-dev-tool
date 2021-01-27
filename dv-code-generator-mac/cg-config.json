@@ -45,7 +45,7 @@
     "filepath":"__path__/__project__/src/main/java/__basepackagepath__/service/atom/impl/",
     "filename":"__SvKey__AtomSVImpl.java",
     "template":"/templates/SvKeyAtomSVImpl",
-    "isEffect":"yes"
+    "isEffect":"no"
   },
 
   {

@@ -14,9 +14,9 @@ sourceCompatibility='1.8'
 repositories {
 	maven {url "http://10.1.228.199:18081/nexus/content/groups/public/"}
 
-    maven{ url "https://maven.aliyun.com/nexus/content/groups/public/"}
-    maven{ url "https://maven.aliyun.com/nexus/content/repositories/jcenter"}
-	mavenCentral()
+	// maven{ url "https://maven.aliyun.com/nexus/content/groups/public/"}
+	// maven{ url "https://maven.aliyun.com/nexus/content/repositories/jcenter"}
+	// mavenCentral()
 }
 
 dependencies {

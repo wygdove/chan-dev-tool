@@ -47,7 +47,6 @@ def getGenerateConfigs():
         kvs["__basepackage__"]="com."+kvs["__author__"]+"."+kvs["__project__"]
     kvs["__basepackagepath__"]=kvs["__basepackage__"].replace('.','/')
     f.close()
-    print(kvs)
     return kvs
 
 def getFileConfigs(kvs):

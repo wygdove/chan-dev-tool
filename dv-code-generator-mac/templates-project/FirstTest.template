@@ -1,0 +1,17 @@
+package test.__basepackage__;
+
+import org.junit.Test;
+import test.__basepackage__.base.BaseTest;
+
+/**
+ * @Title: FirstTest
+ * @Description:
+ */
+public class FirstTest extends BaseTest {
+
+    @Test
+    public void test() {
+        print("lalala");
+    }
+
+}
