@@ -4,23 +4,17 @@ __overwritten__=true
 # 作者
 __author__=wygdove
 
-# 工程标识
+# project generator
 __path__=/Users/wyg/use/work/code/middle_java
-__project__=testppp
-
-# 基础包名
+__project__=zookeeper_config_center
+__baseproject__=dvconfig
 __basepackage__=
 
-# 包名
+# code generator
 __package__=gsopsysparam
-
-# 服务关键字
 __SvKey__=GsopSysParam
-
-# 数据库映射对象实例
 __FieldFrom__=table
 __Table__=GSOP_GRID_SYS_PARAM
-
 # __FieldFrom__=bo
 # __BoKey__=
 

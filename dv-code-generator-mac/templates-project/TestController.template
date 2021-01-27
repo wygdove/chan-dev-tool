@@ -20,7 +20,7 @@ public class TestController {
     @RequestMapping("test")
     public AjaxResult test(HttpServletRequest request) {
         log.info("controller:/test/test");
-        return AjaxUtil.markError();
+        return AjaxUtil.markSuccess();
     }
 
 }

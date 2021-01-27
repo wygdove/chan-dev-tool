@@ -9,7 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Title: Application
  * @Description: Application
  */
-@SpringBootApplication(scanBasePackages={"__basepackage__"})
+@SpringBootApplication(
+        scanBasePackages={"__basepackage__"},
+        exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class}
+)
 public class Application {
     private static final Logger log=LoggerFactory.getLogger(Application.class);
 

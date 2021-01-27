@@ -44,7 +44,7 @@ def getGenerateConfigs():
     kvs["@date"]="@date "+getNow()
     kvs["@Date:"]="@Date: "+getNow()
     if kvs.get("__basepackage__")==None or kvs.get("__basepackage__")=='':
-        kvs["__basepackage__"]="com."+kvs["__author__"]+"."+kvs["__project__"]
+        kvs["__basepackage__"]="com."+kvs["__author__"]+"."+kvs["__baseproject__"]
     kvs["__basepackagepath__"]=kvs["__basepackage__"].replace('.','/')
     f.close()
     return kvs
